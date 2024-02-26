@@ -8,16 +8,18 @@
 //-----------------------------------------------------
 module main_FSM (clka, clkb, restart, enter, state, dp_check, solved, won);
 //-------------Input Ports-----------------------------
-input   clka, clkb, restart, enter, solved;
+input   clka, clkb, restart, enter, solved, difficulty, rand_idx[7:0];
 //-------------Output Ports----------------------------
 output  won, state[2:0];
 //-------------Input ports Data Type-------------------
 wire    clka, clkb, restart, load, done;
 //-------------Output Ports Data Type------------------
-reg     dp_check;
+reg     ridx_a, ridx_b, dp_check, fiil_flag[7:0];
 //——————Internal Constants--------------------------
-parameter SIZE = 3;
-parameter REG_INP  = 3'000, GUESS = 3'b001, CHECK = 3'b010, WRONG = 3'b011, FIN = 3'b100;
+parameter SIZE = 4;
+parameter easy_mode = 2'b00, medium_mode = 2'b01, hard_mode_a = 2'b10; hard_mode_b = 2'b11;
+parameter REG_INP  = 4'b0000, GUESS = 4'b0001, CHECK = 4'b0010, WRONG = 4'b0011, FIN = 4'b0100;
+parameter SET_DIFF = 4'b0101, EASY = 4'b0110, MEDIUM = 4'b0111, HARD = 4'b1000, FILL_BOARD = 4'b1001; 
 //-------------Internal Variables---------------------------
 reg   [SIZE-1:0]          state;    	// Initial FSM state reg and then after
 					// processing new output FSM state reg
