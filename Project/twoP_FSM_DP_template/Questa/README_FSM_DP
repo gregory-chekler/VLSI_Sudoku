@@ -1,0 +1,22 @@
+This folder is an example of a FSM interacting with a datapath designed to
+add two numbers with two phase clock contol.
+
+All of the flip-flops are designed for negedge.
+
+The total top project with the test_top.v testbench would require
+
+vlib work
+
+vlog test_top.v top_module.v main_FSM.v dp.v 
+
+After the vlog, the last item compiled will be listed as top_module_tb from the test_top.v file.
+
+vsim top_module_tb
+
+The design will load two four bit values into registers in the datapath and add them.
+
+The result will be data shifted in as 1, then 1, then 0, then 1 in the test bench. So this will be treated as
+
+
+There is one test Verilog file to verify the FSMs and the dp.
+
