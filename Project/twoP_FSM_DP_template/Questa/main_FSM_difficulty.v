@@ -23,7 +23,7 @@ reg     fill_flag[7:0];
 parameter SIZE = 4;
 parameter easy_mode = 2'b01, medium_mode = 2'b10, hard_mode = 2'b11;
 parameter REG_INP  = 4'b0000, GUESS = 4'b0001, CHECK = 4'b0010, WRONG = 4'b0011, FIN = 4'b0100;
-parameter EMPTY = 4'b0101, SET_DIFF = 4'b0110, EASY = 4'b0111, MEDIUM = 4'b1000, HARD = 4'b1001; 
+parameter EMPTY = 4'b0101, SET_DIFF = 4'b0110, EASY = 4'b0111, MEDIUM = 4'b1000, HARD = 4'b1001, IDLE = 4'b1010; 
 
 //-------------Internal Variables---------------------------
 reg   [SIZE-1:0]          state;    	// Initial FSM state reg and then after
@@ -118,53 +118,77 @@ begin : OUTPUT_LOGIC
   REG_INP: begin
           state <= next_state;
           dp_check <= 1'b0;
+          start <= 1'b0;
+          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
+          fill_flag <= 8'b00000000;
         end
   GUESS: begin
           state <= next_state;
           dp_check <= 1'b0;
+          start <= 1'b0;
+          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
+          fill_flag <= 8'b00000000;
         end
   CHECK: begin
           state <= next_state;
           dp_check <= 1'b1;
+          start <= 1'b0;
+          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
+          fill_flag <= 8'b00000000;
           end
   WRONG: begin
           state <= next_state;
           dp_check <= 1'b0;
+          start <= 1'b0;
+          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
+          fill_flag <= 8'b00000000;
           end
   FIN: begin
           state <= next_state;
           dp_check <= 1'b0;
+          start <= 1'b0;
+          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
+          fill_flag <= 8'b00000000;
         end
   EMPTY: begin
           state <= next_state;
-          dp_check <= 1'b0;        
+          dp_check <= 1'b0;
+          start <= 1'b0;
+          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
+          fill_flag <= 8'b00000000;        
         end
   SET_DIFF: begin
           state <= next_state;
 `         dp_check <= 1'b0;
           ridx_a <= 1'b1;
-          ridx_a <= 1'b1;
+          ridx_b <= 1'b1;
           fill_flag <= 8'b00000000;
             end
   EASY: begin
           state <= next_state;
 `         dp_check <= 1'b0;
           ridx_a <= 1'b0;
-          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
           fill_flag <= 8'b00001111; // for testing, four random hints in row 1 and 2
         end
   MEDIUM: begin
           state <= next_state;
 `         dp_check <= 1'b0;
           ridx_a <= 1'b0;
-          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
           fill_flag <= 8'b00000111; // for testing, three random hints in row 1 and 2
           end
   HARD: begin
           state <= next_state;
 `         dp_check <= 1'b0;
           ridx_a <= 1'b0;
-          ridx_a <= 1'b0;
+          ridx_b <= 1'b0;
           fill_flag <= 8'b00000011; // for testing, two random hints in row 1 and 2
         end                 
  default: begin
