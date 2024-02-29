@@ -6,18 +6,18 @@
 // 		 start signal to data path dp.
 // 		 Waits then for done signal from the datapath.
 //-----------------------------------------------------
-module main_FSM (clka, clkb, restart, enter, state, dp_check, solved, difficulty, won);
+module main_FSM (clka, clkb, restart, enter, solved, difficulty, won, dp_check, ridx_a, ridx_b, state, fill_flag);
 //-------------Input Ports-----------------------------
 input   clka, clkb, restart, enter, solved;
-input   difficulty[1:0];
+input   [1:0] difficulty;
 //-------------Output Ports----------------------------
-output  won, state[3:0];
+output  won, dp_check, ridx_a, ridx_b, state[3:0], fill_flag[7:0];
 //-------------Input ports Data Type-------------------
-wire    clka, clkb, restart, load, done;
-wire    difficulty[1:0];
+wire    clka, clkb, restart, enter, solved;
+wire    [1:0] difficulty;
 //-------------Output Ports Data Type------------------
-reg     dp_check, ridx_a, ridx_b;
-reg     fill_flag[7:0];
+reg     won, dp_check, ridx_a, ridx_b;
+reg     [7:0] fill_flag;
 
 //——————Internal Constants--------------------------
 parameter SIZE = 4;
@@ -33,16 +33,16 @@ wire  [SIZE-1:0]          temp_state; 	// Internal wire for output of function
 reg   [SIZE-1:0]          next_state; 	// Temporary reg to hold next state to
 					// update state on output
 //----------Code startes Here------------------------
-assign temp_state = fsm_function(state, enter, solved);
+assign temp_state = fsm_function(state, enter, solved, difficulty);
 //----------Function for Combinational Logic to read inputs -----------
 function [SIZE-1:0] fsm_function;
   input  [SIZE-1:0] state;
+  input [1:0] difficulty;
   input enter;
   input solved;
-  input difficulty;
 case(state)
    REG_INP: begin
-    if (enter) begin
+    if (enter == 1) begin
       fsm_function = GUESS;
     end
     else begin
@@ -50,7 +50,7 @@ case(state)
     end
          end 
    GUESS: begin
-             if (enter) begin
+             if (enter == 1) begin
               fsm_function = CHECK;
               end
               else begin
@@ -79,14 +79,15 @@ case(state)
   EMPTY: begin
           fsm_function = SET_DIFF;
         end
-  SET_DIFF: begin
+  SET_DIFF: begin //not working correctly for some reason, hard coding to go to hard difficukty, will fix later
               if (difficulty == easy_mode) begin
                 fsm_function = EASY;
               end else if (difficulty == medium_mode) begin
                 fsm_function = MEDIUM;
               end else if (difficulty == hard_mode) begin
                 fsm_function = HARD;
-              end else begin
+              end 
+              else begin
                 fsm_function = SET_DIFF;
               end
             end
@@ -99,7 +100,10 @@ case(state)
   HARD: begin
               fsm_function = REG_INP; 
         end
-  default: fsm_function = REG_INP;
+  IDLE: begin
+    fsm_function = EMPTY;
+  end
+  default: fsm_function = IDLE;
   endcase
 endfunction
 //----------Seq Logic-----------------------------
@@ -118,85 +122,90 @@ begin : OUTPUT_LOGIC
   REG_INP: begin
           state <= next_state;
           dp_check <= 1'b0;
-          start <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
           fill_flag <= 8'b00000000;
+          won <= 1'b0;
         end
   GUESS: begin
           state <= next_state;
           dp_check <= 1'b0;
-          start <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
           fill_flag <= 8'b00000000;
+          won <= 1'b0;
         end
   CHECK: begin
           state <= next_state;
           dp_check <= 1'b1;
-          start <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
           fill_flag <= 8'b00000000;
+          won <= 1'b0;
           end
   WRONG: begin
           state <= next_state;
           dp_check <= 1'b0;
-          start <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
           fill_flag <= 8'b00000000;
+          won <= 1'b0;
           end
   FIN: begin
           state <= next_state;
           dp_check <= 1'b0;
-          start <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
           fill_flag <= 8'b00000000;
+          won <= 1'b1;
         end
   EMPTY: begin
           state <= next_state;
           dp_check <= 1'b0;
-          start <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
-          fill_flag <= 8'b00000000;        
+          fill_flag <= 8'b00000000;
+          won <= 1'b0;        
         end
   SET_DIFF: begin
           state <= next_state;
-`         dp_check <= 1'b0;
+          dp_check <= 1'b0;
           ridx_a <= 1'b1;
           ridx_b <= 1'b1;
           fill_flag <= 8'b00000000;
+          won <= 1'b0;
             end
   EASY: begin
           state <= next_state;
-`         dp_check <= 1'b0;
+          dp_check <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
-          fill_flag <= 8'b00001111; // for testing, four random hints in row 1 and 2
+          fill_flag <= 8'b00001111;
+          won <= 1'b0; // for testing, four random hints in row 1 and 2
         end
   MEDIUM: begin
           state <= next_state;
-`         dp_check <= 1'b0;
+          dp_check <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
-          fill_flag <= 8'b00000111; // for testing, three random hints in row 1 and 2
+          fill_flag <= 8'b00000111;
+          won <= 1'b0; // for testing, three random hints in row 1 and 2
           end
   HARD: begin
           state <= next_state;
-`         dp_check <= 1'b0;
+          dp_check <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
-          fill_flag <= 8'b00000011; // for testing, two random hints in row 1 and 2
+          fill_flag <= 8'b00000011;
+          won <= 1'b0; // for testing, two random hints in row 1 and 2
         end                 
  default: begin
           state <= next_state;
-          start <= 1'b0;
+          dp_check <= 1'b0;
           ridx_a <= 1'b0;
           ridx_b <= 1'b0;
           fill_flag <= 8'b00000000;
+          won <= 1'b0;
          end
   endcase
 end // End Of Block OUTPUT_LOGIC
