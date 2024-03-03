@@ -21,7 +21,7 @@ reg     [7:0] fill_flag;
 
 //——————Internal Constants--------------------------
 parameter SIZE = 4;
-parameter easy_mode = 2'b01, medium_mode = 2'b10, hard_mode = 2'b11;
+wire [1:0] easy_mode = 2'b01, medium_mode = 2'b10, hard_mode = 2'b11;
 parameter REG_INP  = 4'b0000, GUESS = 4'b0001, CHECK = 4'b0010, WRONG = 4'b0011, FIN = 4'b0100;
 parameter EMPTY = 4'b0101, SET_DIFF = 4'b0110, EASY = 4'b0111, MEDIUM = 4'b1000, HARD = 4'b1001, IDLE = 4'b1010; 
 
@@ -42,7 +42,7 @@ function [SIZE-1:0] fsm_function;
   input solved;
 case(state)
    REG_INP: begin
-    if (enter == 1) begin
+    if (enter) begin
       fsm_function = GUESS;
     end
     else begin
@@ -50,7 +50,7 @@ case(state)
     end
          end 
    GUESS: begin
-             if (enter == 1) begin
+             if (enter) begin
               fsm_function = CHECK;
               end
               else begin
@@ -79,15 +79,14 @@ case(state)
   EMPTY: begin
           fsm_function = SET_DIFF;
         end
-  SET_DIFF: begin //not working correctly for some reason, hard coding to go to hard difficukty, will fix later
+  SET_DIFF: begin
               if (difficulty == easy_mode) begin
                 fsm_function = EASY;
               end else if (difficulty == medium_mode) begin
                 fsm_function = MEDIUM;
               end else if (difficulty == hard_mode) begin
                 fsm_function = HARD;
-              end 
-              else begin
+              end else begin
                 fsm_function = SET_DIFF;
               end
             end
@@ -100,10 +99,7 @@ case(state)
   HARD: begin
               fsm_function = REG_INP; 
         end
-  IDLE: begin
-    fsm_function = EMPTY;
-  end
-  default: fsm_function = IDLE;
+  default: fsm_function = REG_INP;
   endcase
 endfunction
 //----------Seq Logic-----------------------------
