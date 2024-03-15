@@ -9,12 +9,14 @@
 module main_FSM (clka, clkb, restart, enter, solved, difficulty, won, dp_check, ridx_a, ridx_b, state, fill_flag);
 //-------------Input Ports-----------------------------
 input   clka, clkb, restart, enter, solved;
-input   [1:0] difficulty;
-//-------------Output Ports----------------------------
+// input   [1:0] difficulty;
+input difficulty;
+//-------------Output Ports---s-------------------------
 output  won, dp_check, ridx_a, ridx_b, state[3:0], fill_flag[7:0];
 //-------------Input ports Data Type-------------------
 wire    clka, clkb, restart, enter, solved;
-wire    [1:0] difficulty;
+// wire    [1:0] difficulty;
+wire difficulty;
 //-------------Output Ports Data Type------------------
 reg     won, dp_check, ridx_a, ridx_b;
 reg     [7:0] fill_flag;
@@ -37,18 +39,48 @@ assign temp_state = fsm_function(state, enter, solved, difficulty);
 //----------Function for Combinational Logic to read inputs -----------
 function [SIZE-1:0] fsm_function;
   input  [SIZE-1:0] state;
-  input [1:0] difficulty;
+  // input [1:0] difficulty;
+  input difficulty;
   input enter;
   input solved;
-case(state)
+  case(state)
+    IDLE: begin
+      fsm_function = EMPTY;
+      end 
+    EMPTY: begin
+        fsm_function = SET_DIFF;
+      end
+    SET_DIFF: begin
+                // if ((difficulty[1] == 1'b0) & (difficulty[0] == 1'b1) & (enter == 1'b1)) begin
+                //   fsm_function = EASY;
+                // end else if ((difficulty[1] == 1'b1) & (difficulty[0] == 1'b0) & (enter == 1'b1)) begin
+                //   fsm_function = MEDIUM;
+                // end else if ((difficulty[1] == 1'b1) & (difficulty[0] == 1'b1) & (enter == 1'b1)) begin
+                //   fsm_function = HARD;
+                // if (enter == 1'b1) begin
+                //   fsm_function = HARD;
+                // end else begin
+                //   fsm_function = SET_DIFF;
+                // end
+                fsm_function = HARD;
+              end
+    EASY: begin
+                fsm_function = REG_INP; 
+          end
+    MEDIUM: begin
+                fsm_function = REG_INP; 
+            end
+    HARD: begin
+                fsm_function = REG_INP; 
+          end
    REG_INP: begin
-    if (enter) begin
-      fsm_function = GUESS;
-    end
-    else begin
-      fsm_function = REG_INP;
-    end
-         end 
+        if (enter == 1) begin
+          fsm_function = GUESS;
+        end
+        else begin
+          fsm_function = REG_INP;
+        end
+        end 
    GUESS: begin
              if (enter) begin
               fsm_function = CHECK;
@@ -76,30 +108,7 @@ case(state)
   FIN: begin
           fsm_function = FIN;
          end
-  EMPTY: begin
-          fsm_function = SET_DIFF;
-        end
-  SET_DIFF: begin
-              if (difficulty == easy_mode) begin
-                fsm_function = EASY;
-              end else if (difficulty == medium_mode) begin
-                fsm_function = MEDIUM;
-              end else if (difficulty == hard_mode) begin
-                fsm_function = HARD;
-              end else begin
-                fsm_function = SET_DIFF;
-              end
-            end
-  EASY: begin
-              fsm_function = REG_INP; 
-        end
-  MEDIUM: begin
-              fsm_function = REG_INP; 
-          end
-  HARD: begin
-              fsm_function = REG_INP; 
-        end
-  default: fsm_function = REG_INP;
+  default: fsm_function = IDLE;
   endcase
 endfunction
 //----------Seq Logic-----------------------------

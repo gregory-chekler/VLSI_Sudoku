@@ -1,0 +1,103 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+!s11f vlog 2023.2 2023.04, Apr 11 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 d/storage-home/h/hw62/elec422/VLSI_Soduku/Project/twoP_FSM_DP_template/Questa
+T_opt
+!s110 1710535677
+VFm=:4fOB:9b<OR`QG3WH=1
+04 13 4 work Sudoku_FSM_tb fast 0
+=1-4cd98f4b57d1-65f4b3fc-bab61-2604bb
+R1
+!s12b OEM100
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work -debugdb +acc
+Z3 tCvgOpt 0
+n@_opt
+OL;O;2023.2;77
+vmain_FSM
+Z4 2main_FSM_difficulty.v|testbench.v
+Z5 !s110 1710535665
+!i10b 1
+!s100 kgKiOAA8:zAc=@obIJB^53
+I0[lg1?]jiC2L2TFA3fH091
+R2
+w1710535658
+8main_FSM_difficulty.v
+Fmain_FSM_difficulty.v
+!i122 17
+L0 9 209
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2023.2;77
+r1
+!s85 0
+31
+Z8 !s108 1710535665.000000
+Z9 !s107 testbench.v|main_FSM_difficulty.v|
+Z10 !s90 main_FSM_difficulty.v|testbench.v|
+!i113 0
+Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+nmain_@f@s@m
+vSudoku_FSM_tb
+R4
+R5
+!i10b 1
+!s100 f4F7A>e82X1LTXcVRTmSY0
+IUQ>1`l:6_14UK7_WO51dn3
+R2
+w1710535161
+8testbench.v
+Ftestbench.v
+!i122 17
+L0 1 146
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R3
+n@sudoku_@f@s@m_tb
