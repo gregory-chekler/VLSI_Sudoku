@@ -14,12 +14,12 @@ input [3:0] state;
 input [3:0] reg_choose; // the place in the board you need to choose that you are going to input
 input [1:0] value_inp; // the value you are going to input the board
 //-----------Output Ports---------------
-output [15:0] user_board [3:0];
-output [15:0] real_board [3:0];
+output [15:0] user_board [1:0];
+output [15:0] real_board [1:0];
 output solved;
 //------------Internal Variables--------
-reg  [15:0] temp_user_board [3:0];
-reg  [15:0] temp_real_board [3:0];
+reg  [15:0] temp_user_board [1:0];
+reg  [15:0] temp_real_board [1:0];
 reg  temp_solved;
 integer i; // for resetting the board
 //-------------Code Starts Here---------
@@ -28,49 +28,44 @@ integer i; // for resetting the board
 always @ (negedge clka)
 begin
 if (restart == 1'b1) begin
-   temp_user_board[0] <= 4'b0000;
-   temp_user_board[1] <= 4'b0000;
-   temp_user_board[2] <= 4'b0000;
-   temp_user_board[3] <= 4'b0000;
-   temp_user_board[4] <= 4'b0000;
-   temp_user_board[5] <= 4'b0000;
-   temp_user_board[6] <= 4'b0000;
-   temp_user_board[7] <= 4'b0000;
-   temp_user_board[8] <= 4'b0000;
-   temp_user_board[9] <= 4'b0000;
-   temp_user_board[10] <= 4'b0000;
-   temp_user_board[11] <= 4'b0000;
-   temp_user_board[12] <= 4'b0000;
-   temp_user_board[13] <= 4'b0000;
-   temp_user_board[14] <= 4'b0000;
-   temp_user_board[15] <= 4'b0000;
+   temp_user_board[0] <= 2'b00;
+   temp_user_board[1] <= 2'b00;
+   temp_user_board[2] <= 2'b00;
+   temp_user_board[3] <= 2'b00;
+   temp_user_board[4] <= 2'b00;
+   temp_user_board[5] <= 2'b00;
+   temp_user_board[6] <= 2'b00;
+   temp_user_board[7] <= 2'b00;
+   temp_user_board[8] <= 2'b00;
+   temp_user_board[9] <= 2'b00;
+   temp_user_board[10] <= 2'b00;
+   temp_user_board[11] <= 2'b00;
+   temp_user_board[12] <= 2'b00;
+   temp_user_board[13] <= 2'b00;
+   temp_user_board[14] <= 2'b00;
+   temp_user_board[15] <= 2'b00;
 
-   temp_real_board[0] <= 4'b0000;
-   temp_real_board[1] <= 4'b0000;
-   temp_real_board[2] <= 4'b0000;
-   temp_real_board[3] <= 4'b0000;
-   temp_real_board[4] <= 4'b0000;
-   temp_real_board[5] <= 4'b0000;
-   temp_real_board[6] <= 4'b0000;
-   temp_real_board[7] <= 4'b0000;
-   temp_real_board[8] <= 4'b0000;
-   temp_real_board[9] <= 4'b0000;
-   temp_real_board[10] <= 4'b0000;
-   temp_real_board[11] <= 4'b0000;
-   temp_real_board[12] <= 4'b0000;
-   temp_real_board[13] <= 4'b0000;
-   temp_real_board[14] <= 4'b0000;
-   temp_real_board[15] <= 4'b0000;
+   temp_real_board[0] <= 2'b00;
+   temp_real_board[1] <= 2'b00;
+   temp_real_board[2] <= 2'b00;
+   temp_real_board[3] <= 2'b00;
+   temp_real_board[4] <= 2'b00;
+   temp_real_board[5] <= 2'b00;
+   temp_real_board[6] <= 2'b00;
+   temp_real_board[7] <= 2'b00;
+   temp_real_board[8] <= 2'b00;
+   temp_real_board[9] <= 2'b00;
+   temp_real_board[10] <= 2'b00;
+   temp_real_board[11] <= 2'b00;
+   temp_real_board[12] <= 2'b00;
+   temp_real_board[13] <= 2'b00;
+   temp_real_board[14] <= 2'b00;
+   temp_real_board[15] <= 2'b00;
    temp_solved <= 1'b0;
    end else if (register_inp_flag == 1'b1) begin
    temp_user_board[reg_choose] = value_inp;
    end else if (dp_check == 1'b1) begin
-      if ((temp_user_board[0] == temp_real_board[0]) & (temp_user_board[1] == temp_real_board[1]) & (temp_user_board[2] == temp_real_board[2]),
-          (temp_user_board[3] == temp_real_board[3]) & (temp_user_board[4] == temp_real_board[4]) & (temp_user_board[5] == temp_real_board[5]),
-          (temp_user_board[6] == temp_real_board[6]) & (temp_user_board[7] == temp_real_board[7]) & (temp_user_board[8] == temp_real_board[2]),
-          (temp_user_board[9] == temp_real_board[9]) & (temp_user_board[10] == temp_real_board[10]) & (temp_user_board[11] == temp_real_board[11]),
-          (temp_user_board[12] == temp_real_board[12]) & (temp_user_board[13] == temp_real_board[13]) & (temp_user_board[14] == temp_real_board[14]),
-          (temp_user_board[15] == temp_real_board[15])) begin
+      if ((temp_user_board[0] == temp_real_board[0]) & (temp_user_board[1] == temp_real_board[1]) & (temp_user_board[2] == temp_real_board[2]) & (temp_user_board[3] == temp_real_board[3]) & (temp_user_board[4] == temp_real_board[4]) & (temp_user_board[5] == temp_real_board[5]) & (temp_user_board[6] == temp_real_board[6]) & (temp_user_board[7] == temp_real_board[7]) & (temp_user_board[8] == temp_real_board[2]) & (temp_user_board[9] == temp_real_board[9]) & (temp_user_board[10] == temp_real_board[10]) & (temp_user_board[11] == temp_real_board[11]) & (temp_user_board[12] == temp_real_board[12]) & (temp_user_board[13] == temp_real_board[13]) & (temp_user_board[14] == temp_real_board[14]) & (temp_user_board[15] == temp_real_board[15])) begin
             temp_solved <= 1'b1;
           end else
           temp_solved <= 1'b0;
