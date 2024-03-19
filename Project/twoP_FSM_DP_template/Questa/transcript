@@ -13,18 +13,17 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -debugDB -voptargs=""+acc"" Sudoku_FSM_tb 
-# Start time: 15:47:56 on Mar 15,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Note: (vsim-8611) Generating debug db.
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Start time: 19:09:38 on Mar 17,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading work.Sudoku_FSM_tb(fast)
 # Loading work.main_FSM(fast)
 # ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'difficulty'. The port definition is at: main_FSM_difficulty.v(9).
 #    Time: 0 ns  Iteration: 0  Instance: /Sudoku_FSM_tb/U1 File: testbench.v Line: 20
-# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+# ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
 add wave sim:/Sudoku_FSM_tb/*
 run -all
 # ** Note: $stop    : testbench.v(143)
 #    Time: 360 ns  Iteration: 0  Instance: /Sudoku_FSM_tb
 # Break in Module Sudoku_FSM_tb at testbench.v line 143
+# End time: 20:15:15 on Mar 17,2024, Elapsed time: 1:05:37
+# Errors: 0, Warnings: 1
