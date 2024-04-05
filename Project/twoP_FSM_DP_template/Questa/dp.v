@@ -5,10 +5,10 @@
 //-----------------------------------------------------
 //
 //
-module dp (clka, clkb, restart, enter, solved, difficulty, won, dp_check, register_inp_flag, try_again_flag, dp_check, ridx_a, ridx_b, state, fill_flag, reg_choose, value_inp);
+module dp (clka, clkb, restart, enter, solved, difficulty, won, dp_check, set_board, register_inp_flag, try_again_flag, dp_check, ridx_a, ridx_b, state, fill_flag, reg_choose, value_inp);
 //-----------Input Ports---------------
-input clka, clkb, restart, enter, won, dp_check, register_inp_flag, try_again_flag, dp_check;
-input [2:0] ridx_a, ridx_b
+input clka, clkb, restart, enter, won, dp_check, set_board, register_inp_flag, try_again_flag, dp_check;
+input [2:0] ridx_a, ridx_b;
 input [1:0] difficulty;
 input [15:0] fill_flag;
 input [3:0] state;
@@ -64,7 +64,7 @@ if (restart == 1'b1) begin
    temp_real_board[15] <= 3'b000;
 
    temp_solved <= 1'b0;
-   end else if (dp_check == 1'b1) begin
+   end else if (set_board == 1'b1) begin
          temp_real_board[0] <= ridx_a;
          temp_real_board[1] <= ~ridx_b;
          temp_real_board[2] <= ridx_b;
@@ -84,6 +84,7 @@ if (restart == 1'b1) begin
    end else if (difficulty == 2'b01) begin
       // update 8 hints on temp_user_board
       // update fill flag
+
    end else if (difficulty == 2'b10) begin
       // update 6 hints on temp_user_board
       // update fill flag
