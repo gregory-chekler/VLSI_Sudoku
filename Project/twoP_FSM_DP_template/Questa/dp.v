@@ -5,50 +5,50 @@
 //-----------------------------------------------------
 //
 //
-module dp (clka, clkb, restart, enter, solved, difficulty, won, dp_check, set_board, register_inp_flag, try_again_flag, dp_check, ridx_a, ridx_b, state, fill_flag, reg_choose, value_inp);
+module dp (clka, clkb, restart, solved, difficulty, won, set_board, register_inp_flag, try_again_flag, dp_check, ridx_a, ridx_b, state, fill_flag, reg_choose, value_inp);
 //-----------Input Ports---------------
-input clka, clkb, restart, enter, won, dp_check, set_board, register_inp_flag, try_again_flag, dp_check;
+input clka, clkb, restart, set_board, register_inp_flag, dp_check, won, try_again_flag;
 input [3:0] ridx_a, ridx_b;
 input [1:0] difficulty;
-input [15:0] fill_flag;
-input [3:0] state;
 input [3:0] reg_choose; // the place in the board you need to choose that you are going to input
-input [2:0] value_inp; // the value you are going to input the board
+input [1:0] value_inp; // the value you are going to input the board
+
 //-----------Output Ports---------------
-reg [2:0] user_board_0;
-reg [2:0] user_board_1;
-reg [2:0] user_board_2;
-reg [2:0] user_board_3;
-reg [2:0] user_board_4;
-reg [2:0] user_board_5;
-reg [2:0] user_board_6;
-reg [2:0] user_board_7;
-reg [2:0] user_board_8;
-reg [2:0] user_board_9;
-reg [2:0] user_board_10;
-reg [2:0] user_board_11;
-reg [2:0] user_board_12;
-reg [2:0] user_board_13;
-reg [2:0] user_board_14;
-reg [2:0] user_board_15;
+output [2:0] user_board_0;
+output [2:0] user_board_1;
+output [2:0] user_board_2;
+output [2:0] user_board_3;
+output [2:0] user_board_4;
+output [2:0] user_board_5;
+output [2:0] user_board_6;
+output [2:0] user_board_7;
+output [2:0] user_board_8;
+output [2:0] user_board_9;
+output [2:0] user_board_10;
+output [2:0] user_board_11;
+output [2:0] user_board_12;
+output [2:0] user_board_13;
+output [2:0] user_board_14;
+output [2:0] user_board_15;
 
-reg [2:0] real_board_0;
-reg [2:0] real_board_1;
-reg [2:0] real_board_2;
-reg [2:0] real_board_3;
-reg [2:0] real_board_4;
-reg [2:0] real_board_5;
-reg [2:0] real_board_6;
-reg [2:0] real_board_7;
-reg [2:0] real_board_8;
-reg [2:0] real_board_9;
-reg [2:0] real_board_10;
-reg [2:0] real_board_11;
-reg [2:0] real_board_12;
-reg [2:0] real_board_13;
-reg [2:0] real_board_14;
-reg [2:0] real_board_15;
+output [2:0] real_board_0;
+output [2:0] real_board_1;
+output [2:0] real_board_2;
+output [2:0] real_board_3;
+output [2:0] real_board_4;
+output [2:0] real_board_5;
+output [2:0] real_board_6;
+output [2:0] real_board_7;
+output [2:0] real_board_8;
+output [2:0] real_board_9;
+output [2:0] real_board_10;
+output [2:0] real_board_11;
+output [2:0] real_board_12;
+output [2:0] real_board_13;
+output [2:0] real_board_14;
+output [2:0] real_board_15;
 
+output fill_flag[15:0];
 output solved;
 //------------Internal Variables--------
 reg [2:0] A;
@@ -88,7 +88,6 @@ reg [2:0] temp_real_board_14;
 reg [2:0] temp_real_board_15;
 
 reg  temp_solved;
-integer i; // for resetting the board
 //-------------Code Starts Here---------
 // Qualify the control signal by clka and clkb for the d1 and d2 and d_out registers
 
@@ -176,152 +175,286 @@ always @ (negedge clka)
       // update 8 hints on temp_user_board
       // update fill flag
       case(ridx_a[1:0])
-         2'b00: temp_user_board_0 <= A;
-         2'b01: temp_user_board_1 <= ~B;
-         2'b10: temp_user_board_2 <= B;
-         2'b11: temp_user_board_3 <= ~A;
+         2'b00: begin
+                  temp_user_board_0 <= A;
+                  fill_flag[0] <= 1'b1;
+                end 
+         2'b01: begin 
+                  temp_user_board_1 <= ~B;
+                  fill_flag[1] <= 1'b1;
+                end
+         2'b10: begin 
+                  temp_user_board_2 <= B;
+                  fill_flag[2] <= 1'b1; 
+               end
+         2'b11: begin 
+                  temp_user_board_3 <= ~A;
+                  fill_flag[3] <= 1'b1;
+               end
       endcase
       case(ridx_a[3:2])
          2'b00: begin
                   temp_user_board_4 <= B;
                   temp_user_board_7 <= ~B;
+                  fill_flag[4] <= 1'b1;
+                  fill_flag[7] <= 1'b1;
                end
          2'b01: begin
                   temp_user_board_5 <= ~A;
                   temp_user_board_6 <= A;
+                  fill_flag[5] <= 1'b1;
+                  fill_flag[6] <= 1'b1;
                end
          2'b10: begin
                   temp_user_board_5 <= ~A;
                   temp_user_board_6 <= A;
+                  fill_flag[5] <= 1'b1;
+                  fill_flag[6] <= 1'b1;
                end
          2'b11: begin
                   temp_user_board_4 <= B;
                   temp_user_board_7 <= ~B;
+                  fill_flag[4] <= 1'b1;
+                  fill_flag[7] <= 1'b1;
                end
       endcase
       case(ridx_b[1:0])
          2'b00: begin
                   temp_user_board_8 <= ~B;
                   temp_user_board_11 <= B;
+                  fill_flag[8] <= 1'b1;
+                  fill_flag[11] <= 1'b1;
                end
          2'b01: begin
                   temp_user_board_9 <= A;
                   temp_user_board_10 <= ~A;
+                  fill_flag[9] <= 1'b1;
+                  fill_flag[10] <= 1'b1;
                end
          2'b10: begin
                   temp_user_board_9 <= A;
                   temp_user_board_10 <= ~A;
+                  fill_flag[9] <= 1'b1;
+                  fill_flag[10] <= 1'b1;
                end
          2'b11: begin
                   temp_user_board_8 <= ~B;
                   temp_user_board_11 <= B;
+                  fill_flag[8] <= 1'b1;
+                  fill_flag[11] <= 1'b1;
                end
       endcase
       case(ridx_b[3:2])
-         2'b00: temp_user_board_12 <= ~A;
-         2'b01: temp_user_board_13 <= B;
-         2'b10: temp_user_board_14 <= ~B;
-         2'b11: temp_user_board_15 <= A;
+         2'b00: begin 
+                  temp_user_board_12 <= ~A;
+                  fill_flag[12] <= 1'b1;
+               end
+         2'b01: begin 
+                  temp_user_board_13 <= B;
+                  fill_flag[13] <= 1'b1;
+               end
+         2'b10: begin 
+                  temp_user_board_14 <= ~B;
+                  fill_flag[14] <= 1'b1;
+               end
+         2'b11: begin 
+                  temp_user_board_15 <= A;
+                  fill_flag[15] <= 1'b1;
+               end
       endcase
    end else if (difficulty == 2'b10) begin
       // update 5 hints on temp_user_board
       // update fill flag
       case(ridx_a[1:0])
-         2'b00: temp_user_board_0 <= A;
-         2'b01: temp_user_board_1 <= ~B;
-         2'b10: temp_user_board_2 <= B;
-         2'b11: temp_user_board_3 <= ~A;
+         2'b00: begin 
+                  temp_user_board_0 <= A;
+                  fill_flag[0] <= 1'b1;
+               end
+         2'b01: begin 
+                  temp_user_board_1 <= ~B;
+                  fill_flag[1] <= 1'b1;
+               end
+         2'b10: begin 
+                  temp_user_board_2 <= B;
+                  fill_flag[2] <= 1'b1;
+               end
+         2'b11: begin 
+                  temp_user_board_3 <= ~A;
+                  fill_flag[3] <= 1'b1;
+               end
       endcase
       case(ridx_a[3:2])
-         2'b00: temp_user_board_4 <= B;
-         2'b01: temp_user_board_5 <= ~A;
-         2'b10: temp_user_board_6 <= A;
-         2'b11: temp_user_board_7 <= ~B;
+         2'b00: begin 
+                  temp_user_board_4 <= B;
+                  fill_flag[4] <= 1'b1;
+               end
+         2'b01: begin 
+                  temp_user_board_5 <= ~A;
+                  fill_flag[5] <= 1'b1;
+               end
+         2'b10: begin 
+                  temp_user_board_6 <= A;
+                  fill_flag[6] <= 1'b1;
+               end
+         2'b11: begin 
+                  temp_user_board_7 <= ~B;
+                  fill_flag[7] <= 1'b1;
+               end
       endcase
       case(ridx_b[1:0])
          2'b00: begin
                   temp_user_board_8 <= ~B;
                   temp_user_board_11 <= B;
+                  fill_flag[8] <= 1'b1;
+                  fill_flag[11] <= 1'b1;
                end
          2'b01: begin
                   temp_user_board_9 <= A;
                   temp_user_board_10 <= ~A;
+                  fill_flag[9] <= 1'b1;
+                  fill_flag[10] <= 1'b1;
                end
          2'b10: begin
                   temp_user_board_9 <= A;
                   temp_user_board_10 <= ~A;
+                  fill_flag[9] <= 1'b1;
+                  fill_flag[10] <= 1'b1;
                end
          2'b11: begin
                   temp_user_board_8 <= ~B;
                   temp_user_board_11 <= B;
+                  fill_flag[8] <= 1'b1;
+                  fill_flag[11] <= 1'b1;
                end
       endcase
       case(ridx_b[3:2])
-         2'b00: temp_user_board_12 <= ~A;
-         2'b01: temp_user_board_13 <= B;
-         2'b10: temp_user_board_14 <= ~B;
-         2'b11: temp_user_board_15 <= A;
+         2'b00: begin 
+                  temp_user_board_12 <= ~A;
+                  fill_flag[12] <= 1'b1;
+               end
+         2'b01: begin 
+                  temp_user_board_13 <= B;
+                  fill_flag[13] <= 1'b1;
+               end
+         2'b10: begin 
+                  temp_user_board_14 <= ~B;
+                  fill_flag[14] <= 1'b1;
+               end
+         2'b11: begin 
+                  temp_user_board_15 <= A;
+                  fill_flag[15] <= 1'b1;
+               end
       endcase
    end else if (difficulty == 2'b11) begin
       // update 4 hints on temp_user_board
       // update fill flag
       case(ridx_a[1:0])
-         2'b00: temp_user_board_0 <= A;
-         2'b01: temp_user_board_1 <= ~B;
-         2'b10: temp_user_board_2 <= B;
-         2'b11: temp_user_board_3 <= ~A;
+         2'b00: begin 
+                  temp_user_board_0 <= A;
+                  fill_flag[0] <= 1'b1;
+               end
+         2'b01: begin 
+                  temp_user_board_1 <= ~B;
+                  fill_flag[1] <= 1'b1;
+               end
+         2'b10: begin 
+                  temp_user_board_2 <= B;
+                  fill_flag[2] <= 1'b1;
+               end
+         2'b11: begin 
+                  temp_user_board_3 <= ~A;
+                  fill_flag[3] <= 1'b1;
+               end
       endcase
       case(ridx_a[3:2])
-         2'b00: temp_user_board_4 <= B;
-         2'b01: temp_user_board_5 <= ~A;
-         2'b10: temp_user_board_6 <= A;
-         2'b11: temp_user_board_7 <= ~B;
+         2'b00: begin 
+                  temp_user_board_4 <= B;
+                  fill_flag[4] <= 1'b1;
+               end
+         2'b01: begin 
+                  temp_user_board_5 <= ~A;
+                  fill_flag[5] <= 1'b1;
+               end
+         2'b10: begin 
+                  temp_user_board_6 <= A;
+                  fill_flag[6] <= 1'b1;
+               end
+         2'b11: begin 
+                  temp_user_board_7 <= ~B;
+                  fill_flag[7] <= 1'b1;
+               end
       endcase
       case(ridx_b[1:0])
-         2'b00: temp_user_board_8 <= ~B;
-         2'b01: temp_user_board_9 <= A;
-         2'b10: temp_user_board_10 <= ~A;
-         2'b11: temp_user_board_11 <= B;
+         2'b00: begin 
+                  temp_user_board_8 <= ~B;
+                  fill_flag[8] <= 1'b1;
+               end
+         2'b01: begin 
+                  temp_user_board_9 <= A;
+                  fill_flag[9] <= 1'b1;
+               end
+         2'b10: begin 
+                  temp_user_board_10 <= ~A;
+                  fill_flag[10] <= 1'b1;
+               end
+         2'b11: begin 
+                  temp_user_board_11 <= B;
+                  fill_flag[11] <= 1'b1;
+               end
       endcase
       case(ridx_b[3:2])
-         2'b00: temp_user_board_12 <= ~A;
-         2'b01: temp_user_board_13 <= B;
-         2'b10: temp_user_board_14 <= ~B;
-         2'b11: temp_user_board_15 <= A;
+         2'b00: begin 
+                  temp_user_board_12 <= ~A;
+                  fill_flag[12] <= 1'b1;
+               end
+         2'b01: begin 
+                  temp_user_board_13 <= B;
+                  fill_flag[13] <= 1'b1;
+               end
+         2'b10: begin 
+                  temp_user_board_14 <= ~B;
+                  fill_flag[14] <= 1'b1;
+               end
+         2'b11: begin 
+                  temp_user_board_15 <= A;
+                  fill_flag[15] <= 1'b1;
+               end
       endcase
    end else if (register_inp_flag == 1'b1) begin
-      if (reg_choose == 0) begin
-         temp_user_board_0 = value_inp+1; //making value from 1-4 instead of 0 to 1
-      end else if (reg_choose == 1) begin
-         temp_user_board_1 = value_inp+1;
-      end else if (reg_choose == 2) begin
-         temp_user_board_2 = value_inp+1;
-      end else if (reg_choose == 3) begin
-         temp_user_board_3 = value_inp+1;
-      end else if (reg_choose == 4) begin
-         temp_user_board_4 = value_inp+1;
-      end else if (reg_choose == 5) begin
-         temp_user_board_5 = value_inp+1;
-      end else if (reg_choose == 6) begin
-         temp_user_board_6 = value_inp+1;
-      end else if (reg_choose == 7) begin
-         temp_user_board_7 = value_inp+1;
-      end else if (reg_choose == 8) begin
-         temp_user_board_8 = value_inp+1;
-      end else if (reg_choose == 9) begin
-         temp_user_board_9 = value_inp+1;
-      end else if (reg_choose == 10) begin
-         temp_user_board_10 = value_inp+1;
-      end else if (reg_choose == 11) begin
-         temp_user_board_11 = value_inp+1;
-      end else if (reg_choose == 12) begin
-         temp_user_board_12 = value_inp+1;
-      end else if (reg_choose == 13) begin
-         temp_user_board_13 = value_inp+1;
-      end else if (reg_choose == 14) begin
-         temp_user_board_14 = value_inp+1;
-      end else if (reg_choose == 15) begin
-         temp_user_board_15 = value_inp+1;
+      if (fill_flag[reg_choose] == 0) begin
+         if (reg_choose == 0) begin
+            temp_user_board_0 = value_inp+1; //making value from 1-4 instead of 0 to 1
+         end else if (reg_choose == 1) begin
+            temp_user_board_1 = value_inp+1;
+         end else if (reg_choose == 2) begin
+            temp_user_board_2 = value_inp+1;
+         end else if (reg_choose == 3) begin
+            temp_user_board_3 = value_inp+1;
+         end else if (reg_choose == 4) begin
+            temp_user_board_4 = value_inp+1;
+         end else if (reg_choose == 5) begin
+            temp_user_board_5 = value_inp+1;
+         end else if (reg_choose == 6) begin
+            temp_user_board_6 = value_inp+1;
+         end else if (reg_choose == 7) begin
+            temp_user_board_7 = value_inp+1;
+         end else if (reg_choose == 8) begin
+            temp_user_board_8 = value_inp+1;
+         end else if (reg_choose == 9) begin
+            temp_user_board_9 = value_inp+1;
+         end else if (reg_choose == 10) begin
+            temp_user_board_10 = value_inp+1;
+         end else if (reg_choose == 11) begin
+            temp_user_board_11 = value_inp+1;
+         end else if (reg_choose == 12) begin
+            temp_user_board_12 = value_inp+1;
+         end else if (reg_choose == 13) begin
+            temp_user_board_13 = value_inp+1;
+         end else if (reg_choose == 14) begin
+            temp_user_board_14 = value_inp+1;
+         end else if (reg_choose == 15) begin
+            temp_user_board_15 = value_inp+1;
+         end
       end
    end else if (dp_check == 1'b1) begin
       if ((temp_user_board_0 == temp_real_board_0) & (temp_user_board_1 == temp_real_board_1) & (temp_user_board_2 == temp_real_board_2) &(temp_user_board_3 == temp_real_board_3) &(temp_user_board_4 == temp_real_board_4) &(temp_user_board_5 == temp_real_board_5) &(temp_user_board_6 == temp_real_board_6) &(temp_user_board_7 == temp_real_board_7) &(temp_user_board_8 == temp_real_board_8) &(temp_user_board_9 == temp_real_board_9) &(temp_user_board_10 == temp_real_board_10) &(temp_user_board_11 == temp_real_board_11) &(temp_user_board_12 == temp_real_board_12) &(temp_user_board_13 == temp_real_board_13) &(temp_user_board_14 == temp_real_board_14) &(temp_user_board_15 == temp_real_board_15)) begin
