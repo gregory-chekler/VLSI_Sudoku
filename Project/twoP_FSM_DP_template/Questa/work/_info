@@ -71,9 +71,56 @@ o-quiet -auto_acc_if_foreign -work work -debugdb +acc
 Z3 tCvgOpt 0
 n@_opt
 OL;O;2023.2;77
+R2
+vdp
+Z4 2dp.v|dp_module_tb.v
+Z5 !s110 1712687488
+!i10b 1
+!s100 VdOI9z4N9CP=de<Yc[Q881
+Ie_RH_iX?0]5jeOQE>89Wg2
+R2
+w1712687449
+8dp.v
+Fdp.v
+!i122 31
+L0 8 536
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2023.2;77
+r1
+!s85 0
+31
+Z8 !s108 1712687488.000000
+!s107 dp_module_tb.v|dp.v|
+Z9 !s90 dp.v|dp_module_tb.v|
+!i113 0
+Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vdp_module_tb
+R4
+R5
+!i10b 1
+!s100 jFHheU[8^ncY5F`Wmgh[G1
+IF1XFQL]QZ2]YkXhCV9AT03
+R2
+w1712687483
+8dp_module_tb.v
+Fdp_module_tb.v
+!i122 31
+L0 8 114
+R6
+R7
+r1
+!s85 0
+31
+R8
+Z11 !s107 dp_module_tb.v|dp.v|
+R9
+!i113 0
+R10
+R3
 vmain_FSM
-Z4 2main_FSM.v|testbench_FSM.v
-Z5 !s110 1711349867
+Z12 2main_FSM.v|testbench_FSM.v
+Z13 !s110 1711349867
 !i10b 1
 !s100 o[4YGDG_9nih7^Mn1obe_0
 Ia^:`LAin=E6[UR<:4Sik73
@@ -83,21 +130,21 @@ w1711349780
 Fmain_FSM.v
 !i122 27
 L0 9 247
-Z6 VDg1SIo80bB@j0V0VzS_@n1
-Z7 OL;L;2023.2;77
+R6
+R7
 r1
 !s85 0
 31
-Z8 !s108 1711349866.000000
-Z9 !s107 testbench_FSM.v|main_FSM.v|
-Z10 !s90 main_FSM.v|testbench_FSM.v|
+Z14 !s108 1711349866.000000
+Z15 !s107 testbench_FSM.v|main_FSM.v|
+Z16 !s90 main_FSM.v|testbench_FSM.v|
 !i113 0
-Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R10
 R3
 nmain_@f@s@m
 vSudoku_FSM_tb
-R4
-R5
+R12
+R13
 !i10b 1
 !s100 0@HKLG6GGiY7o4eTIz[5M1
 IeJF9L8>g9=m6mBK2a`QKR2
@@ -112,10 +159,10 @@ R7
 r1
 !s85 0
 31
-R8
-R9
-R10
+R14
+R15
+R16
 !i113 0
-R11
+R10
 R3
 n@sudoku_@f@s@m_tb
