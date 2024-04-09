@@ -5,7 +5,11 @@
 //-----------------------------------------------------
 //
 //
-module dp (clka, clkb, restart, solved, difficulty, won, set_board, register_inp_flag, try_again_flag, dp_check, ridx_a, ridx_b, state, fill_flag, reg_choose, value_inp);
+module dp (clka, clkb, restart, difficulty, won, set_board, register_inp_flag, try_again_flag, dp_check, ridx_a, ridx_b, fill_flag, solved, reg_choose, value_inp, user_board_0,
+user_board_1, user_board_2, user_board_3, user_board_4, user_board_5, user_board_6, user_board_7, user_board_8,
+user_board_9, user_board_10, user_board_11, user_board_12, user_board_13, user_board_14, user_board_15, real_board_0,
+real_board_1, real_board_2, real_board_3, real_board_4, real_board_5, real_board_6, real_board_7, real_board_8, real_board_9, real_board_10,
+real_board_11, real_board_12, _board_13, real_board_14, real_board_15);
 //-----------Input Ports---------------
 input clka, clkb, restart, set_board, register_inp_flag, dp_check, won, try_again_flag;
 input [3:0] ridx_a, ridx_b;
@@ -48,7 +52,7 @@ output [2:0] real_board_13;
 output [2:0] real_board_14;
 output [2:0] real_board_15;
 
-output fill_flag[15:0];
+output [15:0] fill_flag;
 output solved;
 //------------Internal Variables--------
 reg [2:0] A;
