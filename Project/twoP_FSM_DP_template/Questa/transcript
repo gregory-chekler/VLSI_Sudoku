@@ -13,46 +13,18 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -debugDB -voptargs=""+acc"" dp_module_tb 
-# Start time: 13:31:38 on Apr 09,2024
-# ** Note: (vsim-3812) Design is being optimized...
+# Start time: 12:55:42 on Apr 14,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'fill_flag' (12th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'solved' (13th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_0' (16th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_1' (17th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_2' (18th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_3' (19th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_4' (20th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_5' (21st connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_6' (22nd connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_7' (23rd connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_8' (24th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_9' (25th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_10' (26th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_11' (27th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_12' (28th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_13' (29th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_14' (30th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'user_board_15' (31st connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_0' (32nd connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_1' (33rd connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_2' (34th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_3' (35th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_4' (36th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_5' (37th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_6' (38th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_7' (39th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_8' (40th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_9' (41st connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_10' (42nd connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_11' (43rd connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_12' (44th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_13' (45th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_14' (46th connection) to reg type. 
-# ** Error (suppressible): dp_module_tb.v(43): (vopt-8884) Illegal output port connection for 'real_board_15' (47th connection) to reg type. 
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=34, Warnings=1.
-# Error loading design
-# End time: 13:31:38 on Apr 09,2024, Elapsed time: 0:00:00
-# Errors: 34, Warnings: 1
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.dp_module_tb(fast)
+# Loading work.dp(fast)
+# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+add wave sim:/dp_module_tb/*
+run -all
+# ** Note: $stop    : dp_module_tb.v(132)
+#    Time: 280 ns  Iteration: 0  Instance: /dp_module_tb
+# Break in Module dp_module_tb at dp_module_tb.v line 132
+# End time: 12:57:18 on Apr 14,2024, Elapsed time: 0:01:36
+# Errors: 0, Warnings: 1

@@ -13,32 +13,46 @@ reg [3:0] in_ridx_a, in_ridx_b;
 reg [1:0] in_difficulty;
 reg [3:0] in_reg_choose;
 reg [1:0] in_value_inp;
-// Outputs from top_module (hy changed from wire to reg which idk if its correct)
-reg [2:0] out_user_board_0, out_user_board_1, out_user_board_2, out_user_board_3,
+
+// Outputs from top_module
+wire [2:0] out_user_board_0, out_user_board_1, out_user_board_2, out_user_board_3,
 out_user_board_4, out_user_board_5, out_user_board_6, out_user_board_7, out_user_board_8, out_user_board_9, out_user_board_10, out_user_board_11,
 out_user_board_12, out_user_board_13, out_user_board_14, out_user_board_15;
 
-reg [2:0] out_real_board_0, out_real_board_1, out_real_board_2, out_real_board_3,
+wire [2:0] out_real_board_0, out_real_board_1, out_real_board_2, out_real_board_3,
 out_real_board_4, out_real_board_5, out_real_board_6, out_real_board_7, out_real_board_8, out_real_board_9, out_real_board_10, out_real_board_11,
 out_real_board_12, out_real_board_13, out_real_board_14, out_real_board_15;
 
-reg [15:0] out_fill_flag;
+wire [15:0] out_fill_flag;
 
-reg out_solved;
+wire out_solved;
 
 //----Testbench Sequences-----
 
-wire [0:22] restart_seq = 	   			23'b10000000000000000000000;
-wire [0:22] set_board_seq =        		23'b01000000000000000000000;
-wire [0:22] register_inp_flag_seq =  	23'b00010101000000000000000;
-wire [0:22] dp_check_seq =    			23'b00001010000000000000000;
-wire [0:22] won_seq = 					23'b00000000000000000000000;
-wire [0:22] try_again_flag_seq =     	23'b00000000000000000000000;
-wire [0:91] ridx_a_seq = 				92'h0A000000000000000000000;
-wire [0:91] ridx_b_seq = 				92'h0F000000000000000000000;
-wire [0:45] difficulty_seq = 			46'b0000100000000000000000000000000000000000000000;
-wire [0:91] reg_choose_seq = 			92'h00030A0C000000000000000;
-wire [0:45]	value_inp_seq = 			46'b0000001100100001000000000000000000000000000000;
+// wire [0:23] restart_seq = 	   			24'b110000000000000000000000;
+// wire [0:23] set_board_seq =        		24'b001000000000000000000000;
+// wire [0:23] register_inp_flag_seq =  	24'b000010101000000000000000;
+// wire [0:23] dp_check_seq =    			24'b000001010000000000000000;
+// wire [0:23] won_seq = 					24'b000000000000000000000000;
+// wire [0:23] try_again_flag_seq =     	24'b000000000000000000000000;
+// wire [0:95] ridx_a_seq = 				96'h00A000000000000000000000;
+// wire [0:95] ridx_b_seq = 				96'h00F000000000000000000000;
+// wire [0:47] difficulty_seq = 			48'b000000010000000000000000000000000000000000000000;
+// wire [0:95] reg_choose_seq = 			96'h000030A0C000000000000000;
+// wire [0:47]	value_inp_seq = 			48'b000000001100100001000000000000000000000000000000;
+
+integer j = 7;
+wire [0:7] restart_seq = 	   			7'b1100000;
+wire [0:7] set_board_seq =        	7'b0001000;
+wire [0:13] difficulty_seq = 		14'b00000000000100;
+wire [0:7] register_inp_flag_seq =  	7'b0000000;
+wire [0:7] dp_check_seq =    			7'b0000000;
+wire [0:7] won_seq = 					7'b0000000;
+wire [0:7] try_again_flag_seq =     	7'b0000000;
+wire [0:27] ridx_a_seq = 			28'b0000010101010101010101010101;
+wire [0:27] ridx_b_seq = 			28'b0000101010101010101010101010;
+wire [0:27] reg_choose_seq = 		28'b0000000000000000000000000000;
+wire [0:13]	value_inp_seq = 		14'b00000000000000;
 
 dp U2(.clka(in_clka), 
 	.clkb(in_clkb),
@@ -93,7 +107,7 @@ integer i;
 initial
 begin
 
-for (i=0; i<23; i = i+1)begin
+for (i=0; i<7; i = i+1)begin
 	in_restart = restart_seq[i];
 	in_difficulty = difficulty_seq[2*i +:2];
 	in_won = won_seq[i];

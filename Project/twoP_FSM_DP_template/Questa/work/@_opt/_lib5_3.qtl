@@ -60,11 +60,8 @@ Z7 OL;L;2023.2;77
 r1
 !s85 0
 31
-Z8 !s108 1713117324.000000
-Z9 !s107 dp_module_tb.v|dp.v|
-Z10 !s90 dp.v|dp_module_tb.v|
 !i113 0
-Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R3
 vdp_module_tb
 R4
@@ -83,9 +80,6 @@ R7
 r1
 !s85 0
 31
-R8
-R9
-R10
 !i113 0
-R11
+R8
 R3
