@@ -41,18 +41,18 @@ wire out_solved;
 // wire [0:95] reg_choose_seq = 			96'h000030A0C000000000000000;
 // wire [0:47]	value_inp_seq = 			48'b000000001100100001000000000000000000000000000000;
 
-integer j = 7;
-wire [0:7] restart_seq = 	   			7'b1100000;
-wire [0:7] set_board_seq =        	7'b0001000;
-wire [0:13] difficulty_seq = 		14'b00000000000100;
-wire [0:7] register_inp_flag_seq =  	7'b0000000;
-wire [0:7] dp_check_seq =    			7'b0000000;
-wire [0:7] won_seq = 					7'b0000000;
-wire [0:7] try_again_flag_seq =     	7'b0000000;
-wire [0:27] ridx_a_seq = 			28'b0000010101010101010101010101;
-wire [0:27] ridx_b_seq = 			28'b0000101010101010101010101010;
-wire [0:27] reg_choose_seq = 		28'b0000000000000000000000000000;
-wire [0:13]	value_inp_seq = 		14'b00000000000000;
+integer j = 26;
+wire [0:25] restart_seq = 	   		26'b11000000000000000000000000;
+wire [0:25] set_board_seq =        	26'b00010000000000000000000000;
+wire [0:51] difficulty_seq = 		52'b0000000000010000000000000000000000000000000000000000;
+wire [0:25] register_inp_flag_seq =  26'b00000001111111111111000000;
+wire [0:25] dp_check_seq =    		26'b00000000000000000000000100;
+wire [0:103] ridx_a_seq = 			104'hbbbbbbbbbbbbbbbbbbbbbbbbbb;
+wire [0:103] ridx_b_seq = 			104'hffffffffffffffffffffffffff;
+wire [0:103] reg_choose_seq = 		104'h00000000123456789abcdef000;
+wire [0:51]	value_inp_seq = 		52'b0000000000000010001101110110000010011101110010000000;
+wire [0:25] won_seq = 				26'b00000000000000000000000000;
+wire [0:25] try_again_flag_seq =     26'b00000000000000000000000000;
 
 dp U2(.clka(in_clka), 
 	.clkb(in_clkb),
@@ -107,7 +107,7 @@ integer i;
 initial
 begin
 
-for (i=0; i<7; i = i+1)begin
+for (i=0; i<j; i = i+1)begin
 	in_restart = restart_seq[i];
 	in_difficulty = difficulty_seq[2*i +:2];
 	in_won = won_seq[i];

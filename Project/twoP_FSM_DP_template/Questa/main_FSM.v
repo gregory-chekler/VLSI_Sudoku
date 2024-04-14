@@ -8,7 +8,7 @@
 //-----------------------------------------------------
 module main_FSM (clka, clkb, restart, enter, solved, difficulty, won, dp_check, set_board, ridx_a, ridx_b, state, fill_flag);
 //-------------Input Ports-----------------------------
-input   clka, clkb, restart, enter, solved;
+input clka, clkb, restart, enter, solved;
 input [1:0] difficulty;
 //-------------Output Ports----------------------------
 output  won, dp_check, set_board, ridx_a, ridx_b, state[3:0], fill_flag[15:0];
