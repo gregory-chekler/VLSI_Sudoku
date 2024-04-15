@@ -6,24 +6,23 @@
 // 		 start signal to data path dp.
 // 		 Waits then for done signal from the datapath.
 //-----------------------------------------------------
-module main_FSM (clka, clkb, restart, enter, solved, difficulty, won, dp_check, set_board, ridx_a, ridx_b, state, fill_flag);
+module main_FSM (clka, clkb, restart, enter, check, solved, gen_rand_flag, set_board_flag, set_diff_flag, play_flag, check_flag, win_flag, try_again_flag, state);
 //-------------Input Ports-----------------------------
-input clka, clkb, restart, enter, solved;
-input [1:0] difficulty;
+input clka, clkb, restart, enter, check, solved;
 //-------------Output Ports----------------------------
-output  won, dp_check, set_board, ridx_a, ridx_b, state[3:0], fill_flag[15:0];
+// output to data path
+output gen_rand_flag, set_board_flag, set_diff_flag, play_flag, check_flag, win_flag, try_again_flag;
+// output to user 
+output state[2:0];
 //-------------Input ports Data Type-------------------
-wire    clka, clkb, restart, enter, solved;
-wire [1:0] difficulty;
+wire    clka, clkb, restart, enter, check, solved;
 //-------------Output Ports Data Type------------------
-reg     won, dp_check, set_board, ridx_a, ridx_b;
-reg     [15:0] fill_flag;
+reg     gen_rand_flag, set_board_flag, set_diff_flag, play_flag, check_flag, win_flag, try_again_flag;
+
 //——————Internal Constants--------------------------
-parameter SIZE = 4;
-parameter easy_mode = 2'b01, medium_mode = 2'b10, hard_mode = 2'b11;
-parameter IDLE = 4'b0000, EMPTY = 4'b0001, SET_DIFF = 4'b0010;
-parameter EASY = 4'b0011, MEDIUM = 4'b0100, HARD = 4'b0101;
-parameter REG_INP  = 4'b0110, GUESS = 4'b0111, CHECK = 4'b1000, WRONG = 4'b1001, FIN = 4'b1010;
+parameter SIZE = 3;
+parameter IDLE = 3'b000, SET_BOARD = 3'b001, SET_DIFF = 3'b010;
+parameter PLAY = 3'b011, CHECKING = 3'b100, WIN = 3'b101, TRY_AGAIN = 3'b110;
 
 //-------------Internal Variables---------------------------
 reg   [SIZE-1:0]          state;    	// Initial FSM state reg and then after
@@ -33,98 +32,73 @@ wire  [SIZE-1:0]          temp_state; 	// Internal wire for output of function
 reg   [SIZE-1:0]          next_state; 	// Temporary reg to hold next state to
 					// update state on output
 //----------Code startes Here------------------------
-assign temp_state = fsm_function(state, enter, solved, difficulty);
+assign temp_state = fsm_function(state, enter, check, solved);
 //----------Function for Combinational Logic to read inputs -----------
 function [SIZE-1:0] fsm_function;
   input  [SIZE-1:0] state;
   input enter;
+  input check;
   input solved;
-  input [1:0] difficulty;
 
   case(state)
     IDLE: begin
-            if (enter == 1) begin
-              fsm_function = EMPTY;
+            if (enter == 1'b1) begin
+              fsm_function = SET_BOARD;
             end else begin
               fsm_function = IDLE;
             end
           end 
-    EMPTY: begin
-            if (enter == 1) begin
+    SET_BOARD: begin
+            if (enter == 1'b1) begin
               fsm_function = SET_DIFF;
             end else begin
-              fsm_function = EMPTY;
+              fsm_function = SET_BOARD;
             end
           end
     SET_DIFF: begin
-            if (difficulty == easy_mode && enter == 1) begin
-              fsm_function = EASY;
-            end else if (difficulty == medium_mode && enter == 1) begin
-              fsm_function = MEDIUM;
-            end else if (difficulty == hard_mode && enter == 1) begin
-              fsm_function = HARD;
+            if (enter == 1'b1) begin
+              fsm_function = PLAY;
             end else begin
               fsm_function = SET_DIFF;
             end
         end
-    EASY: begin
-            if (enter == 1) begin
-              fsm_function = REG_INP;
+    PLAY: begin
+            if (check == 1'b1) begin
+              fsm_function = CHECKING;
+            end else begin
+              fsm_function = PLAY;
+            end
+            // if (enter == 1'b1) begin
+            //   fsm_function = GUESS;
+            // end else if (check == 1'b1) begin
+            //   fsm_function = CHECKING;
+            // end else begin
+            //   fsm_function = PLAY;
+            // end
+        end 
+    CHECKING: begin
+            if (solved == 1'b1) begin
+              fsm_function = WIN;
             end
             else begin
-              fsm_function = EASY;
+              fsm_function = TRY_AGAIN;
             end
         end
-    MEDIUM: begin
-            if (enter == 1) begin
-              fsm_function = REG_INP;
-            end
-            else begin
-              fsm_function = MEDIUM;
-            end
-        end
-    HARD: begin
-            if (enter == 1) begin
-              fsm_function = REG_INP;
-            end
-            else begin
-              fsm_function = HARD;
-            end
-        end
-    REG_INP: begin
-            if (enter == 1) begin
-              fsm_function = GUESS;
-            end
-            else begin
+    WIN: begin
+            if (enter == 1'b1) begin
               fsm_function = IDLE;
             end
-        end 
-    GUESS: begin
-            if (enter) begin
-              fsm_function = CHECK;
-            end
             else begin
-              fsm_function = GUESS;
+              fsm_function = WIN;
             end
         end
-    CHECK: begin
-            if (solved) begin
-              fsm_function = FIN;
+    TRY_AGAIN: begin
+            if (enter == 1'b1) begin
+            fsm_function = PLAY;
             end
             else begin
-              fsm_function = WRONG;
+              fsm_function = TRY_AGAIN;
             end
-        end
-    WRONG: begin
-            if (enter) begin
-            fsm_function = REG_INP;
-            end
-            else begin
-              fsm_function = WRONG;
-            end
-        end
-    FIN: begin
-          fsm_function = FIN;
         end
   endcase
 endfunction
@@ -143,113 +117,84 @@ begin : OUTPUT_LOGIC
   case(next_state)
   IDLE: begin
           state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0;
+          gen_rand_flag <= 1'b1;
+          set_board_flag <= 1'b0;
+          set_diff_flag <= 1'b0;
+          play_flag <= 1'b0;
+          check_flag <= 1'b0;
+          win_flag <= 1'b0;
+          try_again_flag <= 1'b0; 
         end
-  EMPTY: begin
+  SET_BOARD: begin
           state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b1;
-          ridx_a <= 1'b1;
-          ridx_b <= 1'b1;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0;
+          gen_rand_flag <= 1'b0;
+          set_board_flag <= 1'b1;
+          set_diff_flag <= 1'b0;
+          play_flag <= 1'b0;
+          check_flag <= 1'b0;
+          win_flag <= 1'b0;
+          try_again_flag <= 1'b0; 
         end
   SET_DIFF: begin
           state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b1;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0;
+          gen_rand_flag <= 1'b0;
+          set_board_flag <= 1'b0;
+          set_diff_flag <= 1'b1;
+          play_flag <= 1'b0;
+          check_flag <= 1'b0;
+          win_flag <= 1'b0;
+          try_again_flag <= 1'b0; 
           end
-  EASY: begin
+  PLAY: begin
           state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0; // for testing, four random hints in row 1 and 2
+          gen_rand_flag <= 1'b1;
+          set_board_flag <= 1'b0;
+          set_diff_flag <= 1'b0;
+          play_flag <= 1'b1;
+          check_flag <= 1'b0;
+          win_flag <= 1'b0;
+          try_again_flag <= 1'b0; 
         end
-  MEDIUM: begin
+  CHECKING: begin
           state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0; // for testing, three random hints in row 1 and 2
+          gen_rand_flag <= 1'b0;
+          set_board_flag <= 1'b0;
+          set_diff_flag <= 1'b0;
+          play_flag <= 1'b0;
+          check_flag <= 1'b1;
+          win_flag <= 1'b0;
+          try_again_flag <= 1'b0; 
           end
-  HARD: begin
+  WIN: begin
           state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0; // for testing, two random hints in row 1 and 2
+          gen_rand_flag <= 1'b0;
+          set_board_flag <= 1'b0;
+          set_diff_flag <= 1'b0;
+          play_flag <= 1'b0;
+          check_flag <= 1'b0;
+          win_flag <= 1'b1;
+          try_again_flag <= 1'b0; 
         end   
-  REG_INP: begin
+  TRY_AGAIN: begin
           state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0;
-        end
-  GUESS: begin
-          state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0;
-        end
-  CHECK: begin
-          state <= next_state;
-          dp_check <= 1'b1;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0;
-          end
-  WRONG: begin
-          state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0;
-          end
-  FIN: begin
-          state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b1;
+          gen_rand_flag <= 1'b0;
+          set_board_flag <= 1'b0;
+          set_diff_flag <= 1'b0;
+          play_flag <= 1'b0;
+          check_flag <= 1'b0;
+          win_flag <= 1'b0;
+          try_again_flag <= 1'b1; 
         end
  default: begin
           state <= next_state;
-          dp_check <= 1'b0;
-          set_board <= 1'b0;
-          ridx_a <= 1'b0;
-          ridx_b <= 1'b0;
-          fill_flag <= 16'b0000000000000000;
-          won <= 1'b0;
+          gen_rand_flag <= 1'b1;
+          set_board_flag <= 1'b0;
+          set_diff_flag <= 1'b0;
+          play_flag <= 1'b0;
+          check_flag <= 1'b0;
+          win_flag <= 1'b0;
+          try_again_flag <= 1'b0; 
          end
   endcase
 end // End Of Block OUTPUT_LOGIC
-
 endmodule // End of Module main_FSM

@@ -8,11 +8,11 @@
 module dp_module_tb();
 
 // Inputs to top_module
-reg in_clka, in_clkb, in_restart, in_set_board, in_register_inp_flag, in_dp_check, in_won, in_try_again_flag;
-reg [3:0] in_ridx_a, in_ridx_b;
+reg in_clka, in_clkb, in_restart, in_set_board_flag, in_set_diff_flag, in_play_flag, in_check_flag, in_win_flag, in_try_again_flag;
+reg [3:0] in_rand_A, in_rand_B;
 reg [1:0] in_difficulty;
-reg [3:0] in_reg_choose;
-reg [1:0] in_value_inp;
+reg [3:0] in_cell_in;
+reg [1:0] in_val_in;
 
 // Outputs from top_module
 wire [2:0] out_user_board_0, out_user_board_1, out_user_board_2, out_user_board_3,
@@ -41,34 +41,37 @@ wire out_solved;
 // wire [0:95] reg_choose_seq = 			96'h000030A0C000000000000000;
 // wire [0:47]	value_inp_seq = 			48'b000000001100100001000000000000000000000000000000;
 
-integer j = 26;
-wire [0:25] restart_seq = 	   		26'b11000000000000000000000000;
-wire [0:25] set_board_seq =        	26'b00010000000000000000000000;
-wire [0:51] difficulty_seq = 		52'b0000000000010000000000000000000000000000000000000000;
-wire [0:25] register_inp_flag_seq =  26'b00000001111111111111000000;
-wire [0:25] dp_check_seq =    		26'b00000000000000000000000100;
-wire [0:103] ridx_a_seq = 			104'hbbbbbbbbbbbbbbbbbbbbbbbbbb;
-wire [0:103] ridx_b_seq = 			104'hffffffffffffffffffffffffff;
-wire [0:103] reg_choose_seq = 		104'h00000000123456789abcdef000;
-wire [0:51]	value_inp_seq = 		52'b0000000000000010001101110110000010011101110010000000;
-wire [0:25] won_seq = 				26'b00000000000000000000000000;
-wire [0:25] try_again_flag_seq =     26'b00000000000000000000000000;
+parameter SIZE = 27;
+wire [0:SIZE-1] restart_seq = 	   		27'b110000000000000000000000000;
+wire [0:SIZE-1] set_board_flag_seq =    27'b000100000000000000000000000;
+wire [0:SIZE-1] set_diff_flag_seq =     27'b000001000000000000000000000;
+wire [0:SIZE-1] play_flag_seq = 		27'b000000011111111111111110000;
+wire [0:SIZE-1] check_flag_seq =    	27'b000000000000000000000001000;
+wire [0:SIZE-1] win_flag_seq = 			27'b000000000000000000000000000;
+wire [0:SIZE-1] try_again_flag_seq =    27'b000000000000000000000000100;
+wire [0:4*SIZE-1] rand_A_seq = 			108'hbbbbbbbbbbbbbbbbbbbbbbbbbbb;
+wire [0:4*SIZE-1] rand_B_seq = 			108'hfffffffffffffffffffffffffff;
+wire [0:2*SIZE-1] difficulty_seq = 		54'b000000000001000000000000000000000000000000000000000000;
+wire [0:4*SIZE-1] cell_in_seq = 		108'h00000000123456789abcdef0000;
+wire [0:2*SIZE-1]	val_in_seq = 		54'b000000000000001000110111011000001001110111001000000000;
 
 dp U2(.clka(in_clka), 
 	.clkb(in_clkb),
 	.restart(in_restart),
-	.difficulty(in_difficulty),
-	.won(in_won),
-	.set_board(in_set_board),
-	.register_inp_flag(in_register_inp_flag),
+	.set_board_flag(in_set_board_flag),
+	.set_diff_flag(in_set_diff_flag),
+	.play_flag(in_play_flag),
+	.check_flag(in_check_flag),
+	.win_flag(in_win_flag),
 	.try_again_flag(in_try_again_flag),
-	.dp_check(in_dp_check),
-	.ridx_a(in_ridx_a),
-	.ridx_b(in_ridx_b),
+	.rand_A(in_rand_A),
+	.rand_B(in_rand_B),
+	.difficulty(in_difficulty),
+	.cell_in(in_cell_in),
+	.val_in(in_val_in),
 	.fill_flag(out_fill_flag),
 	.solved(out_solved),
-	.reg_choose(in_reg_choose),
-	.value_inp(in_value_inp),
+
 	.user_board_0(out_user_board_0),
 	.user_board_1(out_user_board_1),
 	.user_board_2(out_user_board_2),
@@ -107,18 +110,19 @@ integer i;
 initial
 begin
 
-for (i=0; i<j; i = i+1)begin
+for (i=0; i<SIZE; i = i+1)begin
 	in_restart = restart_seq[i];
-	in_difficulty = difficulty_seq[2*i +:2];
-	in_won = won_seq[i];
-	in_set_board = set_board_seq[i];
-	in_register_inp_flag = register_inp_flag_seq[i];
+	in_set_board_flag = set_board_flag_seq[i];
+	in_set_diff_flag = set_diff_flag_seq[i];
+	in_play_flag = play_flag_seq[i];
+	in_check_flag = check_flag_seq[i];
+	in_win_flag = win_flag_seq[i];
 	in_try_again_flag = try_again_flag_seq[i];
-	in_dp_check = dp_check_seq[i];
-	in_ridx_a = ridx_a_seq[4*i +:4];
-	in_ridx_b = ridx_b_seq[4*i +:4];
-	in_reg_choose = reg_choose_seq[4*i +:4];
-	in_value_inp = value_inp_seq[2*i +:2];
+	in_rand_A = rand_A_seq[4*i +:4];
+	in_rand_B = rand_B_seq[4*i +:4];
+	in_difficulty = difficulty_seq[2*i +:2];
+	in_cell_in = cell_in_seq[4*i +:4];
+	in_val_in = val_in_seq[2*i +:2];
 	in_clka = 0; in_clkb = 0; #10;
     in_clka = 1; in_clkb = 0; #10;
     in_clka = 0; in_clkb = 0; #10;

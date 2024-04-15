@@ -1,7 +1,7 @@
 m255
 K4
 z2
-Z0 !s12c _opt
+Z0 !s12c _opt1
 Z1 !s99 nomlopt
 R0
 R1
@@ -9,33 +9,45 @@ R0
 R1
 R0
 R1
-R0
+Z2 !s12c _opt
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
 R1
 !s11f MIXED_VERSIONS
 13
@@ -44,63 +56,124 @@ R1
 !i10e 25
 !i10f 100
 cModel Technology
-Z2 d/storage-home/h/hw62/elec422/VLSI_Soduku/Project/twoP_FSM_DP_template/Questa
+Z3 d/storage-home/h/hw62/elec422/VLSI_Soduku/Project/twoP_FSM_DP_template/Questa
 T_opt
-!s110 1713128854
-V63zaM0f53S0]0=oHBU7H=0
+!s110 1713150197
+V6b]K;77efgd59YMB[:GF73
 04 12 4 work dp_module_tb fast 0
-=1-4cd98f4b57d1-661c4595-6a2be-23950f
+=1-d09466164d60-661c98f4-6c8d3-18ddc0
 R1
-!s12b OEM100
-!s124 OEM100
-o-quiet -auto_acc_if_foreign -work work -debugdb +acc
-Z3 tCvgOpt 0
+Z4 !s12b OEM100
+Z5 !s124 OEM100
+Z6 o-quiet -auto_acc_if_foreign -work work -debugdb +acc
+Z7 tCvgOpt 0
 n@_opt
-OL;O;2023.2;77
-R2
-vdp
-Z4 2dp.v|dp_module_tb.v
-Z5 !s110 1713130124
-!i10b 1
-!s100 Q6@47ojmOD9K;^dXK38`=1
-IU_i5Y>ZRCi>iSPH_7=E2>3
-R2
-w1713121847
-8dp.v
-Fdp.v
-!i122 42
-L0 8 644
-Z6 VDg1SIo80bB@j0V0VzS_@n1
-Z7 OL;L;2023.2;77
-r1
-!s85 0
-31
-Z8 !s108 1713130124.000000
-!s107 dp_module_tb.v|dp.v|
-Z9 !s90 dp.v|dp_module_tb.v|
-!i113 0
-Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 OL;O;2023.2;77
 R3
-vdp_module_tb
+T_opt1
+!s110 1713201095
+V`VS39Sbi[KQ`Yi_[7@ga80
+04 13 4 work Sudoku_FSM_tb fast 0
+=1-3cfdfe22dd20-661d5fc7-1e107-396611
+R1
 R4
 R5
-!i10b 1
-!s100 oN;9cFF5k;TnL6Re=aVI:1
-IkF^[X:l3I^:Bon`Z?Si2b0
-R2
-w1713128831
-8dp_module_tb.v
-Fdp_module_tb.v
-!i122 42
-L0 8 128
 R6
 R7
+n@_opt1
+R8
+R3
+vdp
+Z9 2dp.v|dp_module_tb.v
+Z10 !s110 1713200183
+!i10b 1
+!s100 Ph_OH`I6Qmdf]PLjN=oA00
+IU@VZz<lGO:6ijOoAb`NPc1
+R3
+w1713200071
+8dp.v
+Fdp.v
+!i122 50
+L0 8 699
+Z11 VDg1SIo80bB@j0V0VzS_@n1
+Z12 OL;L;2023.2;77
 r1
 !s85 0
 31
-R8
-Z11 !s107 dp_module_tb.v|dp.v|
-R9
+Z13 !s108 1713200183.000000
+Z14 !s107 dp_module_tb.v|dp.v|
+Z15 !s90 dp.v|dp_module_tb.v|
 !i113 0
+Z16 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R7
+vdp_module_tb
+R9
 R10
+!i10b 1
+!s100 IMW_1XAIe@Da9[OW_fLoC0
+IcA4hPlGKDDFe6biROT=Cl3
 R3
+w1713200173
+8dp_module_tb.v
+Fdp_module_tb.v
+!i122 50
+L0 8 132
+R11
+R12
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R16
+R7
+vmain_FSM
+Z17 2main_FSM.v|testbench_FSM.v
+Z18 !s110 1713201860
+!i10b 1
+!s100 SAEU8ChjOVbGLc5WXjG7Y2
+I8]@h<2cHoi<@BfUQJ:_lN1
+R3
+w1713201070
+8main_FSM.v
+Fmain_FSM.v
+!i122 56
+L0 9 192
+R11
+R12
+r1
+!s85 0
+31
+Z19 !s108 1713201860.000000
+!s107 testbench_FSM.v|main_FSM.v|
+Z20 !s90 main_FSM.v|testbench_FSM.v|
+!i113 0
+R16
+R7
+nmain_@f@s@m
+vSudoku_FSM_tb
+R17
+R18
+!i10b 1
+!s100 HKWJaa1iM_R;=;4PUIY[F1
+ITm@l_An52oejh;RD_0]`M2
+R3
+w1713200795
+8testbench_FSM.v
+Ftestbench_FSM.v
+!i122 56
+L0 1 155
+R11
+R12
+r1
+!s85 0
+31
+R19
+Z21 !s107 testbench_FSM.v|main_FSM.v|
+R20
+!i113 0
+R16
+R7
+n@sudoku_@f@s@m_tb

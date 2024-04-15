@@ -12,16 +12,17 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# vsim -debugDB -voptargs=""+acc"" dp_module_tb 
-# Start time: 16:29:41 on Apr 14,2024
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# Loading work.dp_module_tb(fast)
-# Loading work.dp(fast)
+# vsim -debugDB -voptargs=""+acc"" Sudoku_FSM_tb 
+# Start time: 12:24:35 on Apr 15,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading work.Sudoku_FSM_tb(fast)
+# Loading work.main_FSM(fast)
 # ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
-add wave sim:/dp_module_tb/*
+add wave sim:/Sudoku_FSM_tb/*
+add wave sim:/Sudoku_FSM_tb/*
+rim -all
+# invalid command name "rim"
 run -all
-# ** Note: $stop    : dp_module_tb.v(132)
-#    Time: 1040 ns  Iteration: 0  Instance: /dp_module_tb
-# Break in Module dp_module_tb at dp_module_tb.v line 132
-# End time: 16:45:26 on Apr 14,2024, Elapsed time: 0:15:45
-# Errors: 0, Warnings: 0
+# ** Note: $stop    : testbench_FSM.v(152)
+#    Time: 480 ns  Iteration: 0  Instance: /Sudoku_FSM_tb
+# Break in Module Sudoku_FSM_tb at testbench_FSM.v line 152
