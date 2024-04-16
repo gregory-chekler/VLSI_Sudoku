@@ -6,7 +6,7 @@
 //
 //
 module dp (clka, clkb, restart, set_board_flag, set_diff_flag, cell_flag, val_flag, check_flag, 
-rand_setup, rand_A, rand_B, diff_cell_val, solved, 
+rand_setup, rand_A, rand_B, diff_cell_val, solved, fill_flag,
 user_board_0, user_board_1, user_board_2, user_board_3, user_board_4, user_board_5, user_board_6, user_board_7, 
 user_board_8, user_board_9, user_board_10, user_board_11, user_board_12, user_board_13, user_board_14, user_board_15, 
 real_board_0, real_board_1, real_board_2, real_board_3, real_board_4, real_board_5, real_board_6, real_board_7, 
@@ -14,9 +14,8 @@ real_board_8, real_board_9, real_board_10, real_board_11, real_board_12, real_bo
 
 //-----------Input Ports---------------
 input clka, clkb, restart, set_board_flag, set_diff_flag, cell_flag, val_flag, check_flag;
-input [2:0] rand_setup;
-input [3:0] rand_A, rand_B;
-input [3:0] diff_cell_val; // the place in the board you need to choose that you are going to input
+input [3:0] rand_setup, rand_A, rand_B;
+input [3:0] diff_cell_val;
 
 //-----------Output Ports---------------
 output [2:0] user_board_0;
@@ -229,7 +228,7 @@ begin
       temp_real_board_14 = inv_B;
       temp_real_board_15 = A;
    end else if (set_diff_flag == 1'b1) begin 
-      if (diff_cell_val == 4'b0001) begin
+      if (diff_cell_val[3:1] == 3'b000) begin
       // update 8 hints on temp_user_board
       // update fill flag
          case(rand_A[1:0])

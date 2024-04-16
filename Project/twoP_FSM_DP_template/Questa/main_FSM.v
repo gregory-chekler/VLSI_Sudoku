@@ -72,7 +72,7 @@ function [SIZE-1:0] fsm_function;
             if (enter == 1'b1) begin
               fsm_function = CHECKING;
             end else begin
-              fsm_function = CHOOSE_VAL;
+              fsm_function = CHOOSE_CELL;
             end
         end
     CHECKING: begin

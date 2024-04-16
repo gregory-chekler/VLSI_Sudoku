@@ -17,15 +17,15 @@ main_FSM Sudoku_FSM (.clka (in_clka),
              .clkb (in_clkb),
              .restart (in_restart),
              .enter(in_enter),
-             .check(in_check),
              .solved (in_solved),
+             .state(out_state),
              .gen_rand_flag (out_gen_rand_flag),
              .set_board_flag (out_set_board_flag),
              .set_diff_flag(out_set_diff_flag),
              .cell_flag(out_cell_flag),
-             .val_flag(out_val_flag)
-             .check_flag(out_check_flag),
-             .state(out_state));
+             .val_flag(out_val_flag),
+             .check_flag(out_check_flag));
+
 
 integer i;
 
