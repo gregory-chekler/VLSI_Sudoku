@@ -129,7 +129,7 @@ for (i=0; i<SIZE; i = i+1)begin
     in_clka = 0; in_clkb = 1; #10;
 end
 
-$dumpfile ("dp_module_tb.vcd"); 
+$dumpfile ("Sudoku_DP_tb.vcd"); 
 $dumpvars; 
 
     

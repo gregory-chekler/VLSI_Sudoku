@@ -5,17 +5,16 @@
 //-----------------------------------------------------
 //
 //
-module dp (clka, clkb, restart, set_board_flag, set_diff_flag, play_flag, check_flag, win_flag, try_again_flag, 
-rand_A, rand_B, difficulty, cell_in, val_in, fill_flag, solved, 
+module dp (clka, clkb, restart, set_board_flag, set_diff_flag, insert_flag, check_flag, win_flag, try_again_flag, 
+rand_A, rand_B, cell_in, val_in, fill_flag, solved, 
 user_board_0, user_board_1, user_board_2, user_board_3, user_board_4, user_board_5, user_board_6, user_board_7, 
 user_board_8, user_board_9, user_board_10, user_board_11, user_board_12, user_board_13, user_board_14, user_board_15, 
 real_board_0, real_board_1, real_board_2, real_board_3, real_board_4, real_board_5, real_board_6, real_board_7, 
 real_board_8, real_board_9, real_board_10, real_board_11, real_board_12, real_board_13, real_board_14, real_board_15);
 
 //-----------Input Ports---------------
-input clka, clkb, restart, set_board_flag, set_diff_flag, play_flag, check_flag, win_flag, try_again_flag;
+input clka, clkb, restart, set_board_flag, set_diff_flag, insert_flag, check_flag, win_flag, try_again_flag;
 input [3:0] rand_A, rand_B;
-input [1:0] difficulty;
 input [3:0] cell_in; // the place in the board you need to choose that you are going to input
 input [1:0] val_in; // the value you are going to input the board
 
@@ -478,7 +477,7 @@ begin
                   end
          endcase
       end
-   end else if (play_flag == 1'b1) begin
+   end else if (insert_flag == 1'b1) begin
       if (temp_fill_flag[cell_in] == 0) begin
          if (cell_in == 0) begin
             temp_user_board_0 = val_in+1; //making value from 1-4 instead of 0 to 1
@@ -672,7 +671,7 @@ begin
    //    real_board_13 = temp_real_board_13;
    //    real_board_14 = temp_real_board_14;
    //    real_board_15 = temp_real_board_15;
-   // end else if (play_flag == 1'b1) begin
+   // end else if (insert_flag == 1'b1) begin
    //    user_board_0 = temp_user_board_0;
    //    user_board_1 = temp_user_board_1;
    //    user_board_2 = temp_user_board_2;

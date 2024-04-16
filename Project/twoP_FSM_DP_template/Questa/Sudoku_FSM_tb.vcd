@@ -1,0 +1,118 @@
+$date
+	Mon Apr 15 12:26:30 2024
+$end
+$version
+	QuestaSim Version 2023.2
+$end
+$timescale
+	1ns
+$end
+
+$scope module Sudoku_FSM_tb $end
+$var parameter 32 ! SIZE $end
+$var reg 1 " in_clka $end
+$var reg 1 # in_clkb $end
+$var reg 1 $ in_restart $end
+$var reg 1 % in_enter $end
+$var reg 1 & in_check $end
+$var reg 1 ' in_solved $end
+$var wire 1 ( out_gen_rand_flag $end
+$var wire 1 ) out_set_board_flag $end
+$var wire 1 * out_set_diff_flag $end
+$var wire 1 + out_play_flag $end
+$var wire 1 , out_check_flag $end
+$var wire 1 - out_win_flag $end
+$var wire 1 . out_try_again_flag $end
+$var wire 1 / out_state [2] $end
+$var wire 1 0 out_state [1] $end
+$var wire 1 1 out_state [0] $end
+$var wire 1 2 in_restart_seq [0] $end
+$var wire 1 3 in_restart_seq [1] $end
+$var wire 1 4 in_restart_seq [2] $end
+$var wire 1 5 in_restart_seq [3] $end
+$var wire 1 6 in_restart_seq [4] $end
+$var wire 1 7 in_restart_seq [5] $end
+$var wire 1 8 in_restart_seq [6] $end
+$var wire 1 9 in_restart_seq [7] $end
+$var wire 1 : in_restart_seq [8] $end
+$var wire 1 ; in_restart_seq [9] $end
+$var wire 1 < in_restart_seq [10] $end
+$var wire 1 = in_restart_seq [11] $end
+$var wire 1 > in_enter_seq [0] $end
+$var wire 1 ? in_enter_seq [1] $end
+$var wire 1 @ in_enter_seq [2] $end
+$var wire 1 A in_enter_seq [3] $end
+$var wire 1 B in_enter_seq [4] $end
+$var wire 1 C in_enter_seq [5] $end
+$var wire 1 D in_enter_seq [6] $end
+$var wire 1 E in_enter_seq [7] $end
+$var wire 1 F in_enter_seq [8] $end
+$var wire 1 G in_enter_seq [9] $end
+$var wire 1 H in_enter_seq [10] $end
+$var wire 1 I in_enter_seq [11] $end
+$var wire 1 J in_check_seq [0] $end
+$var wire 1 K in_check_seq [1] $end
+$var wire 1 L in_check_seq [2] $end
+$var wire 1 M in_check_seq [3] $end
+$var wire 1 N in_check_seq [4] $end
+$var wire 1 O in_check_seq [5] $end
+$var wire 1 P in_check_seq [6] $end
+$var wire 1 Q in_check_seq [7] $end
+$var wire 1 R in_check_seq [8] $end
+$var wire 1 S in_check_seq [9] $end
+$var wire 1 T in_check_seq [10] $end
+$var wire 1 U in_check_seq [11] $end
+$var wire 1 V in_solved_seq [0] $end
+$var wire 1 W in_solved_seq [1] $end
+$var wire 1 X in_solved_seq [2] $end
+$var wire 1 Y in_solved_seq [3] $end
+$var wire 1 Z in_solved_seq [4] $end
+$var wire 1 [ in_solved_seq [5] $end
+$var wire 1 \ in_solved_seq [6] $end
+$var wire 1 ] in_solved_seq [7] $end
+$var wire 1 ^ in_solved_seq [8] $end
+$var wire 1 _ in_solved_seq [9] $end
+$var wire 1 ` in_solved_seq [10] $end
+$var wire 1 a in_solved_seq [11] $end
+$var integer 32 b i $end
+
+$scope module U1 $end
+$var parameter 32 c SIZE $end
+$var parameter 3 d IDLE $end
+$var parameter 3 e SET_BOARD $end
+$var parameter 3 f SET_DIFF $end
+$var parameter 3 g PLAY $end
+$var parameter 3 h CHECKING $end
+$var parameter 3 i WIN $end
+$var parameter 3 j TRY_AGAIN $end
+$var wire 1 k clka $end
+$var wire 1 l clkb $end
+$var wire 1 m restart $end
+$var wire 1 n enter $end
+$var wire 1 o check $end
+$var wire 1 p solved $end
+$var reg 1 q gen_rand_flag $end
+$var reg 1 r set_board_flag $end
+$var reg 1 s set_diff_flag $end
+$var reg 1 t play_flag $end
+$var reg 1 u check_flag $end
+$var reg 1 v win_flag $end
+$var reg 1 w try_again_flag $end
+$var reg 3 x state [2:0] $end
+$var wire 1 y temp_state [2] $end
+$var wire 1 z temp_state [1] $end
+$var wire 1 { temp_state [0] $end
+$var reg 3 | next_state [2:0] $end
+
+$scope function fsm_function $end
+$var reg 3 } fsm_function [2:0] $end
+$var reg 3 ~ state [2:0] $end
+$var reg 1 !! enter $end
+$var reg 1 "! check $end
+$var reg 1 #! solved $end
+$upscope $end
+
+$scope begin FSM_SEQ $end
+$upscope $end
+
+$scope begin OUTPUT_LOGIC $end

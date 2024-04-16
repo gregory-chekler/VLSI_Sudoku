@@ -1,5 +1,5 @@
 $date
-	Sun Apr 14 22:04:04 2024
+	Mon Apr 15 16:18:57 2024
 $end
 $version
 	QuestaSim Version 2023.2
@@ -9,134 +9,134 @@ $timescale
 $end
 
 $scope module dp_module_tb $end
-$var reg 1 ! in_clka $end
-$var reg 1 " in_clkb $end
-$var reg 1 # in_restart $end
-$var reg 1 $ in_set_board_flag $end
-$var reg 1 % in_set_diff_flag $end
-$var reg 1 & in_play_flag $end
-$var reg 1 ' in_check_flag $end
-$var reg 1 ( in_win_flag $end
-$var reg 1 ) in_try_again_flag $end
-$var reg 4 * in_rand_A [3:0] $end
-$var reg 4 + in_rand_B [3:0] $end
-$var reg 2 , in_difficulty [1:0] $end
-$var reg 4 - in_cell_in [3:0] $end
-$var reg 2 . in_val_in [1:0] $end
-$var wire 1 / out_user_board_0 [2] $end
-$var wire 1 0 out_user_board_0 [1] $end
-$var wire 1 1 out_user_board_0 [0] $end
-$var wire 1 2 out_user_board_1 [2] $end
-$var wire 1 3 out_user_board_1 [1] $end
-$var wire 1 4 out_user_board_1 [0] $end
-$var wire 1 5 out_user_board_2 [2] $end
-$var wire 1 6 out_user_board_2 [1] $end
-$var wire 1 7 out_user_board_2 [0] $end
-$var wire 1 8 out_user_board_3 [2] $end
-$var wire 1 9 out_user_board_3 [1] $end
-$var wire 1 : out_user_board_3 [0] $end
-$var wire 1 ; out_user_board_4 [2] $end
-$var wire 1 < out_user_board_4 [1] $end
-$var wire 1 = out_user_board_4 [0] $end
-$var wire 1 > out_user_board_5 [2] $end
-$var wire 1 ? out_user_board_5 [1] $end
-$var wire 1 @ out_user_board_5 [0] $end
-$var wire 1 A out_user_board_6 [2] $end
-$var wire 1 B out_user_board_6 [1] $end
-$var wire 1 C out_user_board_6 [0] $end
-$var wire 1 D out_user_board_7 [2] $end
-$var wire 1 E out_user_board_7 [1] $end
-$var wire 1 F out_user_board_7 [0] $end
-$var wire 1 G out_user_board_8 [2] $end
-$var wire 1 H out_user_board_8 [1] $end
-$var wire 1 I out_user_board_8 [0] $end
-$var wire 1 J out_user_board_9 [2] $end
-$var wire 1 K out_user_board_9 [1] $end
-$var wire 1 L out_user_board_9 [0] $end
-$var wire 1 M out_user_board_10 [2] $end
-$var wire 1 N out_user_board_10 [1] $end
-$var wire 1 O out_user_board_10 [0] $end
-$var wire 1 P out_user_board_11 [2] $end
-$var wire 1 Q out_user_board_11 [1] $end
-$var wire 1 R out_user_board_11 [0] $end
-$var wire 1 S out_user_board_12 [2] $end
-$var wire 1 T out_user_board_12 [1] $end
-$var wire 1 U out_user_board_12 [0] $end
-$var wire 1 V out_user_board_13 [2] $end
-$var wire 1 W out_user_board_13 [1] $end
-$var wire 1 X out_user_board_13 [0] $end
-$var wire 1 Y out_user_board_14 [2] $end
-$var wire 1 Z out_user_board_14 [1] $end
-$var wire 1 [ out_user_board_14 [0] $end
-$var wire 1 \ out_user_board_15 [2] $end
-$var wire 1 ] out_user_board_15 [1] $end
-$var wire 1 ^ out_user_board_15 [0] $end
-$var wire 1 _ out_real_board_0 [2] $end
-$var wire 1 ` out_real_board_0 [1] $end
-$var wire 1 a out_real_board_0 [0] $end
-$var wire 1 b out_real_board_1 [2] $end
-$var wire 1 c out_real_board_1 [1] $end
-$var wire 1 d out_real_board_1 [0] $end
-$var wire 1 e out_real_board_2 [2] $end
-$var wire 1 f out_real_board_2 [1] $end
-$var wire 1 g out_real_board_2 [0] $end
-$var wire 1 h out_real_board_3 [2] $end
-$var wire 1 i out_real_board_3 [1] $end
-$var wire 1 j out_real_board_3 [0] $end
-$var wire 1 k out_real_board_4 [2] $end
-$var wire 1 l out_real_board_4 [1] $end
-$var wire 1 m out_real_board_4 [0] $end
-$var wire 1 n out_real_board_5 [2] $end
-$var wire 1 o out_real_board_5 [1] $end
-$var wire 1 p out_real_board_5 [0] $end
-$var wire 1 q out_real_board_6 [2] $end
-$var wire 1 r out_real_board_6 [1] $end
-$var wire 1 s out_real_board_6 [0] $end
-$var wire 1 t out_real_board_7 [2] $end
-$var wire 1 u out_real_board_7 [1] $end
-$var wire 1 v out_real_board_7 [0] $end
-$var wire 1 w out_real_board_8 [2] $end
-$var wire 1 x out_real_board_8 [1] $end
-$var wire 1 y out_real_board_8 [0] $end
-$var wire 1 z out_real_board_9 [2] $end
-$var wire 1 { out_real_board_9 [1] $end
-$var wire 1 | out_real_board_9 [0] $end
-$var wire 1 } out_real_board_10 [2] $end
-$var wire 1 ~ out_real_board_10 [1] $end
-$var wire 1 !! out_real_board_10 [0] $end
-$var wire 1 "! out_real_board_11 [2] $end
-$var wire 1 #! out_real_board_11 [1] $end
-$var wire 1 $! out_real_board_11 [0] $end
-$var wire 1 %! out_real_board_12 [2] $end
-$var wire 1 &! out_real_board_12 [1] $end
-$var wire 1 '! out_real_board_12 [0] $end
-$var wire 1 (! out_real_board_13 [2] $end
-$var wire 1 )! out_real_board_13 [1] $end
-$var wire 1 *! out_real_board_13 [0] $end
-$var wire 1 +! out_real_board_14 [2] $end
-$var wire 1 ,! out_real_board_14 [1] $end
-$var wire 1 -! out_real_board_14 [0] $end
-$var wire 1 .! out_real_board_15 [2] $end
-$var wire 1 /! out_real_board_15 [1] $end
-$var wire 1 0! out_real_board_15 [0] $end
-$var wire 1 1! out_fill_flag [15] $end
-$var wire 1 2! out_fill_flag [14] $end
-$var wire 1 3! out_fill_flag [13] $end
-$var wire 1 4! out_fill_flag [12] $end
-$var wire 1 5! out_fill_flag [11] $end
-$var wire 1 6! out_fill_flag [10] $end
-$var wire 1 7! out_fill_flag [9] $end
-$var wire 1 8! out_fill_flag [8] $end
-$var wire 1 9! out_fill_flag [7] $end
-$var wire 1 :! out_fill_flag [6] $end
-$var wire 1 ;! out_fill_flag [5] $end
-$var wire 1 <! out_fill_flag [4] $end
-$var wire 1 =! out_fill_flag [3] $end
-$var wire 1 >! out_fill_flag [2] $end
-$var wire 1 ?! out_fill_flag [1] $end
-$var wire 1 @! out_fill_flag [0] $end
-$var wire 1 A! out_solved $end
-$var integer 32 B! j $end
+$var parameter 32 ! SIZE $end
+$var reg 1 " in_clka $end
+$var reg 1 # in_clkb $end
+$var reg 1 $ in_restart $end
+$var reg 1 % in_set_board_flag $end
+$var reg 1 & in_set_diff_flag $end
+$var reg 1 ' in_play_flag $end
+$var reg 1 ( in_check_flag $end
+$var reg 1 ) in_win_flag $end
+$var reg 1 * in_try_again_flag $end
+$var reg 4 + in_rand_A [3:0] $end
+$var reg 4 , in_rand_B [3:0] $end
+$var reg 2 - in_difficulty [1:0] $end
+$var reg 4 . in_cell_in [3:0] $end
+$var reg 2 / in_val_in [1:0] $end
+$var wire 1 0 out_user_board_0 [2] $end
+$var wire 1 1 out_user_board_0 [1] $end
+$var wire 1 2 out_user_board_0 [0] $end
+$var wire 1 3 out_user_board_1 [2] $end
+$var wire 1 4 out_user_board_1 [1] $end
+$var wire 1 5 out_user_board_1 [0] $end
+$var wire 1 6 out_user_board_2 [2] $end
+$var wire 1 7 out_user_board_2 [1] $end
+$var wire 1 8 out_user_board_2 [0] $end
+$var wire 1 9 out_user_board_3 [2] $end
+$var wire 1 : out_user_board_3 [1] $end
+$var wire 1 ; out_user_board_3 [0] $end
+$var wire 1 < out_user_board_4 [2] $end
+$var wire 1 = out_user_board_4 [1] $end
+$var wire 1 > out_user_board_4 [0] $end
+$var wire 1 ? out_user_board_5 [2] $end
+$var wire 1 @ out_user_board_5 [1] $end
+$var wire 1 A out_user_board_5 [0] $end
+$var wire 1 B out_user_board_6 [2] $end
+$var wire 1 C out_user_board_6 [1] $end
+$var wire 1 D out_user_board_6 [0] $end
+$var wire 1 E out_user_board_7 [2] $end
+$var wire 1 F out_user_board_7 [1] $end
+$var wire 1 G out_user_board_7 [0] $end
+$var wire 1 H out_user_board_8 [2] $end
+$var wire 1 I out_user_board_8 [1] $end
+$var wire 1 J out_user_board_8 [0] $end
+$var wire 1 K out_user_board_9 [2] $end
+$var wire 1 L out_user_board_9 [1] $end
+$var wire 1 M out_user_board_9 [0] $end
+$var wire 1 N out_user_board_10 [2] $end
+$var wire 1 O out_user_board_10 [1] $end
+$var wire 1 P out_user_board_10 [0] $end
+$var wire 1 Q out_user_board_11 [2] $end
+$var wire 1 R out_user_board_11 [1] $end
+$var wire 1 S out_user_board_11 [0] $end
+$var wire 1 T out_user_board_12 [2] $end
+$var wire 1 U out_user_board_12 [1] $end
+$var wire 1 V out_user_board_12 [0] $end
+$var wire 1 W out_user_board_13 [2] $end
+$var wire 1 X out_user_board_13 [1] $end
+$var wire 1 Y out_user_board_13 [0] $end
+$var wire 1 Z out_user_board_14 [2] $end
+$var wire 1 [ out_user_board_14 [1] $end
+$var wire 1 \ out_user_board_14 [0] $end
+$var wire 1 ] out_user_board_15 [2] $end
+$var wire 1 ^ out_user_board_15 [1] $end
+$var wire 1 _ out_user_board_15 [0] $end
+$var wire 1 ` out_real_board_0 [2] $end
+$var wire 1 a out_real_board_0 [1] $end
+$var wire 1 b out_real_board_0 [0] $end
+$var wire 1 c out_real_board_1 [2] $end
+$var wire 1 d out_real_board_1 [1] $end
+$var wire 1 e out_real_board_1 [0] $end
+$var wire 1 f out_real_board_2 [2] $end
+$var wire 1 g out_real_board_2 [1] $end
+$var wire 1 h out_real_board_2 [0] $end
+$var wire 1 i out_real_board_3 [2] $end
+$var wire 1 j out_real_board_3 [1] $end
+$var wire 1 k out_real_board_3 [0] $end
+$var wire 1 l out_real_board_4 [2] $end
+$var wire 1 m out_real_board_4 [1] $end
+$var wire 1 n out_real_board_4 [0] $end
+$var wire 1 o out_real_board_5 [2] $end
+$var wire 1 p out_real_board_5 [1] $end
+$var wire 1 q out_real_board_5 [0] $end
+$var wire 1 r out_real_board_6 [2] $end
+$var wire 1 s out_real_board_6 [1] $end
+$var wire 1 t out_real_board_6 [0] $end
+$var wire 1 u out_real_board_7 [2] $end
+$var wire 1 v out_real_board_7 [1] $end
+$var wire 1 w out_real_board_7 [0] $end
+$var wire 1 x out_real_board_8 [2] $end
+$var wire 1 y out_real_board_8 [1] $end
+$var wire 1 z out_real_board_8 [0] $end
+$var wire 1 { out_real_board_9 [2] $end
+$var wire 1 | out_real_board_9 [1] $end
+$var wire 1 } out_real_board_9 [0] $end
+$var wire 1 ~ out_real_board_10 [2] $end
+$var wire 1 !! out_real_board_10 [1] $end
+$var wire 1 "! out_real_board_10 [0] $end
+$var wire 1 #! out_real_board_11 [2] $end
+$var wire 1 $! out_real_board_11 [1] $end
+$var wire 1 %! out_real_board_11 [0] $end
+$var wire 1 &! out_real_board_12 [2] $end
+$var wire 1 '! out_real_board_12 [1] $end
+$var wire 1 (! out_real_board_12 [0] $end
+$var wire 1 )! out_real_board_13 [2] $end
+$var wire 1 *! out_real_board_13 [1] $end
+$var wire 1 +! out_real_board_13 [0] $end
+$var wire 1 ,! out_real_board_14 [2] $end
+$var wire 1 -! out_real_board_14 [1] $end
+$var wire 1 .! out_real_board_14 [0] $end
+$var wire 1 /! out_real_board_15 [2] $end
+$var wire 1 0! out_real_board_15 [1] $end
+$var wire 1 1! out_real_board_15 [0] $end
+$var wire 1 2! out_fill_flag [15] $end
+$var wire 1 3! out_fill_flag [14] $end
+$var wire 1 4! out_fill_flag [13] $end
+$var wire 1 5! out_fill_flag [12] $end
+$var wire 1 6! out_fill_flag [11] $end
+$var wire 1 7! out_fill_flag [10] $end
+$var wire 1 8! out_fill_flag [9] $end
+$var wire 1 9! out_fill_flag [8] $end
+$var wire 1 :! out_fill_flag [7] $end
+$var wire 1 ;! out_fill_flag [6] $end
+$var wire 1 <! out_fill_flag [5] $end
+$var wire 1 =! out_fill_flag [4] $end
+$var wire 1 >! out_fill_flag [3] $end
+$var wire 1 ?! out_fill_flag [2] $end
+$var wire 1 @! out_fill_flag [1] $end
+$var wire 1 A! out_fill_flag [0] $end
+$var wire 1 B! out_solved $end
 $var wire 1 C! restart_seq [0] $end
 $var wire 1 D! restart_seq [1] $end
 $var wire 1 E! restart_seq [2] $end

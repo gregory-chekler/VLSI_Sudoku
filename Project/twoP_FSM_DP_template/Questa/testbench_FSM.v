@@ -6,10 +6,10 @@ wire out_gen_rand_flag, out_set_board_flag, out_set_diff_flag, out_play_flag, ou
 wire [2:0] out_state;
 
 parameter SIZE = 12;
-wire [0:SIZE-1] in_restart_seq =      12'b110000000000;
-wire [0:SIZE-1] in_enter_seq =        12'b000101010100;
-wire [0:SIZE-1] in_check_seq =        12'b000000000010;
-wire [0:SIZE-1] in_solved_seq =       12'b000000000000;
+wire [0:SIZE-1] restart_seq =      12'b110000000000;
+wire [0:SIZE-1] enter_seq =        12'b000101010100;
+wire [0:SIZE-1] check_seq =        12'b000000000010;
+wire [0:SIZE-1] solved_seq =       12'b000000000000;
 
 // 0    1    2      3           4       5           6       7       8
 // NA   IDLE EMPTY  SET_DIFF    EASY    REG_INP     GUESS   CHECK   FIN
@@ -36,10 +36,10 @@ initial
 begin
 
 for (i=0; i<SIZE; i = i + 1)begin
-    in_restart = in_restart_seq[i];
-    in_enter = in_enter_seq[i];
-    in_check = in_check_seq[i];
-    in_solved = in_solved_seq[i];
+    in_restart = restart_seq[i];
+    in_enter = enter_seq[i];
+    in_check = check_seq[i];
+    in_solved = solved_seq[i];
     in_clka = 0; in_clkb = 0; #10;
     in_clka = 1; in_clkb = 0; #10;
     in_clka = 0; in_clkb = 0; #10;
