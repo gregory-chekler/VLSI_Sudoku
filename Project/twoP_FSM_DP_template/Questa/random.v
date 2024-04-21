@@ -1,11 +1,12 @@
 module lfsr_rng(
-    input in_clka,
-    input in_clkb,
+    input clka,
+    input clkb,
     input gen_rand_flag,
+    input reset,
     output reg [23:0] lfsr_out,
     output reg [3:0] rand_A,
     output reg [3:0] rand_B,
-    output reg [3:0] rand_setup
+    output reg [2:0] rand_setup
 );
 
 reg [23:0] start_state;
@@ -21,24 +22,30 @@ initial begin
 end
 
 
-always @(negedge in_clka) begin
+always @(negedge clka) begin
     if (gen_rand_flag == 1) begin
         // LFSR update logic
-        lfsr <= {lfsr[22:0], bit};
-        period <= period + 1;
+        lfsr = {lfsr[22:0], bit};
+        period = period + 1;
         
         // Feedback polynomial: x^24 + x^23 + x^22 + x^17 + 1
-        bit <= lfsr[0] ^ lfsr[1] ^ lfsr[2] ^ lfsr[7];
-
-        assign lfsr_out = lfsr;
+        bit = lfsr[0] ^ lfsr[1] ^ lfsr[2] ^ lfsr[7];
      end 
     
 end
 
-always @(negedge in_clkb) begin
-    assign rand_setup = lfsr_out[3:0];
-    assign rand_A = lfsr_out[7:4];
-    assign rand_B = lfsr_out[11:8];
+always @(negedge clkb) begin
+    if (reset) begin
+        lfsr_out = 24'b000000000000000000000000;
+        rand_setup = 3'b000;
+        rand_A = 4'b0000;
+        rand_B = 4'b0000;
+    end else begin
+        lfsr_out = lfsr;
+        rand_setup = lfsr_out[2:0];
+        rand_A = lfsr_out[6:3];
+        rand_B = lfsr_out[10:7];
+    end
 
 end
 
