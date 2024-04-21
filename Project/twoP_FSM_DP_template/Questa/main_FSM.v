@@ -72,7 +72,7 @@ function [SIZE-1:0] fsm_function;
             if (enter == 1'b1) begin
               fsm_function = CHECKING;
             end else begin
-              fsm_function = CHOOSE_CELL;
+              fsm_function = CHOOSE_VAL;
             end
         end
     CHECKING: begin
@@ -80,15 +80,15 @@ function [SIZE-1:0] fsm_function;
               fsm_function = WIN;
             end
             else begin
-              fsm_function = CHOOSE_CELL;
+              fsm_function = WRONG;
             end
     end
     WRONG: begin
             if (enter == 1'b1) begin
-              fsm_function = IDLE;
+              fsm_function = CHOOSE_CELL;
             end
             else begin
-              fsm_function = WIN;
+              fsm_function = WRONG;
             end
         end
     WIN: begin
@@ -121,7 +121,11 @@ begin : OUTPUT_LOGIC
   SET_BOARD: begin
           state <= next_state;
           gen_rand_flag <= 1'b0;
-          set_board_flag <= 1'b1;
+          if (enter == 1'b1) begin
+            set_board_flag <= 1'b1;
+          end else begin
+            set_board_flag <= 1'b0;
+          end
           set_diff_flag <= 1'b0;
           cell_flag <= 1'b0;
           val_flag <= 1'b0;
@@ -131,7 +135,11 @@ begin : OUTPUT_LOGIC
           state <= next_state;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
-          set_diff_flag <= 1'b1;
+          if (enter == 1'b1) begin
+            set_diff_flag <= 1'b1;
+          end else begin
+            set_diff_flag <= 1'b0;
+          end
           cell_flag <= 1'b0;
           val_flag <= 1'b0;
           check_flag <= 1'b0;
@@ -141,7 +149,11 @@ begin : OUTPUT_LOGIC
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
-          cell_flag <= 1'b1;
+          if (enter == 1'b1) begin
+            cell_flag <= 1'b1;
+          end else begin
+            cell_flag <= 1'b0;
+          end
           val_flag <= 1'b0;
           check_flag <= 1'b0;
         end
@@ -151,7 +163,11 @@ begin : OUTPUT_LOGIC
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
           cell_flag <= 1'b0;
-          val_flag <= 1'b1;
+          if (enter == 1'b1) begin
+            val_flag <= 1'b1;
+          end else begin
+            val_flag <= 1'b0;
+          end
           check_flag <= 1'b0;
         end
   CHECKING: begin

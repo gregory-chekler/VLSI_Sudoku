@@ -1,5 +1,5 @@
 $date
-	Tue Apr 16 00:25:00 2024
+	Sat Apr 20 19:40:53 2024
 $end
 $version
 	QuestaSim Version 2023.2
@@ -613,44 +613,39 @@ $var wire 1 '% rand_B [3] $end
 $var wire 1 (% rand_B [2] $end
 $var wire 1 )% rand_B [1] $end
 $var wire 1 *% rand_B [0] $end
-$var wire 1 +% in_set_board_flag $end
-$var wire 1 ,% in_set_diff_flag $end
-$var wire 1 -% in_cell_flag $end
-$var wire 1 .% in_val_flag $end
-$var wire 1 /% in_check_flag $end
 
 $scope module Sudoku_FSM $end
-$var parameter 32 0% SIZE $end
-$var parameter 3 1% IDLE $end
-$var parameter 3 2% SET_BOARD $end
-$var parameter 3 3% SET_DIFF $end
-$var parameter 3 4% CHOOSE_CELL $end
-$var parameter 3 5% CHOOSE_VAL $end
-$var parameter 3 6% CHECKING $end
-$var parameter 3 7% WRONG $end
-$var parameter 3 8% WIN $end
+$var parameter 32 +% SIZE $end
+$var parameter 3 ,% IDLE $end
+$var parameter 3 -% SET_BOARD $end
+$var parameter 3 .% SET_DIFF $end
+$var parameter 3 /% CHOOSE_CELL $end
+$var parameter 3 0% CHOOSE_VAL $end
+$var parameter 3 1% CHECKING $end
+$var parameter 3 2% WRONG $end
+$var parameter 3 3% WIN $end
 $var wire 1 q$ clka $end
 $var wire 1 r$ clkb $end
 $var wire 1 s$ restart $end
 $var wire 1 t$ enter $end
 $var wire 1 E! solved $end
-$var reg 1 9% gen_rand_flag $end
-$var reg 1 :% set_board_flag $end
-$var reg 1 ;% set_diff_flag $end
-$var reg 1 <% cell_flag $end
-$var reg 1 =% val_flag $end
-$var reg 1 >% check_flag $end
-$var reg 3 ?% state [2:0] $end
-$var wire 1 @% temp_state [2] $end
-$var wire 1 A% temp_state [1] $end
-$var wire 1 B% temp_state [0] $end
-$var reg 3 C% next_state [2:0] $end
+$var reg 1 4% gen_rand_flag $end
+$var reg 1 5% set_board_flag $end
+$var reg 1 6% set_diff_flag $end
+$var reg 1 7% cell_flag $end
+$var reg 1 8% val_flag $end
+$var reg 1 9% check_flag $end
+$var reg 3 :% state [2:0] $end
+$var wire 1 ;% temp_state [2] $end
+$var wire 1 <% temp_state [1] $end
+$var wire 1 =% temp_state [0] $end
+$var reg 3 >% next_state [2:0] $end
 
 $scope function fsm_function $end
-$var reg 3 D% fsm_function [2:0] $end
-$var reg 3 E% state [2:0] $end
-$var reg 1 F% enter $end
-$var reg 1 G% solved $end
+$var reg 3 ?% fsm_function [2:0] $end
+$var reg 3 @% state [2:0] $end
+$var reg 1 A% enter $end
+$var reg 1 B% solved $end
 $upscope $end
 
 $scope begin FSM_SEQ $end
@@ -664,11 +659,11 @@ $scope module Sudoku_DP $end
 $var wire 1 q$ clka $end
 $var wire 1 r$ clkb $end
 $var wire 1 s$ restart $end
-$var wire 1 +% set_board_flag $end
-$var wire 1 ,% set_diff_flag $end
-$var wire 1 -% cell_flag $end
-$var wire 1 .% val_flag $end
-$var wire 1 /% check_flag $end
+$var wire 1 + set_board_flag $end
+$var wire 1 , set_diff_flag $end
+$var wire 1 - cell_flag $end
+$var wire 1 . val_flag $end
+$var wire 1 / check_flag $end
 $var wire 1 u$ rand_setup [3] $end
 $var wire 1 v$ rand_setup [2] $end
 $var wire 1 w$ rand_setup [1] $end
@@ -685,76 +680,76 @@ $var wire 1 #% diff_cell_val [3] $end
 $var wire 1 $% diff_cell_val [2] $end
 $var wire 1 %% diff_cell_val [1] $end
 $var wire 1 &% diff_cell_val [0] $end
-$var reg 3 H% user_board_0 [2:0] $end
-$var reg 3 I% user_board_1 [2:0] $end
-$var reg 3 J% user_board_2 [2:0] $end
-$var reg 3 K% user_board_3 [2:0] $end
-$var reg 3 L% user_board_4 [2:0] $end
-$var reg 3 M% user_board_5 [2:0] $end
-$var reg 3 N% user_board_6 [2:0] $end
-$var reg 3 O% user_board_7 [2:0] $end
-$var reg 3 P% user_board_8 [2:0] $end
-$var reg 3 Q% user_board_9 [2:0] $end
-$var reg 3 R% user_board_10 [2:0] $end
-$var reg 3 S% user_board_11 [2:0] $end
-$var reg 3 T% user_board_12 [2:0] $end
-$var reg 3 U% user_board_13 [2:0] $end
-$var reg 3 V% user_board_14 [2:0] $end
-$var reg 3 W% user_board_15 [2:0] $end
-$var reg 3 X% real_board_0 [2:0] $end
-$var reg 3 Y% real_board_1 [2:0] $end
-$var reg 3 Z% real_board_2 [2:0] $end
-$var reg 3 [% real_board_3 [2:0] $end
-$var reg 3 \% real_board_4 [2:0] $end
-$var reg 3 ]% real_board_5 [2:0] $end
-$var reg 3 ^% real_board_6 [2:0] $end
-$var reg 3 _% real_board_7 [2:0] $end
-$var reg 3 `% real_board_8 [2:0] $end
-$var reg 3 a% real_board_9 [2:0] $end
-$var reg 3 b% real_board_10 [2:0] $end
-$var reg 3 c% real_board_11 [2:0] $end
-$var reg 3 d% real_board_12 [2:0] $end
-$var reg 3 e% real_board_13 [2:0] $end
-$var reg 3 f% real_board_14 [2:0] $end
-$var reg 3 g% real_board_15 [2:0] $end
-$var reg 16 h% fill_flag [15:0] $end
-$var reg 1 i% solved $end
-$var reg 3 j% A [2:0] $end
-$var reg 3 k% B [2:0] $end
-$var reg 3 l% inv_A [2:0] $end
-$var reg 3 m% inv_B [2:0] $end
-$var reg 4 n% current_cell [3:0] $end
-$var reg 3 o% temp_user_board_0 [2:0] $end
-$var reg 3 p% temp_user_board_1 [2:0] $end
-$var reg 3 q% temp_user_board_2 [2:0] $end
-$var reg 3 r% temp_user_board_3 [2:0] $end
-$var reg 3 s% temp_user_board_4 [2:0] $end
-$var reg 3 t% temp_user_board_5 [2:0] $end
-$var reg 3 u% temp_user_board_6 [2:0] $end
-$var reg 3 v% temp_user_board_7 [2:0] $end
-$var reg 3 w% temp_user_board_8 [2:0] $end
-$var reg 3 x% temp_user_board_9 [2:0] $end
-$var reg 3 y% temp_user_board_10 [2:0] $end
-$var reg 3 z% temp_user_board_11 [2:0] $end
-$var reg 3 {% temp_user_board_12 [2:0] $end
-$var reg 3 |% temp_user_board_13 [2:0] $end
-$var reg 3 }% temp_user_board_14 [2:0] $end
-$var reg 3 ~% temp_user_board_15 [2:0] $end
-$var reg 3 !& temp_real_board_0 [2:0] $end
-$var reg 3 "& temp_real_board_1 [2:0] $end
-$var reg 3 #& temp_real_board_2 [2:0] $end
-$var reg 3 $& temp_real_board_3 [2:0] $end
-$var reg 3 %& temp_real_board_4 [2:0] $end
-$var reg 3 && temp_real_board_5 [2:0] $end
-$var reg 3 '& temp_real_board_6 [2:0] $end
-$var reg 3 (& temp_real_board_7 [2:0] $end
-$var reg 3 )& temp_real_board_8 [2:0] $end
-$var reg 3 *& temp_real_board_9 [2:0] $end
-$var reg 3 +& temp_real_board_10 [2:0] $end
-$var reg 3 ,& temp_real_board_11 [2:0] $end
-$var reg 3 -& temp_real_board_12 [2:0] $end
-$var reg 3 .& temp_real_board_13 [2:0] $end
-$var reg 3 /& temp_real_board_14 [2:0] $end
-$var reg 3 0& temp_real_board_15 [2:0] $end
-$var reg 16 1& temp_fill_flag [15:0] $end
-$var reg 1 2& temp_solved $end
+$var reg 3 C% user_board_0 [2:0] $end
+$var reg 3 D% user_board_1 [2:0] $end
+$var reg 3 E% user_board_2 [2:0] $end
+$var reg 3 F% user_board_3 [2:0] $end
+$var reg 3 G% user_board_4 [2:0] $end
+$var reg 3 H% user_board_5 [2:0] $end
+$var reg 3 I% user_board_6 [2:0] $end
+$var reg 3 J% user_board_7 [2:0] $end
+$var reg 3 K% user_board_8 [2:0] $end
+$var reg 3 L% user_board_9 [2:0] $end
+$var reg 3 M% user_board_10 [2:0] $end
+$var reg 3 N% user_board_11 [2:0] $end
+$var reg 3 O% user_board_12 [2:0] $end
+$var reg 3 P% user_board_13 [2:0] $end
+$var reg 3 Q% user_board_14 [2:0] $end
+$var reg 3 R% user_board_15 [2:0] $end
+$var reg 3 S% real_board_0 [2:0] $end
+$var reg 3 T% real_board_1 [2:0] $end
+$var reg 3 U% real_board_2 [2:0] $end
+$var reg 3 V% real_board_3 [2:0] $end
+$var reg 3 W% real_board_4 [2:0] $end
+$var reg 3 X% real_board_5 [2:0] $end
+$var reg 3 Y% real_board_6 [2:0] $end
+$var reg 3 Z% real_board_7 [2:0] $end
+$var reg 3 [% real_board_8 [2:0] $end
+$var reg 3 \% real_board_9 [2:0] $end
+$var reg 3 ]% real_board_10 [2:0] $end
+$var reg 3 ^% real_board_11 [2:0] $end
+$var reg 3 _% real_board_12 [2:0] $end
+$var reg 3 `% real_board_13 [2:0] $end
+$var reg 3 a% real_board_14 [2:0] $end
+$var reg 3 b% real_board_15 [2:0] $end
+$var reg 16 c% fill_flag [15:0] $end
+$var reg 1 d% solved $end
+$var reg 3 e% A [2:0] $end
+$var reg 3 f% B [2:0] $end
+$var reg 3 g% inv_A [2:0] $end
+$var reg 3 h% inv_B [2:0] $end
+$var reg 4 i% current_cell [3:0] $end
+$var reg 3 j% temp_user_board_0 [2:0] $end
+$var reg 3 k% temp_user_board_1 [2:0] $end
+$var reg 3 l% temp_user_board_2 [2:0] $end
+$var reg 3 m% temp_user_board_3 [2:0] $end
+$var reg 3 n% temp_user_board_4 [2:0] $end
+$var reg 3 o% temp_user_board_5 [2:0] $end
+$var reg 3 p% temp_user_board_6 [2:0] $end
+$var reg 3 q% temp_user_board_7 [2:0] $end
+$var reg 3 r% temp_user_board_8 [2:0] $end
+$var reg 3 s% temp_user_board_9 [2:0] $end
+$var reg 3 t% temp_user_board_10 [2:0] $end
+$var reg 3 u% temp_user_board_11 [2:0] $end
+$var reg 3 v% temp_user_board_12 [2:0] $end
+$var reg 3 w% temp_user_board_13 [2:0] $end
+$var reg 3 x% temp_user_board_14 [2:0] $end
+$var reg 3 y% temp_user_board_15 [2:0] $end
+$var reg 3 z% temp_real_board_0 [2:0] $end
+$var reg 3 {% temp_real_board_1 [2:0] $end
+$var reg 3 |% temp_real_board_2 [2:0] $end
+$var reg 3 }% temp_real_board_3 [2:0] $end
+$var reg 3 ~% temp_real_board_4 [2:0] $end
+$var reg 3 !& temp_real_board_5 [2:0] $end
+$var reg 3 "& temp_real_board_6 [2:0] $end
+$var reg 3 #& temp_real_board_7 [2:0] $end
+$var reg 3 $& temp_real_board_8 [2:0] $end
+$var reg 3 %& temp_real_board_9 [2:0] $end
+$var reg 3 && temp_real_board_10 [2:0] $end
+$var reg 3 '& temp_real_board_11 [2:0] $end
+$var reg 3 (& temp_real_board_12 [2:0] $end
+$var reg 3 )& temp_real_board_13 [2:0] $end
+$var reg 3 *& temp_real_board_14 [2:0] $end
+$var reg 3 +& temp_real_board_15 [2:0] $end
+$var reg 16 ,& temp_fill_flag [15:0] $end
+$var reg 1 -& temp_solved $end

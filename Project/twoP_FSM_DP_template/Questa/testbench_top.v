@@ -30,7 +30,7 @@ wire [0:SIZE-1] enter_seq =    			18'b000101010101000010;
 wire [0:4*SIZE-1] rand_setup_seq =    	72'h000aaaaaaaaaaaaaaa;
 wire [0:4*SIZE-1] rand_A_seq = 			72'h000bbbbbbbbbbbbbbb;
 wire [0:4*SIZE-1] rand_B_seq = 			72'h000fffffffffffffff;
-wire [0:4*SIZE-1] diff_cell_val_seq = 	72'h000000010104000020;
+wire [0:4*SIZE-1] diff_cell_val_seq = 	72'h000043211243000000;
 
 // create a top FSM system instance.
 top_module top (.in_clka (in_clka), 

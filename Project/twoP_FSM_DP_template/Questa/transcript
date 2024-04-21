@@ -13,7 +13,7 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -debugDB -voptargs=""+acc"" top_module_tb 
-# Start time: 00:24:26 on Apr 16,2024
+# Start time: 19:39:03 on Apr 20,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
@@ -28,5 +28,5 @@ run -all
 # ** Note: $stop    : testbench_top.v(120)
 #    Time: 720 ns  Iteration: 0  Instance: /top_module_tb
 # Break in Module top_module_tb at testbench_top.v line 120
-# End time: 00:30:19 on Apr 16,2024, Elapsed time: 0:05:53
+# End time: 19:44:58 on Apr 20,2024, Elapsed time: 0:05:55
 # Errors: 0, Warnings: 1
