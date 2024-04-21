@@ -111,5 +111,12 @@ dp Sudoku_DP (.clka(in_clka),
 			.real_board_14(out_real_board_14),
 			.real_board_15(out_real_board_15));
 
+// lfsr_rng Sudoku_RNG (.clka(in_clka), 
+// 					.clkb(in_clkb),
+// 					.gen_rand_flag (out_gen_rand_flag),
+// 					.rand_setup(in_rand_setup),
+// 					.rand_A(in_rand_A),
+// 					.rand_B(in_rand_B));
+
 endmodule // End of Module top_module
                                     
