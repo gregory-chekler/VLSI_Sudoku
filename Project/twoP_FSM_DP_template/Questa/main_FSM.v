@@ -213,7 +213,7 @@ begin : OUTPUT_LOGIC
           // end else begin
           //   val_flag <= 1'b0;
           // end
-          check_flag <= 1'b0;
+          check_flag <= 1'b1;
         end
   CHECKING: begin
           state <= next_state;
