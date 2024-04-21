@@ -5,7 +5,7 @@
 //-----------------------------------------------------
 //
 //
-module dp (clka, clkb, restart, set_board_flag, set_diff_flag, cell_flag, val_flag, check_flag, 
+module dp (clka, clkb, restart, set_board_flag, set_diff_flag, row_flag, col_flag, val_flag, check_flag, 
 rand_setup, rand_A, rand_B, diff_cell_val, solved, fill_flag,
 user_board_0, user_board_1, user_board_2, user_board_3, user_board_4, user_board_5, user_board_6, user_board_7, 
 user_board_8, user_board_9, user_board_10, user_board_11, user_board_12, user_board_13, user_board_14, user_board_15, 
@@ -13,9 +13,9 @@ real_board_0, real_board_1, real_board_2, real_board_3, real_board_4, real_board
 real_board_8, real_board_9, real_board_10, real_board_11, real_board_12, real_board_13, real_board_14, real_board_15);
 
 //-----------Input Ports---------------
-input clka, clkb, restart, set_board_flag, set_diff_flag, cell_flag, val_flag, check_flag;
+input clka, clkb, restart, set_board_flag, set_diff_flag, row_flag, col_flag, val_flag, check_flag;
 input [3:0] rand_setup, rand_A, rand_B;
-input [3:0] diff_cell_val;
+input [1:0] diff_cell_val;    // difficulty, row, column, and value input depending on state
 
 //-----------Output Ports---------------
 output [2:0] user_board_0;
@@ -59,6 +59,7 @@ reg [2:0] A;
 reg [2:0] B;
 reg [2:0] inv_A;
 reg [2:0] inv_B;
+reg [1:0] current_row;
 reg [3:0] current_cell;
 
 reg [2:0] temp_user_board_0;
@@ -228,7 +229,7 @@ begin
       temp_real_board_14 = inv_B;
       temp_real_board_15 = A;
    end else if (set_diff_flag == 1'b1) begin 
-      if (diff_cell_val== 4'b0001) begin
+      if (diff_cell_val== 2'b01) begin
       // update 8 hints on temp_user_board
       // update fill flag
          case(rand_A[1:0])
@@ -319,7 +320,7 @@ begin
                      temp_fill_flag[15] = 1'b1;
                   end
          endcase
-      end else if (diff_cell_val == 4'b0010) begin
+      end else if (diff_cell_val == 2'b10) begin
          // update 5 hints on temp_user_board
          // update fill flag
          case(rand_A[1:0])
@@ -402,7 +403,7 @@ begin
                      temp_fill_flag[15] = 1'b1;
                   end
          endcase
-      end else if (diff_cell_val == 4'b0100) begin
+      end else if (diff_cell_val == 2'b11) begin
          // update 4 hints on temp_user_board
          // update fill flag
          case(rand_A[1:0])
@@ -478,43 +479,123 @@ begin
                   end
          endcase
       end
-   end else if (cell_flag == 1'b1) begin
-      current_cell = diff_cell_val;
+   end else if (row_flag == 1'b1) begin
+      current_row = diff_cell_val;
+   end else if (col_flag == 1'b1) begin
+      case ({current_row, diff_cell_val})
+         4'b0000: current_cell <= 4'b0000;
+         4'b0001: current_cell <= 4'b0001;
+         4'b0010: current_cell <= 4'b0010;
+         4'b0011: current_cell <= 4'b0011;
+         4'b0100: current_cell <= 4'b0100;
+         4'b0101: current_cell <= 4'b0101;
+         4'b0110: current_cell <= 4'b0110;
+         4'b0111: current_cell <= 4'b0111;
+         4'b1000: current_cell <= 4'b1000;
+         4'b1001: current_cell <= 4'b1001;
+         4'b1010: current_cell <= 4'b1010;
+         4'b1011: current_cell <= 4'b1011;
+         4'b1100: current_cell <= 4'b1100;
+         4'b1101: current_cell <= 4'b1101;
+         4'b1110: current_cell <= 4'b1110;
+         4'b1111: current_cell <= 4'b1111;
+         default: current_cell <= 4'b0000; // Handle any unexpected cases
+      endcase
+      // if (current_row == 2'b00) begin
+      //    if (diff_cell_val == 2'b00) begin
+      //       current_cell <= 4'b0000;
+      //    end else if (diff_cell_val == 2'b01) begin
+      //       current_cell <= 4'b0001;
+      //    end else if (diff_cell_val == 2'b10) begin
+      //       current_cell <= 4'b0010;
+      //    end else if (diff_cell_val == 2'b11) begin
+      //       current_cell <= 4'b0011;
+      //    end
+      // end else if (current_row == 2'b01) begin
+      //    if (diff_cell_val == 2'b00) begin
+      //       current_cell <= 4'b0100;
+      //    end else if (diff_cell_val == 2'b01) begin
+      //       current_cell <= 4'b0101;
+      //    end else if (diff_cell_val == 2'b10) begin
+      //       current_cell <= 4'b0110;
+      //    end else if (diff_cell_val == 2'b11) begin
+      //       current_cell <= 4'b0111;
+      //    end
+      // end else if (current_row == 2'b10) begin
+      //    if (diff_cell_val == 2'b00) begin
+      //       current_cell <= 4'b1000;
+      //    end else if (diff_cell_val == 2'b01) begin
+      //       current_cell <= 4'b1001;
+      //    end else if (diff_cell_val == 2'b10) begin
+      //       current_cell <= 4'b1010;
+      //    end else if (diff_cell_val == 2'b11) begin
+      //       current_cell <= 4'b1011;
+      //    end
+      // end else if (current_row == 2'b11) begin
+      //    if (diff_cell_val == 2'b00) begin
+      //       current_cell <= 4'b1100;
+      //    end else if (diff_cell_val == 2'b01) begin
+      //       current_cell <= 4'b1101;
+      //    end else if (diff_cell_val == 2'b10) begin
+      //       current_cell <= 4'b1110;
+      //    end else if (diff_cell_val == 2'b11) begin
+      //       current_cell <= 4'b1111;
+      //    end
+      // end 
    end else if (val_flag == 1'b1) begin
-      if (temp_fill_flag[current_cell] == 0) begin
-         if (current_cell == 0) begin
-            temp_user_board_0 = diff_cell_val;
-         end else if (current_cell == 1) begin
-            temp_user_board_1 = diff_cell_val;
-         end else if (current_cell == 2) begin
-            temp_user_board_2 = diff_cell_val;
-         end else if (current_cell == 3) begin
-            temp_user_board_3 = diff_cell_val;
-         end else if (current_cell == 4) begin
-            temp_user_board_4 = diff_cell_val;
-         end else if (current_cell == 5) begin
-            temp_user_board_5 = diff_cell_val;
-         end else if (current_cell == 6) begin
-            temp_user_board_6 = diff_cell_val;
-         end else if (current_cell == 7) begin
-            temp_user_board_7 = diff_cell_val;
-         end else if (current_cell == 8) begin
-            temp_user_board_8 = diff_cell_val;
-         end else if (current_cell == 9) begin
-            temp_user_board_9 = diff_cell_val;
-         end else if (current_cell == 10) begin
-            temp_user_board_10 = diff_cell_val;
-         end else if (current_cell == 11) begin
-            temp_user_board_11 = diff_cell_val;
-         end else if (current_cell == 12) begin
-            temp_user_board_12 = diff_cell_val;
-         end else if (current_cell == 13) begin
-            temp_user_board_13 = diff_cell_val;
-         end else if (current_cell == 14) begin
-            temp_user_board_14 = diff_cell_val;
-         end else if (current_cell == 15) begin
-            temp_user_board_15 = diff_cell_val;
-         end
+      if (temp_fill_flag[current_cell] == 1'b0) begin
+         case (current_cell)
+            4'd0: temp_user_board_0 = diff_cell_val + 1;
+            4'd1: temp_user_board_1 = diff_cell_val + 1;
+            4'd2: temp_user_board_2 = diff_cell_val + 1;
+            4'd3: temp_user_board_3 = diff_cell_val + 1;
+            4'd4: temp_user_board_4 = diff_cell_val + 1;
+            4'd5: temp_user_board_5 = diff_cell_val + 1;
+            4'd6: temp_user_board_6 = diff_cell_val + 1;
+            4'd7: temp_user_board_7 = diff_cell_val + 1;
+            4'd8: temp_user_board_8 = diff_cell_val + 1;
+            4'd9: temp_user_board_9 = diff_cell_val + 1;
+            4'd10: temp_user_board_10 = diff_cell_val + 1;
+            4'd11: temp_user_board_11 = diff_cell_val + 1;
+            4'd12: temp_user_board_12 = diff_cell_val + 1;
+            4'd13: temp_user_board_13 = diff_cell_val + 1;
+            4'd14: temp_user_board_14 = diff_cell_val + 1;
+            4'd15: temp_user_board_15 = diff_cell_val + 1;
+            default: ; // No action for unexpected cases
+         endcase
+         // if (current_cell == 0) begin
+         //    temp_user_board_0 = diff_cell_val + 1;
+         // end else if (current_cell == 1) begin
+         //    temp_user_board_1 = diff_cell_val + 1;
+         // end else if (current_cell == 2) begin
+         //    temp_user_board_2 = diff_cell_val + 1;
+         // end else if (current_cell == 3) begin
+         //    temp_user_board_3 = diff_cell_val + 1;
+         // end else if (current_cell == 4) begin
+         //    temp_user_board_4 = diff_cell_val + 1;
+         // end else if (current_cell == 5) begin
+         //    temp_user_board_5 = diff_cell_val + 1;
+         // end else if (current_cell == 6) begin
+         //    temp_user_board_6 = diff_cell_val + 1;
+         // end else if (current_cell == 7) begin
+         //    temp_user_board_7 = diff_cell_val + 1;
+         // end else if (current_cell == 8) begin
+         //    temp_user_board_8 = diff_cell_val + 1;
+         // end else if (current_cell == 9) begin
+         //    temp_user_board_9 = diff_cell_val + 1;
+         // end else if (current_cell == 10) begin
+         //    temp_user_board_10 = diff_cell_val + 1;
+         // end else if (current_cell == 11) begin
+         //    temp_user_board_11 = diff_cell_val + 1;
+         // end else if (current_cell == 12) begin
+         //    temp_user_board_12 = diff_cell_val + 1;
+         // end else if (current_cell == 13) begin
+         //    temp_user_board_13 = diff_cell_val + 1;
+         // end else if (current_cell == 14) begin
+         //    temp_user_board_14 = diff_cell_val + 1;
+         // end else if (current_cell == 15) begin
+         //    temp_user_board_15 = diff_cell_val + 1;
+         // end
       end
    end else if (check_flag == 1'b1) begin
       if ((temp_user_board_0 == temp_real_board_0) & (temp_user_board_1 == temp_real_board_1) 

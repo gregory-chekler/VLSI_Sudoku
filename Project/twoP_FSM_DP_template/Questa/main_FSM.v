@@ -6,23 +6,23 @@
 // 		 start signal to data path dp.
 // 		 Waits then for done signal from the datapath.
 //-----------------------------------------------------
-module main_FSM (clka, clkb, restart, enter, solved, state, gen_rand_flag, set_board_flag, set_diff_flag, cell_flag, val_flag, check_flag);
+module main_FSM (clka, clkb, restart, enter, solved, state, gen_rand_flag, set_board_flag, set_diff_flag, row_flag, col_flag, val_flag, check_flag);
 //-------------Input Ports-----------------------------
 input clka, clkb, restart, enter, solved;
 //-------------Output Ports----------------------------
 // output to data path
-output gen_rand_flag, set_board_flag, set_diff_flag, cell_flag, val_flag, check_flag;
+output gen_rand_flag, set_board_flag, set_diff_flag, row_flag, col_flag, val_flag, check_flag;
 // output to user
-output state[2:0];
+output state[3:0];
 //-------------Input ports Data Type-------------------
 wire clka, clkb, restart, enter, solved;
 //-------------Output Ports Data Type------------------
-reg gen_rand_flag, set_board_flag, set_diff_flag, cell_flag, val_flag, check_flag;
+reg gen_rand_flag, set_board_flag, set_diff_flag, row_flag, col_flag, val_flag, check_flag;
 
 //——————Internal Constants--------------------------
-parameter SIZE = 3;
-parameter IDLE = 3'b000, SET_BOARD = 3'b001, SET_DIFF = 3'b010;
-parameter CHOOSE_CELL = 3'b011, CHOOSE_VAL = 3'b100, CHECKING = 3'b101, WRONG = 3'b110, WIN = 3'b111;
+parameter SIZE = 4;
+parameter IDLE = 4'b0000, GET_RAND = 4'b0001, SET_BOARD = 4'b0010, SET_DIFF = 4'b0011;
+parameter CHOOSE_ROW = 4'b0100, CHOOSE_COL = 4'b0101, CHOOSE_VAL = 4'b0110, CHECKING = 4'b0111, WRONG = 4'b1000, WIN = 4'b1001;
 
 //-------------Internal Variables---------------------------
 reg   [SIZE-1:0]          state;    	// Initial FSM state reg and then after
@@ -46,7 +46,10 @@ function [SIZE-1:0] fsm_function;
             end else begin
               fsm_function = IDLE;
             end
-          end 
+          end
+    // GET_RAND: begin
+    //         fsm_function = SET_BOARD;
+    //       end
     SET_BOARD: begin
             if (enter == 1'b1) begin
               fsm_function = SET_DIFF;
@@ -56,24 +59,31 @@ function [SIZE-1:0] fsm_function;
           end
     SET_DIFF: begin
             if (enter == 1'b1) begin
-              fsm_function = CHOOSE_CELL;
+              fsm_function = CHOOSE_ROW;
             end else begin
               fsm_function = SET_DIFF;
             end
         end
-    CHOOSE_CELL: begin
+    CHOOSE_ROW: begin
             if (enter == 1'b1) begin
-              fsm_function = CHOOSE_VAL;
+              fsm_function = CHOOSE_COL;
             end else begin
-              fsm_function = CHOOSE_CELL;
+              fsm_function = CHOOSE_ROW;
             end
         end 
-    CHOOSE_VAL: begin
+    CHOOSE_COL: begin
             if (enter == 1'b1) begin
-              fsm_function = CHECKING;
-            end else begin
               fsm_function = CHOOSE_VAL;
+            end else begin
+              fsm_function = CHOOSE_COL;
             end
+        end
+    CHOOSE_VAL: begin
+        if (enter == 1'b1) begin
+          fsm_function = CHECKING;
+        end else begin
+          fsm_function = CHOOSE_VAL;
+        end
         end
     CHECKING: begin
             if (solved == 1'b1) begin
@@ -84,12 +94,13 @@ function [SIZE-1:0] fsm_function;
             end
     end
     WRONG: begin
-            if (enter == 1'b1) begin
-              fsm_function = CHOOSE_CELL;
-            end
-            else begin
-              fsm_function = WRONG;
-            end
+            fsm_function = CHOOSE_ROW;
+            // if (enter == 1'b1) begin
+            //   fsm_function = CHOOSE_ROW;
+            // end
+            // else begin
+            //   fsm_function = WRONG;
+            // end
         end
     WIN: begin
               fsm_function = WIN;
@@ -114,20 +125,33 @@ begin : OUTPUT_LOGIC
           gen_rand_flag <= 1'b1;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
-          cell_flag <= 1'b0;
+          row_flag <= 1'b0;
+          col_flag <= 1'b0;
           val_flag <= 1'b0;
           check_flag <= 1'b0;
         end
+  // GET_RAND: begin
+  //         state <= next_state;
+  //         gen_rand_flag <= 1'b0;
+  //         set_board_flag <= 1'b1;
+  //         set_diff_flag <= 1'b0;
+  //         row_flag <= 1'b0;
+  //         col_flag <= 1'b0;
+  //         val_flag <= 1'b0;
+  //         check_flag <= 1'b0;
+  //       end
   SET_BOARD: begin
           state <= next_state;
           gen_rand_flag <= 1'b0;
-          if (enter == 1'b1) begin
-            set_board_flag <= 1'b1;
-          end else begin
-            set_board_flag <= 1'b0;
-          end
+          set_board_flag <= 1'b1;
+          // if (enter == 1'b1) begin
+          //   set_board_flag <= 1'b1;
+          // end else begin
+          //   set_board_flag <= 1'b0;
+          // end
           set_diff_flag <= 1'b0;
-          cell_flag <= 1'b0;
+          row_flag <= 1'b0;
+          col_flag <= 1'b0;
           val_flag <= 1'b0;
           check_flag <= 1'b0;
         end
@@ -135,25 +159,44 @@ begin : OUTPUT_LOGIC
           state <= next_state;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
-          if (enter == 1'b1) begin
-            set_diff_flag <= 1'b1;
-          end else begin
-            set_diff_flag <= 1'b0;
-          end
-          cell_flag <= 1'b0;
+          set_diff_flag <= 1'b1;
+          // if (enter == 1'b1) begin
+          //   set_diff_flag <= 1'b1;
+          // end else begin
+          //   set_diff_flag <= 1'b0;
+          // end
+          row_flag <= 1'b0;
+          col_flag <= 1'b0;
           val_flag <= 1'b0;
           check_flag <= 1'b0;
           end
-  CHOOSE_CELL: begin
+  CHOOSE_ROW: begin
           state <= next_state;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
-          if (enter == 1'b1) begin
-            cell_flag <= 1'b1;
-          end else begin
-            cell_flag <= 1'b0;
-          end
+          row_flag <= 1'b1;
+          col_flag <= 1'b0;
+          // if (enter == 1'b1) begin
+          //   cell_flag <= 1'b1;
+          // end else begin
+          //   cell_flag <= 1'b0;
+          // end
+          val_flag <= 1'b0;
+          check_flag <= 1'b0;
+        end
+  CHOOSE_COL: begin
+          state <= next_state;
+          gen_rand_flag <= 1'b0;
+          set_board_flag <= 1'b0;
+          set_diff_flag <= 1'b0;
+          row_flag <= 1'b0;
+          col_flag <= 1'b1;
+          // if (enter == 1'b1) begin
+          //   cell_flag <= 1'b1;
+          // end else begin
+          //   cell_flag <= 1'b0;
+          // end
           val_flag <= 1'b0;
           check_flag <= 1'b0;
         end
@@ -162,12 +205,14 @@ begin : OUTPUT_LOGIC
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
-          cell_flag <= 1'b0;
-          if (enter == 1'b1) begin
-            val_flag <= 1'b1;
-          end else begin
-            val_flag <= 1'b0;
-          end
+          row_flag <= 1'b0;
+          col_flag <= 1'b0;
+          val_flag <= 1'b1;
+          // if (enter == 1'b1) begin
+          //   val_flag <= 1'b1;
+          // end else begin
+          //   val_flag <= 1'b0;
+          // end
           check_flag <= 1'b0;
         end
   CHECKING: begin
@@ -175,7 +220,8 @@ begin : OUTPUT_LOGIC
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
-          cell_flag <= 1'b0;
+          row_flag <= 1'b0;
+          col_flag <= 1'b0;
           val_flag <= 1'b0;
           check_flag <= 1'b1;
         end        
@@ -193,7 +239,8 @@ begin : OUTPUT_LOGIC
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
-          cell_flag <= 1'b0;
+          row_flag <= 1'b0;
+          col_flag <= 1'b0;
           val_flag <= 1'b0;
           check_flag <= 1'b0;
         end   
@@ -202,7 +249,8 @@ begin : OUTPUT_LOGIC
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
-          cell_flag <= 1'b0;
+          row_flag <= 1'b0;
+          col_flag <= 1'b0;
           val_flag <= 1'b0;
           check_flag <= 1'b0;
         end
@@ -211,7 +259,8 @@ begin : OUTPUT_LOGIC
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
-          cell_flag <= 1'b0;
+          row_flag <= 1'b0;
+          col_flag <= 1'b0;
           val_flag <= 1'b0;
           check_flag <= 1'b0;
          end

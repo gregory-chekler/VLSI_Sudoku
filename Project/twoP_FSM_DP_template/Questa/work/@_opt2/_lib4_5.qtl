@@ -198,11 +198,8 @@ Z13 OL;L;2023.2;77
 r1
 !s85 0
 31
-Z14 !s108 1713732749.000000
-Z15 !s107 testbench_top.v|top_module.v|dp.v|main_FSM.v|
-Z16 !s90 main_FSM.v|dp.v|top_module.v|testbench_top.v|
 !i113 0
-Z17 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z14 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R8
 vdp_module_tb
 2dp.v|testbench_dp.v
@@ -221,11 +218,8 @@ R13
 r1
 !s85 0
 31
-!s108 1713244693.000000
-!s107 testbench_dp.v|dp.v|
-!s90 dp.v|testbench_dp.v|
 !i113 0
-R17
+R14
 R8
 vmain_FSM
 R10
@@ -244,11 +238,8 @@ R13
 r1
 !s85 0
 31
-R14
-R15
-R16
 !i113 0
-R17
+R14
 R8
 nmain_@f@s@m
 vSudoku_FSM_tb
@@ -268,11 +259,8 @@ R13
 r1
 !s85 0
 31
-!s108 1713201860.000000
-!s107 testbench_FSM.v|main_FSM.v|
-!s90 main_FSM.v|testbench_FSM.v|
 !i113 0
-R17
+R14
 R8
 n@sudoku_@f@s@m_tb
 vtop_module
@@ -292,11 +280,8 @@ R13
 r1
 !s85 0
 31
-R14
-R15
-R16
 !i113 0
-R17
+R14
 R8
 vtop_module_tb
 R10
@@ -315,9 +300,6 @@ R13
 r1
 !s85 0
 31
-R14
-R15
-R16
 !i113 0
-R17
+R14
 R8
