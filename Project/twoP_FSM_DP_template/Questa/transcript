@@ -13,7 +13,7 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -debugDB -voptargs=""+acc"" top_module_tb 
-# Start time: 01:12:04 on Apr 22,2024
+# Start time: 11:52:42 on Apr 22,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
@@ -29,13 +29,5 @@ run -all
 # ** Note: $stop    : testbench_top.v(125)
 #    Time: 3880 ns  Iteration: 0  Instance: /top_module_tb
 # Break in Module top_module_tb at testbench_top.v line 125
-find drivers -source -time {222 ns} -cause sim:/top_module_tb/out_real_board_11
-# 
-# ====================================================================================
-# *PARTIAL* causality trace results for signal "sim:/top_module_tb/out_real_board_11":
-# 
-#   Time | Type | Scope                        | Signal                        | Source File
-# ------ | ---- | ---------------------------- | ----------------------------- | --------------------------------------------------------------------------------
-# 200 ns | FF   | /top_module_tb/top/Sudoku_DP | dbgTemp2_real_board_11_1[2:0] | dp.v:616
-# End time: 01:18:04 on Apr 22,2024, Elapsed time: 0:06:00
+# End time: 11:55:13 on Apr 22,2024, Elapsed time: 0:02:31
 # Errors: 0, Warnings: 1

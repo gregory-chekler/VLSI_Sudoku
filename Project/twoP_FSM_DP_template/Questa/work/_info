@@ -21,6 +21,12 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
 Z2 !s12c _opt1
 R1
 R0
@@ -229,10 +235,10 @@ n@_opt
 Z9 OL;O;2023.2;77
 R4
 T_opt2
-!s110 1713766325
-V3bBV=STMLa=Q=Shl0dgn`3
+!s110 1713804763
+V2oAN0jFnTV_]l4eeQokUd3
 04 13 4 work top_module_tb fast 0
-=1-d09466164d60-6625ffb5-4f395-239bae
+=1-d094661828ee-662695da-db560-29ee43
 R1
 R5
 R6
@@ -242,22 +248,22 @@ n@_opt2
 R9
 vdp
 Z10 2main_FSM.v|dp.v|random.v|top_module.v|testbench_top.v
-Z11 !s110 1713766298
+Z11 !s110 1713804755
 !i10b 1
-!s100 NE4fBcKR:VkOJdmULcgoI3
-IN];3N=[10KUbaRZOV12km2
+!s100 f_AT96]Tbb[9D7CB=k2V:0
+I`a22C3<8PFAkjkj>RTT913
 R4
-w1713762852
+w1713803278
 8dp.v
 Fdp.v
-!i122 165
-L0 8 688
+!i122 168
+L0 8 695
 Z12 VDg1SIo80bB@j0V0VzS_@n1
 Z13 OL;L;2023.2;77
 r1
 !s85 0
 31
-Z14 !s108 1713766298.000000
+Z14 !s108 1713804755.000000
 Z15 !s107 testbench_top.v|top_module.v|random.v|dp.v|main_FSM.v|
 Z16 !s90 main_FSM.v|dp.v|random.v|top_module.v|testbench_top.v|
 !i113 0
@@ -290,14 +296,14 @@ vlfsr_rng
 R10
 R11
 !i10b 1
-!s100 oJHlfV[V9P`HjT5ZBLPc81
-IKK75[?zONS>Y4SnPkLoXn0
+!s100 0gjemQ6Qe1R7lP8UPNO232
+Ia^=4^Q`UAfj7JT4^Ph2Lb3
 R4
-w1713766247
+w1713804749
 8random.v
 Frandom.v
-!i122 165
-L0 11 55
+!i122 168
+L0 11 66
 R12
 R13
 r1
@@ -319,7 +325,7 @@ R4
 w1713765104
 8main_FSM.v
 Fmain_FSM.v
-!i122 165
+!i122 168
 L0 9 261
 R12
 R13
@@ -364,10 +370,10 @@ R11
 !s100 JVa]<BYgINe]SDJz=IZDR2
 IJn_C?=XAQ1i[A8Ja7OOkb3
 R4
-w1713762833
+w1713803119
 8top_module.v
 Ftop_module.v
-!i122 165
+!i122 168
 L0 7 117
 R12
 R13
@@ -387,10 +393,10 @@ R11
 !s100 9M41E5l]QMBQ2P8<>`?S00
 I]HGnA;6zgBzhDT8N4GN^l0
 R4
-w1713765287
+w1713766750
 Z18 8testbench_top.v
 Z19 Ftestbench_top.v
-!i122 165
+!i122 168
 L0 6 122
 R12
 R13

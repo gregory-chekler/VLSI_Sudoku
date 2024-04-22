@@ -1,5 +1,5 @@
 $date
-	Mon Apr 22 01:13:28 2024
+	Mon Apr 22 11:53:49 2024
 $end
 $version
 	QuestaSim Version 2023.2
@@ -846,3 +846,6 @@ $var reg 24 s& lfsr [23:0] $end
 $var reg 24 t& period [23:0] $end
 $var reg 1 u& bit [0:0] $end
 $var reg 24 v& lfsr_out [23:0] $end
+$var reg 4 w& temp_rand_setup [3:0] $end
+$var reg 4 x& temp_rand_A [3:0] $end
+$var reg 4 y& temp_rand_B [3:0] $end

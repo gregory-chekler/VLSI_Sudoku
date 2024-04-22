@@ -140,6 +140,13 @@ reg solved;
 always @ (negedge clka)
 begin
    if (restart == 1'b1) begin
+      A = 3'b000;
+      B = 3'b000;
+      inv_A = 3'b000;
+      inv_B = 3'b000;
+      current_row = 2'b00;
+      current_cell = 4'b0000;
+
       temp_user_board_0 = 3'b000;
       temp_user_board_1 = 3'b000;
       temp_user_board_2 = 3'b000;
@@ -483,63 +490,63 @@ begin
       current_row = diff_cell_val;
    end else if (col_flag == 1'b1) begin
       case ({current_row, diff_cell_val})
-         4'b0000: current_cell <= 4'b0000;
-         4'b0001: current_cell <= 4'b0001;
-         4'b0010: current_cell <= 4'b0010;
-         4'b0011: current_cell <= 4'b0011;
-         4'b0100: current_cell <= 4'b0100;
-         4'b0101: current_cell <= 4'b0101;
-         4'b0110: current_cell <= 4'b0110;
-         4'b0111: current_cell <= 4'b0111;
-         4'b1000: current_cell <= 4'b1000;
-         4'b1001: current_cell <= 4'b1001;
-         4'b1010: current_cell <= 4'b1010;
-         4'b1011: current_cell <= 4'b1011;
-         4'b1100: current_cell <= 4'b1100;
-         4'b1101: current_cell <= 4'b1101;
-         4'b1110: current_cell <= 4'b1110;
-         4'b1111: current_cell <= 4'b1111;
-         default: current_cell <= 4'b0000; // Handle any unexpected cases
+         4'b0000: current_cell = 4'b0000;
+         4'b0001: current_cell = 4'b0001;
+         4'b0010: current_cell = 4'b0010;
+         4'b0011: current_cell = 4'b0011;
+         4'b0100: current_cell = 4'b0100;
+         4'b0101: current_cell = 4'b0101;
+         4'b0110: current_cell = 4'b0110;
+         4'b0111: current_cell = 4'b0111;
+         4'b1000: current_cell = 4'b1000;
+         4'b1001: current_cell = 4'b1001;
+         4'b1010: current_cell = 4'b1010;
+         4'b1011: current_cell = 4'b1011;
+         4'b1100: current_cell = 4'b1100;
+         4'b1101: current_cell = 4'b1101;
+         4'b1110: current_cell = 4'b1110;
+         4'b1111: current_cell = 4'b1111;
+         default: current_cell = 4'b0000; // Handle any unexpected cases
       endcase
       // if (current_row == 2'b00) begin
       //    if (diff_cell_val == 2'b00) begin
-      //       current_cell <= 4'b0000;
+      //       current_cell =4'b0000;
       //    end else if (diff_cell_val == 2'b01) begin
-      //       current_cell <= 4'b0001;
+      //       current_cell =4'b0001;
       //    end else if (diff_cell_val == 2'b10) begin
-      //       current_cell <= 4'b0010;
+      //       current_cell =4'b0010;
       //    end else if (diff_cell_val == 2'b11) begin
-      //       current_cell <= 4'b0011;
+      //       current_cell =4'b0011;
       //    end
       // end else if (current_row == 2'b01) begin
       //    if (diff_cell_val == 2'b00) begin
-      //       current_cell <= 4'b0100;
+      //       current_cell =4'b0100;
       //    end else if (diff_cell_val == 2'b01) begin
-      //       current_cell <= 4'b0101;
+      //       current_cell =4'b0101;
       //    end else if (diff_cell_val == 2'b10) begin
-      //       current_cell <= 4'b0110;
+      //       current_cell =4'b0110;
       //    end else if (diff_cell_val == 2'b11) begin
-      //       current_cell <= 4'b0111;
+      //       current_cell =4'b0111;
       //    end
       // end else if (current_row == 2'b10) begin
       //    if (diff_cell_val == 2'b00) begin
-      //       current_cell <= 4'b1000;
+      //       current_cell =4'b1000;
       //    end else if (diff_cell_val == 2'b01) begin
-      //       current_cell <= 4'b1001;
+      //       current_cell =4'b1001;
       //    end else if (diff_cell_val == 2'b10) begin
-      //       current_cell <= 4'b1010;
+      //       current_cell =4'b1010;
       //    end else if (diff_cell_val == 2'b11) begin
-      //       current_cell <= 4'b1011;
+      //       current_cell =4'b1011;
       //    end
       // end else if (current_row == 2'b11) begin
       //    if (diff_cell_val == 2'b00) begin
-      //       current_cell <= 4'b1100;
+      //       current_cell =4'b1100;
       //    end else if (diff_cell_val == 2'b01) begin
-      //       current_cell <= 4'b1101;
+      //       current_cell =4'b1101;
       //    end else if (diff_cell_val == 2'b10) begin
-      //       current_cell <= 4'b1110;
+      //       current_cell =4'b1110;
       //    end else if (diff_cell_val == 2'b11) begin
-      //       current_cell <= 4'b1111;
+      //       current_cell =4'b1111;
       //    end
       // end 
    end else if (val_flag == 1'b1) begin
