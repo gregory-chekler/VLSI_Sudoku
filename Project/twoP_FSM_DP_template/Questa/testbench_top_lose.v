@@ -3,14 +3,13 @@
 //// File Name   : top_module_tb.v
 //// Function    : Testbench for top module of pipeline adder
 ////-----------------------------------------------------
-module top_module_tb();
+module top_module_tb_lose();
 // Inputs to top_module
 reg in_clka, in_clkb, in_restart, in_enter;
-// reg [3:0] in_rand_setup, in_rand_A, in_rand_B;
+reg [3:0] in_rand_setup, in_rand_A, in_rand_B;
 reg [1:0] in_diff_cell_val;
 
 // Outputs from top_module
-wire [3:0] in_rand_setup, in_rand_A, in_rand_B;
 wire out_gen_rand_flag, out_set_board_flag, out_set_diff_flag, out_row_flag, out_col_flag, out_val_flag, out_check_flag;
 wire [3:0] out_state; 
 
@@ -27,15 +26,13 @@ wire out_solved;
 
 parameter SIZE = 97;
 wire [0:SIZE-1] restart_seq = 	   		97'b1100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100;
-wire [0:SIZE-1] enter_seq =    			97'b0001010101110011100111001110011100111001110011100111001110011100111001110011100101010010101000000;
-// wire [0:4*SIZE-1] rand_setup_seq =    	388'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;
-// wire [0:4*SIZE-1] rand_A_seq = 			388'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb;
-// wire [0:4*SIZE-1] rand_B_seq = 			388'hfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
-wire [0:2*SIZE-1] diff_cell_val_seq = 	194'b00000000000001010100000000000001010000001010000000111100000100100000010111000001100000000111010000100010000010010000001010110000101110000011001100001101100011111110010100001111110100000000111001;
+wire [0:SIZE-1] enter_seq =    			97'b0001010101110011100111001110011100111001110011100111001110011100111001110011100101010010101010000;
+wire [0:4*SIZE-1] rand_setup_seq =    	388'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;
+wire [0:4*SIZE-1] rand_A_seq = 			388'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb;
+wire [0:4*SIZE-1] rand_B_seq = 			388'hfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+wire [0:2*SIZE-1] diff_cell_val_seq = 	194'b00000000000001010000001100000001100000001001000000111100000100010000010100000001101100000111100000100010000010011100001010000000101101000011000000001101010011111110010100001111111111000000111001;
 // cell 14 is wrong
-// b00000000000001010100000000000001010000001010000000111100000100100000010111000001100000000111010000100010000010010000001010110000101110000011001100001101100011111110010100001111111111000000111001
-// b00000000000101010100001100000001100000001001000000111100000100010000010100000001101100000111100000100010000010011100001010000000101101000011000000001101010011111110010100001111111111000000111001
-// b0000000000001010100001100000001100000001001000000111100000100010000010100000001101100000111100000100010000010011100001010000000101101000011000000001101010011111110010100001111111111000000111001
+
 // create a top FSM system instance.
 top_module top (.in_clka (in_clka), 
 				.in_clkb (in_clkb),
@@ -96,9 +93,9 @@ begin
 for (i=0; i<SIZE; i = i+1)begin
 	in_restart = restart_seq[i];
 	in_enter = enter_seq[i];
-	// in_rand_setup = rand_setup_seq[4*i +:4];
-	// in_rand_A = rand_A_seq[4*i +:4];
-	// in_rand_B = rand_B_seq[4*i +:4];
+	in_rand_setup = rand_setup_seq[4*i +:4];
+	in_rand_A = rand_A_seq[4*i +:4];
+	in_rand_B = rand_B_seq[4*i +:4];
 	in_diff_cell_val = diff_cell_val_seq[2*i +:2];
 	in_clka = 0; in_clkb = 0; #10;
     in_clka = 1; in_clkb = 0; #10;
@@ -120,7 +117,7 @@ end
 // in_clka = 0; in_clkb = 0; #10;
 // in_clka = 0; in_clkb = 1; #10
 
-$dumpfile ("top_module_tb.vcd"); 
+$dumpfile ("top_module_tb_lose.vcd"); 
 $dumpvars; 
 $stop;
 end 

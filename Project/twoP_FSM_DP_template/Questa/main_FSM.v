@@ -22,7 +22,7 @@ reg gen_rand_flag, set_board_flag, set_diff_flag, row_flag, col_flag, val_flag, 
 //——————Internal Constants--------------------------
 parameter SIZE = 4;
 parameter IDLE = 4'b0000, SET_BOARD = 4'b0001,  SET_DIFF = 4'b0010;
-parameter CHOOSE_ROW = 4'b0011, CHOOSE_COL = 4'b0100, CHOOSE_VAL = 4'b0101, CHECKING = 4'b0110, WRONG = 4'b0111, WIN = 4'b1000;
+parameter CHOOSE_ROW = 4'b0011, CHOOSE_COL = 4'b0100, CHOOSE_VAL = 4'b0101, CHECKING = 4'b0110, WAIT = 4'b0111, WIN = 4'b1000;
 
 //-------------Internal Variables---------------------------
 reg   [SIZE-1:0]          state;    	// Initial FSM state reg and then after
@@ -86,21 +86,21 @@ function [SIZE-1:0] fsm_function;
         end
         end
     CHECKING: begin
-            if (solved == 1'b1) begin
-              fsm_function = WIN;
-            end
-            else begin
-              fsm_function = WRONG;
-            end
-    end
-    WRONG: begin
-            fsm_function = CHOOSE_ROW;
-            // if (enter == 1'b1) begin
-            //   fsm_function = CHOOSE_ROW;
+        fsm_function = WAIT;
+            // if (solved == 1'b1) begin
+            //   fsm_function = WIN;
             // end
             // else begin
             //   fsm_function = WRONG;
             // end
+    end
+    WAIT: begin
+            if (solved == 1'b1) begin
+              fsm_function = WIN;
+            end
+            else begin
+              fsm_function = CHOOSE_ROW;
+            end
         end
     WIN: begin
               fsm_function = WIN;
@@ -234,7 +234,7 @@ begin : OUTPUT_LOGIC
   //         val_flag <= 1'b0;
   //         check_flag <= 1'b0;
   //       end
-  WRONG: begin
+  WAIT: begin
           state <= next_state;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;

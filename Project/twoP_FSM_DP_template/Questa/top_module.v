@@ -13,10 +13,11 @@ module top_module (in_clka, in_clkb, in_restart, in_enter, in_diff_cell_val, out
 
 //-------------Input Ports-----------------------------
 input in_clka, in_clkb, in_restart, in_enter;
-input [3:0] in_rand_setup, in_rand_A, in_rand_B;
+// input [3:0] in_rand_setup, in_rand_A, in_rand_B;
 input [1:0] in_diff_cell_val;
 
 //-------------Output Ports----------------------------
+output [3:0] in_rand_setup, in_rand_A, in_rand_B;
 output out_gen_rand_flag, out_set_board_flag, out_set_diff_flag, out_row_flag, out_col_flag, out_val_flag, out_check_flag;
 output [3:0] out_state; 
 
@@ -111,12 +112,13 @@ dp Sudoku_DP (.clka(in_clka),
 			.real_board_14(out_real_board_14),
 			.real_board_15(out_real_board_15));
 
-// lfsr_rng Sudoku_RNG (.clka(in_clka), 
-// 					.clkb(in_clkb),
-// 					.gen_rand_flag (out_gen_rand_flag),
-// 					.rand_setup(in_rand_setup),
-// 					.rand_A(in_rand_A),
-// 					.rand_B(in_rand_B));
+lfsr_rng Sudoku_RNG (.clka(in_clka), 
+					.clkb(in_clkb),
+					.restart(in_restart),
+					.gen_rand_flag(out_gen_rand_flag),
+					.rand_setup(in_rand_setup),
+					.rand_A(in_rand_A),
+					.rand_B(in_rand_B));
 
 endmodule // End of Module top_module
                                     

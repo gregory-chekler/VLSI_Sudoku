@@ -229,7 +229,7 @@ begin
       temp_real_board_14 = inv_B;
       temp_real_board_15 = A;
    end else if (set_diff_flag == 1'b1) begin 
-      if (diff_cell_val== 2'b01) begin
+      if (diff_cell_val == 2'b01) begin
       // update 8 hints on temp_user_board
       // update fill flag
          case(rand_A[1:0])
