@@ -24,14 +24,16 @@ out_real_board_12, out_real_board_13, out_real_board_14, out_real_board_15;
 wire [15:0] out_fill_flag;
 wire out_solved;
 
-parameter SIZE = 25;
-wire [0:SIZE-1] restart_seq = 	   		25'b1100000000000000000000000;
-wire [0:SIZE-1] enter_seq =    			25'b0001010101010100100100100;
-wire [0:4*SIZE-1] rand_setup_seq =    	100'h000aaaaaaaaaaaaaaaaaaaa00;
-wire [0:4*SIZE-1] rand_A_seq = 			100'h000bbbbbbbbbbbbbbbbbbbb00;
-wire [0:4*SIZE-1] rand_B_seq = 			100'h000ffffffffffffffffffff00;
-wire [0:2*SIZE-1] diff_cell_val_seq = 	50'b00000000000001010000000011111111110000000101011010;
+parameter SIZE = 92;
+wire [0:SIZE-1] restart_seq = 	   		92'b11000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+wire [0:SIZE-1] enter_seq =    			92'b00010101011100111001110011100111001110011100111001110011100111001110011100111001110010101010;
+wire [0:4*SIZE-1] rand_setup_seq =    	368'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;
+wire [0:4*SIZE-1] rand_A_seq = 			368'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb;
+wire [0:4*SIZE-1] rand_B_seq = 			368'hffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+wire [0:2*SIZE-1] diff_cell_val_seq = 	184'b0000000000000101000000110000000110000000100100000011000000010001000001010000000110110000011110000010001000001001110000101000000010110100001100000000110101000011101000001111111111000000;
 
+// b000101010 11100 11100 11100 11100 11100 11100 11100 11100 11100 11100 11100 11100 11100 11100 11100 11100 
+// b00000000000001010000 0000110000 0001100000 0010010000 0011000000 0100010000 0101000000 0110110000 0111100000 1000100000 1001110000 1010000000 1011010000 1100000000 1101010000 1110100000 1111110000;
 // create a top FSM system instance.
 top_module top (.in_clka (in_clka), 
 				.in_clkb (in_clkb),

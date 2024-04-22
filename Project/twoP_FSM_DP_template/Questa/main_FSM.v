@@ -21,8 +21,8 @@ reg gen_rand_flag, set_board_flag, set_diff_flag, row_flag, col_flag, val_flag, 
 
 //——————Internal Constants--------------------------
 parameter SIZE = 4;
-parameter IDLE = 4'b0000, GET_RAND = 4'b0001, SET_BOARD = 4'b0010, SET_DIFF = 4'b0011;
-parameter CHOOSE_ROW = 4'b0100, CHOOSE_COL = 4'b0101, CHOOSE_VAL = 4'b0110, CHECKING = 4'b0111, WRONG = 4'b1000, WIN = 4'b1001;
+parameter IDLE = 4'b0000, SET_BOARD = 4'b0001,  SET_DIFF = 4'b0010;
+parameter CHOOSE_ROW = 4'b0011, CHOOSE_COL = 4'b0100, CHOOSE_VAL = 4'b0101, CHECKING = 4'b0110, WRONG = 4'b0111, WIN = 4'b1000;
 
 //-------------Internal Variables---------------------------
 reg   [SIZE-1:0]          state;    	// Initial FSM state reg and then after
