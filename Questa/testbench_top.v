@@ -10,19 +10,19 @@ reg [1:0] in_diff_cell_val;
 // reg [3:0] in_rand_setup, in_rand_A, in_rand_B;
 
 // Outputs from top_module
-// wire [3:0] in_rand_setup, in_rand_A, in_rand_B;
-// wire out_gen_rand_flag, out_set_board_flag, out_set_diff_flag, out_row_flag, out_col_flag, out_val_flag, out_check_flag;
-// wire [3:0] out_state; 
+wire [3:0] in_rand_setup, in_rand_A, in_rand_B;
+wire out_gen_rand_flag, out_set_board_flag, out_set_diff_flag, out_row_flag, out_col_flag, out_val_flag, out_check_flag;
+wire [3:0] out_state; 
 
 wire [2:0] out_user_board_0, out_user_board_1, out_user_board_2, out_user_board_3,
 out_user_board_4, out_user_board_5, out_user_board_6, out_user_board_7, out_user_board_8, out_user_board_9, out_user_board_10, out_user_board_11,
 out_user_board_12, out_user_board_13, out_user_board_14, out_user_board_15;
 
-// wire [2:0] out_real_board_0, out_real_board_1, out_real_board_2, out_real_board_3,
-// out_real_board_4, out_real_board_5, out_real_board_6, out_real_board_7, out_real_board_8, out_real_board_9, out_real_board_10, out_real_board_11,
-// out_real_board_12, out_real_board_13, out_real_board_14, out_real_board_15;
+wire [2:0] out_real_board_0, out_real_board_1, out_real_board_2, out_real_board_3,
+out_real_board_4, out_real_board_5, out_real_board_6, out_real_board_7, out_real_board_8, out_real_board_9, out_real_board_10, out_real_board_11,
+out_real_board_12, out_real_board_13, out_real_board_14, out_real_board_15;
 
-// wire [15:0] out_fill_flag;
+wire [15:0] out_fill_flag;
 wire out_solved;
 
 // some variation of enter + delay for cell 14 and 15 to reach win + new game
@@ -61,18 +61,18 @@ top_module top (.in_clka (in_clka),
 				.in_enter(in_enter),
 				.in_diff_cell_val(in_diff_cell_val),
 				.out_solved(out_solved),
-				// .out_state(out_state),
-				// .in_rand_setup(in_rand_setup),
-				// .in_rand_A(in_rand_A),
-				// .in_rand_B(in_rand_B),				
-				// .out_gen_rand_flag(out_gen_rand_flag),
-				// .out_set_board_flag(out_set_board_flag),
-				// .out_set_diff_flag(out_set_diff_flag),
-				// .out_row_flag(out_row_flag),
-				// .out_col_flag(out_col_flag),
-				// .out_val_flag(out_val_flag),
-				// .out_check_flag(out_check_flag),
-				// .out_fill_flag(out_fill_flag),
+				.out_state(out_state),
+				.in_rand_setup(in_rand_setup),
+				.in_rand_A(in_rand_A),
+				.in_rand_B(in_rand_B),				
+				.out_gen_rand_flag(out_gen_rand_flag),
+				.out_set_board_flag(out_set_board_flag),
+				.out_set_diff_flag(out_set_diff_flag),
+				.out_row_flag(out_row_flag),
+				.out_col_flag(out_col_flag),
+				.out_val_flag(out_val_flag),
+				.out_check_flag(out_check_flag),
+				.out_fill_flag(out_fill_flag),
 				.out_user_board_0(out_user_board_0),
 				.out_user_board_1(out_user_board_1),
 				.out_user_board_2(out_user_board_2),
@@ -88,23 +88,23 @@ top_module top (.in_clka (in_clka),
 				.out_user_board_12(out_user_board_12),
 				.out_user_board_13(out_user_board_13),
 				.out_user_board_14(out_user_board_14),
-				.out_user_board_15(out_user_board_15));
-				// .out_real_board_0(out_real_board_0),
-				// .out_real_board_1(out_real_board_1),
-				// .out_real_board_2(out_real_board_2),
-				// .out_real_board_3(out_real_board_3),
-				// .out_real_board_4(out_real_board_4),
-				// .out_real_board_5(out_real_board_5),
-				// .out_real_board_6(out_real_board_6),
-				// .out_real_board_7(out_real_board_7),
-				// .out_real_board_8(out_real_board_8),
-				// .out_real_board_9(out_real_board_9),
-				// .out_real_board_10(out_real_board_10),
-				// .out_real_board_11(out_real_board_11),
-				// .out_real_board_12(out_real_board_12),
-				// .out_real_board_13(out_real_board_13),
-				// .out_real_board_14(out_real_board_14),
-				// .out_real_board_15(out_real_board_15));
+				.out_user_board_15(out_user_board_15),
+				.out_real_board_0(out_real_board_0),
+				.out_real_board_1(out_real_board_1),
+				.out_real_board_2(out_real_board_2),
+				.out_real_board_3(out_real_board_3),
+				.out_real_board_4(out_real_board_4),
+				.out_real_board_5(out_real_board_5),
+				.out_real_board_6(out_real_board_6),
+				.out_real_board_7(out_real_board_7),
+				.out_real_board_8(out_real_board_8),
+				.out_real_board_9(out_real_board_9),
+				.out_real_board_10(out_real_board_10),
+				.out_real_board_11(out_real_board_11),
+				.out_real_board_12(out_real_board_12),
+				.out_real_board_13(out_real_board_13),
+				.out_real_board_14(out_real_board_14),
+				.out_real_board_15(out_real_board_15));
 
 integer i;
 
