@@ -238,7 +238,7 @@ begin : OUTPUT_LOGIC
   NEW_GAME: begin
           state <= next_state;
           // gen_rand_flag <= 1'b1;
-          gen_rand_flag <= 1'b1;
+          gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
           row_flag <= 1'b0;
