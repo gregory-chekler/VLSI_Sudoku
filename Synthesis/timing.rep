@@ -1,0 +1,56 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top_module
+Version: U-2022.12-SP7
+Date   : Thu Apr 25 16:43:28 2024
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: in_restart (input port clocked by in_clka)
+  Endpoint: Sudoku_DP/temp_user_board_6_reg[0]
+            (falling edge-triggered flip-flop clocked by in_clka)
+  Path Group: in_clka
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock in_clka (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 r
+  in_restart (in)                                         0.06       1.06 r
+  U41/Y (INVX2)                                           0.15       1.21 f
+  U20/Y (INVX2)                                           0.37       1.58 r
+  Sudoku_DP/U678/Y (NOR2X1)                               0.26       1.84 f
+  U21/Y (BUFX2)                                           0.23       2.07 f
+  U10/Y (BUFX2)                                           0.26       2.34 f
+  Sudoku_DP/U550/Y (NAND3X1)                              0.54       2.88 r
+  U42/Y (INVX2)                                           0.55       3.43 f
+  U22/Y (INVX2)                                           0.50       3.93 r
+  U2/Y (INVX2)                                            0.63       4.56 f
+  Sudoku_DP/U287/Y (AOI22X1)                              0.25       4.81 r
+  Sudoku_DP/U286/Y (NAND2X1)                              0.36       5.17 f
+  Sudoku_DP/U5/Y (AND2X2)                                 0.41       5.58 f
+  Sudoku_DP/U281/Y (AOI22X1)                              0.14       5.72 r
+  Sudoku_DP/U280/Y (OAI21X1)                              0.08       5.80 f
+  Sudoku_DP/temp_user_board_6_reg[0]/D (DFFNEGX1)         0.00       5.80 f
+  data arrival time                                                  5.80
+
+  clock in_clka (fall edge)                              25.00      25.00
+  clock network delay (ideal)                             0.00      25.00
+  Sudoku_DP/temp_user_board_6_reg[0]/CLK (DFFNEGX1)       0.00      25.00 f
+  library setup time                                     -0.37      24.63
+  data required time                                                24.63
+  --------------------------------------------------------------------------
+  data required time                                                24.63
+  data arrival time                                                 -5.80
+  --------------------------------------------------------------------------
+  slack (MET)                                                       18.83
+
+
+1

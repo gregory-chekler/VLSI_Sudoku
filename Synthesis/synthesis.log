@@ -1,0 +1,2512 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version U-2022.12-SP7 for linux64 - Oct 10, 2023 
+
+                    Copyright (c) 1988 - 2023 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Current time:       Thu Apr 25 16:43:24 2024
+Hostname:           zorite.clear.rice.edu
+CPU Model:          Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz
+CPU Details:        Cores = 40 : Sockets = 2 : Cache Size = 25600 KB : Freq = 3.40 GHz
+OS:                 Linux 4.18.0-513.24.1.el8_9.x86_64
+RAM:                125 GB (Free  31 GB)
+Swap:                19 GB (Free  19 GB)
+Work Filesystem:    /storage-home/h/hw62 mounted to clearstor.clear.rice.edu:/clear-home/hw62
+Tmp Filesystem:     /tmp mounted to /dev/mapper/vg0-tmp
+Work Disk:          5038 GB (Free 1341 GB)
+Tmp Disk:             5 GB (Free   5 GB)
+
+CPU Load: 0%, Ram Free: 31 GB, Swap Free: 19 GB, Work Disk Free: 1341 GB, Tmp Disk Free: 5 GB
+#/**************************************************/
+#/* Compile Script for Synopsys                    */
+#/*                                                */
+#/* dc_shell-t -f compile_dc.tcl                   */
+#/*                                                */
+#/* OSU FreePDK 45nm                               */
+#/* Modified for OSU ami05 - Rice U. 2018          */
+#/*                                                */
+#/**************************************************/
+#/* User Input Data Section: List files, module, clock, frequency below. */
+#/* Edit this part only of the file.                                     */
+#/* Add all verilog files, separated by spaces after keyword "list"      */
+set my_verilog_files [list main_FSM.v dp.v random.v top_module.v]
+main_FSM.v dp.v random.v top_module.v
+#/* Top-level Module Name update                            */
+set my_toplevel top_module
+top_module
+#/* The name of the clock pin. If no clock-pin     */
+#/* exists, pick anything                          */
+set my_clock_pin in_clka
+in_clka
+#/* Target frequency in MHz for optimization       */
+set my_clk_freq_MHz 20
+20
+#/* Delay of input signals (Clock-to-Q, Package etc.)  */
+set my_input_delay_ns 1
+1
+#/* Reserved time for output signals (Holdtime etc.)   */
+set my_output_delay_ns 1
+1
+#/********************************************************************/
+#/* No modifications needed below. Do not edit or remove.            */
+#/*                                                                  */
+#/* Paths updated for Rice U. on clear version 2 cluster 2018.       */
+#/********************************************************************/
+#/* Start of Synopsys library cells location data.               */
+set OSUcells "/clear/apps/osu/soc/synopsys/lib/ami05"
+/clear/apps/osu/soc/synopsys/lib/ami05
+set search_path [concat  $search_path $OSUcells]
+. /clear/apps/synopsys-2023/syn/latest/libraries/syn /clear/apps/synopsys-2023/syn/latest/dw/syn_ver /clear/apps/synopsys-2023/syn/latest/dw/sim_ver /clear/apps/osu/soc/synopsys/lib/ami05
+set alib_library_analysis_path $OSUcells
+/clear/apps/osu/soc/synopsys/lib/ami05
+set link_library [set target_library [concat  [list osu05_stdcells.db] [list dw_foundation.sldb]]]
+osu05_stdcells.db dw_foundation.sldb
+set target_library "osu05_stdcells.db"
+osu05_stdcells.db
+#/* End of Synopsys library cells location data.                  */
+define_design_lib WORK -path ./WORK
+1
+set verilogout_show_unconnected_pins "true"
+true
+analyze -f verilog $my_verilog_files
+Running PRESTO HDLC
+Compiling source file ./main_FSM.v
+Compiling source file ./dp.v
+Compiling source file ./random.v
+Compiling source file ./top_module.v
+Presto compilation completed successfully.
+Loading db file '/clear/apps/osu/soc/synopsys/lib/ami05/osu05_stdcells.db'
+Loading db file '/clear/apps/synopsys-2023/syn/latest/libraries/syn/dw_foundation.sldb'
+1
+elaborate $my_toplevel
+Loading db file '/clear/apps/synopsys-2023/syn/latest/libraries/syn/gtech.db'
+Loading db file '/clear/apps/synopsys-2023/syn/latest/libraries/syn/standard.sldb'
+  Loading link library 'osu05_stdcells'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (top_module)
+Elaborated 1 design.
+Current design is now 'top_module'.
+Information: Building the design 'main_FSM'. (HDL-193)
+
+Statistics for case statements in always block at line 34 in file
+	'./main_FSM.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            41            |     no/auto      |
+===============================================
+
+Statistics for case statements in always block at line 134 in file
+	'./main_FSM.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           136            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine main_FSM line 123 in file
+		'./main_FSM.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   next_state_reg    | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine main_FSM line 134 in file
+		'./main_FSM.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    val_flag_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   check_flag_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  gen_rand_flag_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| set_board_flag_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  set_diff_flag_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    row_flag_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    col_flag_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (main_FSM)
+Information: Building the design 'dp'. (HDL-193)
+
+Statistics for case statements in always block at line 140 in file
+	'./dp.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           262            |    auto/auto     |
+|           280            |    auto/auto     |
+|           306            |    auto/auto     |
+|           332            |    auto/auto     |
+|           352            |    auto/auto     |
+|           370            |    auto/auto     |
+|           388            |    auto/auto     |
+|           414            |    auto/auto     |
+|           434            |    auto/auto     |
+|           452            |    auto/auto     |
+|           470            |    auto/auto     |
+|           488            |    auto/auto     |
+|           510            |    auto/auto     |
+|           530            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine dp line 140 in file
+		'./dp.v'.
+==================================================================================
+|     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================
+| temp_real_board_14_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|   temp_fill_flag_reg   | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_15_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_7_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_13_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_7_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_8_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_9_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_10_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_12_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_11_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_12_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_13_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_14_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_9_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_11_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_15_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_0_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_1_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_2_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_10_reg | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_3_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_4_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_5_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_6_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_real_board_8_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|    temp_solved_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    current_row_reg     | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|    current_cell_reg    | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_0_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_1_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_2_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_3_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_4_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_5_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| temp_user_board_6_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+==================================================================================
+
+Inferred memory devices in process
+	in routine dp line 565 in file
+		'./dp.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     solved_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  real_board_0_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_1_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_2_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_3_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_4_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_5_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_6_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_7_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_8_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_9_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_10_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_11_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_12_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_13_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_14_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  real_board_15_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_0_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_1_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_2_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_3_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_4_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_5_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_6_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_7_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_8_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_9_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_10_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_11_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_12_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_13_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_14_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|  user_board_15_reg  | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|    fill_flag_reg    | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|      dp/529      |   16   |    1    |      4       |
+======================================================
+Presto compilation completed successfully. (dp)
+Information: Building the design 'lfsr_rng'. (HDL-193)
+
+Inferred memory devices in process
+	in routine lfsr_rng line 24 in file
+		'./random.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| temp_rand_setup_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|   temp_rand_A_reg   | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|   temp_rand_B_reg   | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|      lfsr_reg       | Flip-flop |  11   |  Y  | N  | N  | N  | N  | N  | N  |
+|       bit_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine lfsr_rng line 52 in file
+		'./random.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     rand_A_reg      | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|     rand_B_reg      | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|   rand_setup_reg    | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (lfsr_rng)
+1
+current_design $my_toplevel
+Current design is 'top_module'.
+{top_module}
+link
+
+  Linking design 'top_module'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  osu05_stdcells (library)    /clear/apps/osu/soc/synopsys/lib/ami05/osu05_stdcells.db
+  dw_foundation.sldb (library) /clear/apps/synopsys-2023/syn/latest/libraries/syn/dw_foundation.sldb
+
+1
+uniquify
+1
+set my_period [expr 1000 / $my_clk_freq_MHz]
+50
+set find_clock [ find port [list $my_clock_pin] ]
+{in_clka}
+if {  $find_clock != [list] } {
+   set clk_name $my_clock_pin
+   create_clock -period $my_period $clk_name
+} else {
+   set clk_name vclk
+   create_clock -period $my_period -name $clk_name
+}
+1
+set_driving_cell  -lib_cell INVX1  [all_inputs]
+Warning: Design rule attributes from the driving cell will be set on the port 'in_clka'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'in_clkb'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'in_restart'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'in_new_game'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'in_enter'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'in_diff_cell_val[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'in_diff_cell_val[0]'. (UID-401)
+1
+set_input_delay $my_input_delay_ns -clock $clk_name [remove_from_collection [all_inputs] $my_clock_pin]
+1
+set_output_delay $my_output_delay_ns -clock $clk_name [all_outputs]
+1
+compile -ungroup_all -map_effort medium
+CPU Load: 1%, Ram Free: 31 GB, Swap Free: 19 GB, Work Disk Free: 1341 GB, Tmp Disk Free: 5 GB
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | U-2022.12-DWBB_202212.5 |     *     |
+| Licensed DW Building Blocks        | U-2022.12-DWBB_202212.5 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 927                                    |
+| Number of User Hierarchies                              | 3                                      |
+| Sequential Cell Count                                   | 283                                    |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 240                                    |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 17 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'lfsr_rng'
+  Processing 'dp'
+Information: Ungrouping hierarchy C1846. (OPT-772)
+Information: Added key list 'DesignWare' to design 'dp'. (DDB-72)
+  Processing 'main_FSM'
+  Processing 'top_module'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Ungrouping hierarchy Sudoku_FSM. (OPT-772)
+Information: Ungrouping hierarchy Sudoku_DP. (OPT-772)
+Warning: Design 'top_module' inherited license information from design 'dp'. (DDB-74)
+Information: Added key list 'DesignWare' to design 'top_module'. (DDB-72)
+Information: Ungrouping hierarchy Sudoku_RNG. (OPT-772)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+Information: Command 'do_operand_isolation' is obsolete and is being ignored.  Please refer to the replacement command 'set power_enable_datapath_gating true' instead. (INFO-118)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02  462897.0      0.00       0.0       0.0                          
+    0:00:02  462897.0      0.00       0.0       0.0                          
+    0:00:02  462897.0      0.00       0.0       0.0                          
+    0:00:02  462897.0      0.00       0.0       0.0                          
+    0:00:02  462897.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  452745.0      0.00       0.0       0.0                          
+    0:00:02  450873.0      0.00       0.0       0.0                          
+    0:00:02  450441.0      0.00       0.0       0.0                          
+    0:00:02  450153.0      0.00       0.0       0.0                          
+    0:00:02  449865.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+    0:00:02  449577.0      0.00       0.0       0.0                          
+Loading db file '/clear/apps/osu/soc/synopsys/lib/ami05/osu05_stdcells.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+CPU Load: 1%, Ram Free: 31 GB, Swap Free: 19 GB, Work Disk Free: 1341 GB, Tmp Disk Free: 5 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+compile -incremental_mapping -map_effort medium
+CPU Load: 1%, Ram Free: 31 GB, Swap Free: 19 GB, Work Disk Free: 1341 GB, Tmp Disk Free: 5 GB
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 1132                                   |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 283                                    |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 0                                      |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+Information: Command 'do_operand_isolation' is obsolete and is being ignored.  Please refer to the replacement command 'set power_enable_datapath_gating true' instead. (INFO-118)
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00  449577.0      0.00       0.0       0.0                          
+    0:00:00  449577.0      0.00       0.0       0.0                          
+    0:00:00  449577.0      0.00       0.0       0.0                          
+Loading db file '/clear/apps/osu/soc/synopsys/lib/ami05/osu05_stdcells.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+CPU Load: 1%, Ram Free: 31 GB, Swap Free: 19 GB, Work Disk Free: 1341 GB, Tmp Disk Free: 5 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+check_design
+1
+report_constraint -all_violators
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : top_module
+Version: U-2022.12-SP7
+Date   : Thu Apr 25 16:43:27 2024
+****************************************
+
+This design has no violated constraints.
+
+1
+set filename [format "%s%s"  $my_toplevel ".vh"]
+top_module.vh
+write -f verilog -output $filename
+Writing verilog file '/storage-home/h/hw62/elec422/sudoku_test/Synthesis/top_module.vh'.
+1
+set filename [format "%s%s"  $my_toplevel ".sdc"]
+top_module.sdc
+write_sdc $filename
+1
+report_cell 
+ 
+****************************************
+Report : cell
+Design : top_module
+Version: U-2022.12-SP7
+Date   : Thu Apr 25 16:43:27 2024
+****************************************
+
+Attributes:
+    b - black box (unknown)
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+Sudoku_DP/U3              AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U4              AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U5              AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U6              AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U7              AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U8              AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U9              AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U10             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U11             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U12             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U13             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U14             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U15             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U16             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U17             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U18             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U19             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U20             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U21             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U22             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U23             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U24             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U25             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U26             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U27             AND2X2          osu05_stdcells  288.000000
+Sudoku_DP/U28             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U29             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U30             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U31             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U32             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U33             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U34             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U35             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U36             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U37             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U38             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U39             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U40             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U41             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U42             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U43             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U44             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U45             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U46             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U47             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U48             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U49             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U50             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U51             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U52             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U53             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U54             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U55             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U56             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U57             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U58             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U59             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U60             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U61             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U62             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U63             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U64             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U65             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U66             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U67             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U68             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U69             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U70             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U71             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U72             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U73             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U74             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U75             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U76             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U77             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U78             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U79             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U80             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U81             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U82             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U83             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U84             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U85             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U86             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U87             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U88             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U89             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U90             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U91             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U92             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U93             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U94             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U95             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U96             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U97             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U98             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U99             INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U100            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U101            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U102            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U103            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U104            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U105            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U106            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U107            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U108            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U109            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U110            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U111            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U112            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U113            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U114            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U115            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U116            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U117            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U118            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U119            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U120            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U121            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U122            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U123            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U124            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U125            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U126            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U127            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U128            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U129            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U130            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U131            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U132            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U133            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U134            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U135            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U136            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U137            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U138            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U139            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U140            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U141            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U142            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U143            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U144            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U145            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U146            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U147            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U148            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U149            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U150            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U151            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U152            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U153            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U154            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U155            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U156            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U157            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U158            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U161            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U162            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U163            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U164            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U165            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U166            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U167            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U168            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U169            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U170            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U171            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U172            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U173            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U174            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U175            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U176            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U177            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U178            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U179            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U180            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U181            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U182            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U183            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U184            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U185            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U186            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U187            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U188            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U189            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U190            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U191            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U192            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U193            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U194            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U195            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U196            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U197            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U198            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U199            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U200            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U201            INVX2           osu05_stdcells  144.000000
+Sudoku_DP/U202            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U203            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U204            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U205            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U206            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U207            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U208            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U209            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U210            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U211            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U212            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U213            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U214            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U215            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U216            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U217            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U218            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U219            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U220            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U221            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U222            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U223            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U224            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U225            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U226            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U227            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U228            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U229            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U230            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U231            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U232            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U233            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U234            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U235            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U236            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U237            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U238            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U239            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U240            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U241            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U242            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U243            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U244            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U245            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U246            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U247            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U248            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U249            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U250            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U251            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U252            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U253            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U254            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U255            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U256            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U257            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U258            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U259            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U260            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U261            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U262            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U263            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U264            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U265            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U266            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U267            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U268            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U269            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U270            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U271            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U272            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U273            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U274            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U275            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U276            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U277            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U278            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U279            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U280            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U281            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U282            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U283            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U284            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U285            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U286            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U287            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U288            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U289            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U290            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U291            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U292            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U293            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U294            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U295            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U296            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U297            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U298            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U299            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U300            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U301            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U302            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U303            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U304            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U305            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U306            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U307            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U308            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U309            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U310            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U311            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U312            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U313            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U314            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U315            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U316            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U317            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U318            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U319            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U320            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U321            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U322            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U323            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U324            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U325            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U326            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U327            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U328            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U329            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U330            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U331            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U332            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U333            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U334            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U335            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U336            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U337            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U338            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U339            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U340            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U341            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U342            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U343            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U344            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U345            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U346            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U347            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U348            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U349            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U350            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U351            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U352            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U353            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U354            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U355            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U356            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U357            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U358            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U359            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U360            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U361            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U362            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U363            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U364            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U365            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U366            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U367            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U368            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U369            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U370            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U371            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U372            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U373            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U374            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U375            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U376            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U377            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U378            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U379            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U380            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U381            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U382            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U383            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U384            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U385            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U386            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U387            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U388            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U389            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U390            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U391            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U392            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U393            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U394            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U395            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U396            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U397            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U398            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U399            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U400            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U401            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U403            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U404            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U406            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U407            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U409            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U410            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U411            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U412            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U413            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U414            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U415            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U416            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U417            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U418            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U419            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U420            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U421            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U422            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U423            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U424            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U425            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U426            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U427            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U428            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U429            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U430            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U431            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U432            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U433            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U434            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U435            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U436            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U437            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U438            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U439            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U440            OAI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U441            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U442            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U443            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U444            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U445            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U446            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U447            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U448            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U449            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U450            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U451            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U452            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U453            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U454            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U455            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U456            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U457            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U458            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U459            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U460            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U461            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U462            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U463            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U464            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U465            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U466            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U467            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U468            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U469            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U470            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U471            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U472            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U473            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U474            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U475            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U476            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U477            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U478            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U479            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U480            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U481            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U482            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U483            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U484            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U485            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U486            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U487            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U488            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U489            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U490            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U491            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U492            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U493            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U494            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U495            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U496            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U497            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U498            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U499            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U500            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U501            XOR2X1          osu05_stdcells  504.000000
+Sudoku_DP/U502            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U503            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U504            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U505            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U506            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U507            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U508            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U509            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U510            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U511            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U512            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U513            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U514            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U515            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U516            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U517            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U518            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U519            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U520            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U521            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U522            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U523            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U524            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U525            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U526            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U527            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U528            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U529            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U530            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U531            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U532            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U533            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U534            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U535            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U536            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U537            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U538            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U539            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U540            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U541            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U542            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U543            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U544            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U545            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U546            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U547            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U548            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U549            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U550            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U551            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U552            AOI22X1         osu05_stdcells  360.000000
+Sudoku_DP/U553            XNOR2X1         osu05_stdcells  504.000000
+Sudoku_DP/U554            XNOR2X1         osu05_stdcells  504.000000
+Sudoku_DP/U555            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U556            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U557            XNOR2X1         osu05_stdcells  504.000000
+Sudoku_DP/U558            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U559            OAI21X1         osu05_stdcells  207.000000
+Sudoku_DP/U560            NAND3X1         osu05_stdcells  324.000000
+Sudoku_DP/U561            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U562            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U563            OR2X1           osu05_stdcells  288.000000
+Sudoku_DP/U564            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U565            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U566            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U567            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U568            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U569            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U570            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U571            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U572            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U573            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U574            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U575            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U576            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U577            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U578            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U579            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U580            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U581            NAND2X1         osu05_stdcells  216.000000
+Sudoku_DP/U582            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U583            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U584            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U585            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U586            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U587            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U588            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U589            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U590            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U591            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U592            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U593            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U594            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U595            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U596            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U597            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U598            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U599            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U600            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U601            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U602            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U603            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U604            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U605            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U606            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U607            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U608            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U609            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U610            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U611            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U612            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U613            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U614            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U615            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U616            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U617            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U618            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U619            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U620            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U621            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U622            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U623            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U624            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U625            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U626            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U627            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U628            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U629            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U630            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U631            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U632            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U633            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U634            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U635            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U636            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U637            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U638            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U639            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U640            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U641            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U642            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U643            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U644            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U645            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U646            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U647            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U648            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U649            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U650            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U651            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U652            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U653            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U654            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U655            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U656            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U657            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U658            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U659            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U660            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U661            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U662            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U663            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U664            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U665            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U666            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U667            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U668            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U669            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U670            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U671            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U672            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U673            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U674            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U675            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U676            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U677            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/U678            NOR2X1          osu05_stdcells  216.000000
+Sudoku_DP/current_cell_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/current_cell_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/current_cell_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/current_cell_reg[3]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/current_row_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/current_row_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[3]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[4]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[5]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[6]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[7]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[8]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[9]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[10]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[11]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[12]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[13]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[14]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/fill_flag_reg[15]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_0_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_0_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_0_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_1_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_1_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_1_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_2_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_2_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_2_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_3_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_3_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_3_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_4_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_4_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_4_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_5_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_5_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_5_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_6_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_6_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_6_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_7_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_7_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_7_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_8_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_8_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_8_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_9_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_9_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_9_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_10_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_10_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_10_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_11_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_11_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_11_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_12_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_12_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_12_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_13_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_13_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_13_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_14_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_14_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_14_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_15_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_15_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/real_board_15_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/solved_reg      DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[3]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[4]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[5]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[6]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[7]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[8]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[9]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[10]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[11]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[12]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[13]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[14]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_fill_flag_reg[15]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_0_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_0_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_0_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_1_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_1_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_1_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_2_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_2_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_2_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_3_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_3_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_3_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_4_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_4_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_4_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_5_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_5_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_5_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_6_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_6_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_6_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_7_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_7_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_7_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_8_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_8_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_8_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_9_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_9_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_9_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_10_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_10_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_10_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_11_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_11_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_11_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_12_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_12_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_12_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_13_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_13_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_13_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_14_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_14_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_14_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_15_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_15_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_real_board_15_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_solved_reg DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_0_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_0_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_0_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_1_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_1_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_1_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_2_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_2_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_2_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_3_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_3_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_3_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_4_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_4_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_4_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_5_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_5_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_5_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_6_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_6_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_6_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_7_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_7_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_7_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_8_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_8_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_8_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_9_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_9_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_9_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_10_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_10_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_10_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_11_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_11_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_11_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_12_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_12_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_12_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_13_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_13_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_13_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_14_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_14_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_14_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_15_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_15_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/temp_user_board_15_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_0_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_0_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_0_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_1_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_1_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_1_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_2_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_2_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_2_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_3_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_3_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_3_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_4_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_4_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_4_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_5_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_5_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_5_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_6_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_6_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_6_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_7_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_7_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_7_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_8_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_8_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_8_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_9_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_9_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_9_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_10_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_10_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_10_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_11_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_11_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_11_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_12_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_12_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_12_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_13_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_13_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_13_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_14_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_14_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_14_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_15_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_15_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_DP/user_board_15_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/U3             AND2X2          osu05_stdcells  288.000000
+Sudoku_FSM/U4             INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U5             INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U6             INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U7             INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U8             INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U9             INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U10            INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U11            INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U12            INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U13            INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U15            INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U16            INVX2           osu05_stdcells  144.000000
+Sudoku_FSM/U17            AOI21X1         osu05_stdcells  288.000000
+Sudoku_FSM/U18            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U19            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U20            NAND3X1         osu05_stdcells  324.000000
+Sudoku_FSM/U21            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U22            XOR2X1          osu05_stdcells  504.000000
+Sudoku_FSM/U23            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U24            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U25            OAI22X1         osu05_stdcells  360.000000
+Sudoku_FSM/U26            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U27            NAND3X1         osu05_stdcells  324.000000
+Sudoku_FSM/U28            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U29            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U30            AOI21X1         osu05_stdcells  288.000000
+Sudoku_FSM/U31            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U32            AOI22X1         osu05_stdcells  360.000000
+Sudoku_FSM/U33            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U34            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U35            OR2X1           osu05_stdcells  288.000000
+Sudoku_FSM/U36            AOI21X1         osu05_stdcells  288.000000
+Sudoku_FSM/U37            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U38            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U39            NAND3X1         osu05_stdcells  324.000000
+Sudoku_FSM/U40            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U41            NAND3X1         osu05_stdcells  324.000000
+Sudoku_FSM/U42            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U43            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U44            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U45            NAND3X1         osu05_stdcells  324.000000
+Sudoku_FSM/U46            AOI21X1         osu05_stdcells  288.000000
+Sudoku_FSM/U47            OAI21X1         osu05_stdcells  207.000000
+Sudoku_FSM/U48            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U49            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U50            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U51            OR2X1           osu05_stdcells  288.000000
+Sudoku_FSM/U52            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U53            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U54            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U55            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U56            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U57            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U58            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U59            NOR2X1          osu05_stdcells  216.000000
+Sudoku_FSM/U60            NAND2X1         osu05_stdcells  216.000000
+Sudoku_FSM/U61            OR2X1           osu05_stdcells  288.000000
+Sudoku_FSM/check_flag_reg DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/col_flag_reg   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/gen_rand_flag_reg
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/next_state_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/next_state_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/next_state_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/next_state_reg[3]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/row_flag_reg   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/set_board_flag_reg
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/set_diff_flag_reg
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/state_reg[0]   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/state_reg[1]   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/state_reg[2]   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/state_reg[3]   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_FSM/val_flag_reg   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/U3             INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U4             INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U5             INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U6             INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U7             INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U8             INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U9             INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U10            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U11            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U12            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U13            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U14            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U15            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U16            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U17            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U18            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U19            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U20            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U21            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U22            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U23            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U24            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U25            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U26            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U29            INVX2           osu05_stdcells  144.000000
+Sudoku_RNG/U30            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U31            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U32            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U33            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U34            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U35            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U36            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U37            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U38            OAI21X1         osu05_stdcells  207.000000
+Sudoku_RNG/U39            AOI21X1         osu05_stdcells  288.000000
+Sudoku_RNG/U40            OAI21X1         osu05_stdcells  207.000000
+Sudoku_RNG/U41            AOI21X1         osu05_stdcells  288.000000
+Sudoku_RNG/U42            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U43            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U44            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U45            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U46            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U47            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U49            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U50            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U51            OAI21X1         osu05_stdcells  207.000000
+Sudoku_RNG/U52            AOI21X1         osu05_stdcells  288.000000
+Sudoku_RNG/U53            OAI21X1         osu05_stdcells  207.000000
+Sudoku_RNG/U54            AOI21X1         osu05_stdcells  288.000000
+Sudoku_RNG/U55            OAI21X1         osu05_stdcells  207.000000
+Sudoku_RNG/U56            AOI21X1         osu05_stdcells  288.000000
+Sudoku_RNG/U57            OAI21X1         osu05_stdcells  207.000000
+Sudoku_RNG/U58            AOI21X1         osu05_stdcells  288.000000
+Sudoku_RNG/U59            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U60            OAI22X1         osu05_stdcells  360.000000
+Sudoku_RNG/U61            XOR2X1          osu05_stdcells  504.000000
+Sudoku_RNG/U62            XNOR2X1         osu05_stdcells  504.000000
+Sudoku_RNG/U63            XNOR2X1         osu05_stdcells  504.000000
+Sudoku_RNG/U64            NAND2X1         osu05_stdcells  216.000000
+Sudoku_RNG/U65            NAND3X1         osu05_stdcells  324.000000
+Sudoku_RNG/U66            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U67            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U68            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U69            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U70            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U71            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U72            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U73            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U74            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U75            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U76            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/U77            NOR2X1          osu05_stdcells  216.000000
+Sudoku_RNG/bit_reg        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[0]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[1]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[2]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[3]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[4]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[5]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[6]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[7]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[8]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[9]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/lfsr_reg[10]   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_A_reg[0]  DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_A_reg[1]  DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_A_reg[2]  DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_A_reg[3]  DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_B_reg[0]  DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_B_reg[1]  DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_B_reg[2]  DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_B_reg[3]  DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_setup_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_setup_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_setup_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/rand_setup_reg[3]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_A_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_A_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_A_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_A_reg[3]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_B_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_B_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_B_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_B_reg[3]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_setup_reg[0]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_setup_reg[1]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_setup_reg[2]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+Sudoku_RNG/temp_rand_setup_reg[3]
+                          DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+U1                        OR2X2           osu05_stdcells  288.000000
+U2                        INVX2           osu05_stdcells  144.000000
+U3                        INVX2           osu05_stdcells  144.000000
+U4                        BUFX2           osu05_stdcells  216.000000
+U5                        BUFX2           osu05_stdcells  216.000000
+U6                        BUFX2           osu05_stdcells  216.000000
+U7                        BUFX2           osu05_stdcells  216.000000
+U8                        INVX2           osu05_stdcells  144.000000
+U9                        INVX2           osu05_stdcells  144.000000
+U10                       BUFX2           osu05_stdcells  216.000000
+U11                       INVX2           osu05_stdcells  144.000000
+U12                       INVX2           osu05_stdcells  144.000000
+U13                       BUFX2           osu05_stdcells  216.000000
+U14                       BUFX2           osu05_stdcells  216.000000
+U15                       BUFX2           osu05_stdcells  216.000000
+U16                       BUFX2           osu05_stdcells  216.000000
+U17                       BUFX2           osu05_stdcells  216.000000
+U18                       BUFX2           osu05_stdcells  216.000000
+U19                       BUFX2           osu05_stdcells  216.000000
+U20                       INVX2           osu05_stdcells  144.000000
+U21                       BUFX2           osu05_stdcells  216.000000
+U22                       INVX2           osu05_stdcells  144.000000
+U23                       OR2X1           osu05_stdcells  288.000000
+U24                       INVX2           osu05_stdcells  144.000000
+U25                       OR2X1           osu05_stdcells  288.000000
+U26                       BUFX2           osu05_stdcells  216.000000
+U27                       BUFX2           osu05_stdcells  216.000000
+U28                       INVX2           osu05_stdcells  144.000000
+U29                       INVX2           osu05_stdcells  144.000000
+U30                       BUFX2           osu05_stdcells  216.000000
+U31                       BUFX2           osu05_stdcells  216.000000
+U32                       BUFX2           osu05_stdcells  216.000000
+U33                       BUFX2           osu05_stdcells  216.000000
+U34                       BUFX2           osu05_stdcells  216.000000
+U35                       BUFX2           osu05_stdcells  216.000000
+U36                       BUFX2           osu05_stdcells  216.000000
+U37                       BUFX2           osu05_stdcells  216.000000
+U38                       BUFX2           osu05_stdcells  216.000000
+U39                       BUFX2           osu05_stdcells  216.000000
+U40                       BUFX2           osu05_stdcells  216.000000
+U41                       INVX2           osu05_stdcells  144.000000
+U42                       INVX2           osu05_stdcells  144.000000
+U43                       OR2X1           osu05_stdcells  288.000000
+U44                       INVX2           osu05_stdcells  144.000000
+U45                       BUFX2           osu05_stdcells  216.000000
+U46                       BUFX2           osu05_stdcells  216.000000
+U47                       BUFX2           osu05_stdcells  216.000000
+U48                       BUFX2           osu05_stdcells  216.000000
+--------------------------------------------------------------------------------
+Total 1132 cells                                          449577.000000
+1
+report_area 
+ 
+****************************************
+Report : area
+Design : top_module
+Version: U-2022.12-SP7
+Date   : Thu Apr 25 16:43:27 2024
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    osu05_stdcells (File: /clear/apps/osu/soc/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                          143
+Number of nets:                          1139
+Number of cells:                         1132
+Number of combinational cells:            849
+Number of sequential cells:               283
+Number of macros/black boxes:               0
+Number of buf/inv:                        253
+Number of references:                      15
+
+Combinational area:             205065.000000
+Buf/Inv area:                    38592.000000
+Noncombinational area:          244512.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                449577.000000
+Total area:                 undefined
+1
+report_timing -path full -delay max -max_paths 3 -nworst 1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 3
+Design : top_module
+Version: U-2022.12-SP7
+Date   : Thu Apr 25 16:43:28 2024
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: in_restart (input port clocked by in_clka)
+  Endpoint: Sudoku_DP/temp_user_board_6_reg[0]
+            (falling edge-triggered flip-flop clocked by in_clka)
+  Path Group: in_clka
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock in_clka (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 r
+  in_restart (in)                                         0.06       1.06 r
+  U41/Y (INVX2)                                           0.15       1.21 f
+  U20/Y (INVX2)                                           0.37       1.58 r
+  Sudoku_DP/U678/Y (NOR2X1)                               0.26       1.84 f
+  U21/Y (BUFX2)                                           0.23       2.07 f
+  U10/Y (BUFX2)                                           0.26       2.34 f
+  Sudoku_DP/U550/Y (NAND3X1)                              0.54       2.88 r
+  U42/Y (INVX2)                                           0.55       3.43 f
+  U22/Y (INVX2)                                           0.50       3.93 r
+  U2/Y (INVX2)                                            0.63       4.56 f
+  Sudoku_DP/U287/Y (AOI22X1)                              0.25       4.81 r
+  Sudoku_DP/U286/Y (NAND2X1)                              0.36       5.17 f
+  Sudoku_DP/U5/Y (AND2X2)                                 0.41       5.58 f
+  Sudoku_DP/U281/Y (AOI22X1)                              0.14       5.72 r
+  Sudoku_DP/U280/Y (OAI21X1)                              0.08       5.80 f
+  Sudoku_DP/temp_user_board_6_reg[0]/D (DFFNEGX1)         0.00       5.80 f
+  data arrival time                                                  5.80
+
+  clock in_clka (fall edge)                              25.00      25.00
+  clock network delay (ideal)                             0.00      25.00
+  Sudoku_DP/temp_user_board_6_reg[0]/CLK (DFFNEGX1)       0.00      25.00 f
+  library setup time                                     -0.37      24.63
+  data required time                                                24.63
+  --------------------------------------------------------------------------
+  data required time                                                24.63
+  data arrival time                                                 -5.80
+  --------------------------------------------------------------------------
+  slack (MET)                                                       18.83
+
+
+  Startpoint: in_restart (input port clocked by in_clka)
+  Endpoint: Sudoku_DP/temp_user_board_6_reg[1]
+            (falling edge-triggered flip-flop clocked by in_clka)
+  Path Group: in_clka
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock in_clka (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 r
+  in_restart (in)                                         0.06       1.06 r
+  U41/Y (INVX2)                                           0.15       1.21 f
+  U20/Y (INVX2)                                           0.37       1.58 r
+  Sudoku_DP/U678/Y (NOR2X1)                               0.26       1.84 f
+  U21/Y (BUFX2)                                           0.23       2.07 f
+  U10/Y (BUFX2)                                           0.26       2.34 f
+  Sudoku_DP/U550/Y (NAND3X1)                              0.54       2.88 r
+  U42/Y (INVX2)                                           0.55       3.43 f
+  U22/Y (INVX2)                                           0.50       3.93 r
+  U2/Y (INVX2)                                            0.63       4.56 f
+  Sudoku_DP/U287/Y (AOI22X1)                              0.25       4.81 r
+  Sudoku_DP/U286/Y (NAND2X1)                              0.36       5.17 f
+  Sudoku_DP/U5/Y (AND2X2)                                 0.41       5.58 f
+  Sudoku_DP/U283/Y (AOI22X1)                              0.14       5.72 r
+  Sudoku_DP/U282/Y (OAI21X1)                              0.08       5.80 f
+  Sudoku_DP/temp_user_board_6_reg[1]/D (DFFNEGX1)         0.00       5.80 f
+  data arrival time                                                  5.80
+
+  clock in_clka (fall edge)                              25.00      25.00
+  clock network delay (ideal)                             0.00      25.00
+  Sudoku_DP/temp_user_board_6_reg[1]/CLK (DFFNEGX1)       0.00      25.00 f
+  library setup time                                     -0.37      24.63
+  data required time                                                24.63
+  --------------------------------------------------------------------------
+  data required time                                                24.63
+  data arrival time                                                 -5.80
+  --------------------------------------------------------------------------
+  slack (MET)                                                       18.83
+
+
+  Startpoint: in_restart (input port clocked by in_clka)
+  Endpoint: Sudoku_DP/temp_user_board_6_reg[2]
+            (falling edge-triggered flip-flop clocked by in_clka)
+  Path Group: in_clka
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock in_clka (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 r
+  in_restart (in)                                         0.06       1.06 r
+  U41/Y (INVX2)                                           0.15       1.21 f
+  U20/Y (INVX2)                                           0.37       1.58 r
+  Sudoku_DP/U678/Y (NOR2X1)                               0.26       1.84 f
+  U21/Y (BUFX2)                                           0.23       2.07 f
+  U10/Y (BUFX2)                                           0.26       2.34 f
+  Sudoku_DP/U550/Y (NAND3X1)                              0.54       2.88 r
+  U42/Y (INVX2)                                           0.55       3.43 f
+  U22/Y (INVX2)                                           0.50       3.93 r
+  U2/Y (INVX2)                                            0.63       4.56 f
+  Sudoku_DP/U287/Y (AOI22X1)                              0.25       4.81 r
+  Sudoku_DP/U286/Y (NAND2X1)                              0.36       5.17 f
+  Sudoku_DP/U5/Y (AND2X2)                                 0.41       5.58 f
+  Sudoku_DP/U285/Y (AOI22X1)                              0.14       5.72 r
+  Sudoku_DP/U284/Y (OAI21X1)                              0.08       5.80 f
+  Sudoku_DP/temp_user_board_6_reg[2]/D (DFFNEGX1)         0.00       5.80 f
+  data arrival time                                                  5.80
+
+  clock in_clka (fall edge)                              25.00      25.00
+  clock network delay (ideal)                             0.00      25.00
+  Sudoku_DP/temp_user_board_6_reg[2]/CLK (DFFNEGX1)       0.00      25.00 f
+  library setup time                                     -0.37      24.63
+  data required time                                                24.63
+  --------------------------------------------------------------------------
+  data required time                                                24.63
+  data arrival time                                                 -5.80
+  --------------------------------------------------------------------------
+  slack (MET)                                                       18.83
+
+
+1
+report_power
+Loading db file '/clear/apps/osu/soc/synopsys/lib/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : top_module
+Version: U-2022.12-SP7
+Date   : Thu Apr 25 16:43:28 2024
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /clear/apps/osu/soc/synopsys/lib/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =   5.3257 mW   (90%)
+  Net Switching Power  = 587.8560 uW   (10%)
+                         ---------
+Total Dynamic Power    =   5.9136 mW  (100%)
+
+Cell Leakage Power     = 128.0976 nW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      4.3691            0.0000            0.0000            4.3691  (  73.88%)  i
+register       7.9517e-02        2.1427e-02           36.3334            0.1010  (   1.71%)
+sequential         0.6846        3.9421e-03           33.6146            0.6886  (  11.64%)
+combinational      0.1925            0.5625           58.1497            0.7551  (  12.77%)
+--------------------------------------------------------------------------------------------------
+Total              5.3257 mW         0.5879 mW       128.0976 nW         5.9137 mW
+1
+redirect timing.rep { report_timing }
+redirect cell.rep { report_cell }
+redirect power.rep { report_power }
+quit
+
+Memory usage for this session 121 Mbytes.
+Memory usage for this session including child processes 121 Mbytes.
+CPU usage for this session 6 seconds ( 0.00 hours ).
+Elapsed time for this session 8 seconds ( 0.00 hours ).
+
+Thank you...

@@ -1,0 +1,1177 @@
+# //  Questa Sim-64
+# //  Version 2023.2 linux_x86_64 Apr 11 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -debugDB -voptargs=""+acc"" top_module_tb 
+# Start time: 16:50:05 on Apr 25,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vsim-8611) Generating debug db.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.top_module_tb(fast)
+# Loading work.top_module(fast)
+# Loading work.OR2X1(fast)
+# Loading work.NAND2X1(fast)
+# Loading work.NOR2X1(fast)
+# Loading work.OAI21X1(fast)
+# Loading work.AOI21X1(fast)
+# Loading work.NAND3X1(fast)
+# Loading work.AOI22X1(fast)
+# Loading work.OAI22X1(fast)
+# Loading work.XOR2X1(fast)
+# Loading work.INVX2(fast)
+# Loading work.AND2X2(fast)
+# Loading work.DFFNEGX1(fast)
+# Loading work.XNOR2X1(fast)
+# Loading work.OR2X2(fast)
+# Loading work.BUFX2(fast)
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/col_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/col_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/row_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/row_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/set_diff_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/set_diff_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/set_board_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/set_board_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/gen_rand_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/gen_rand_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/val_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/val_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/check_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/check_flag_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/next_state_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/next_state_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/state_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/state_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/next_state_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/next_state_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/state_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/state_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/next_state_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/next_state_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/state_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/state_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/next_state_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/next_state_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/state_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_FSM/state_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[4]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[4]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[5]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[5]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[6]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[6]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[7]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[7]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[8]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[8]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[9]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[9]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[10]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[10]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[11]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[11]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[12]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[12]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[13]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[13]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[14]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[14]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[15]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/fill_flag_reg[15]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_15_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_15_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_15_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_15_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_15_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_15_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_14_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_14_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_14_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_14_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_14_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_14_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_13_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_13_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_13_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_13_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_13_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_13_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_12_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_12_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_12_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_12_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_12_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_12_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_11_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_11_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_11_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_11_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_11_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_11_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_10_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_10_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_10_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_10_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_10_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_10_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_9_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_9_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_9_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_9_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_9_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_9_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_8_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_8_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_8_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_8_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_8_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_8_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_7_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_7_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_7_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_7_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_7_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_7_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_6_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_6_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_6_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_6_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_6_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_6_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_5_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_5_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_5_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_5_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_5_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_5_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_4_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_4_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_4_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_4_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_4_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_4_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_3_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_3_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_3_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_3_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_3_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_3_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_2_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_2_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_2_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_2_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_2_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_2_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_1_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_1_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_1_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_1_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_1_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_1_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_0_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_0_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_0_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_0_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_0_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/user_board_0_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_15_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_15_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_15_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_15_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_15_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_15_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_14_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_14_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_14_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_14_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_14_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_14_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_13_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_13_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_13_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_13_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_13_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_13_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_12_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_12_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_12_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_12_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_12_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_12_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_11_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_11_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_11_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_11_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_11_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_11_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_10_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_10_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_10_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_10_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_10_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_10_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_9_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_9_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_9_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_9_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_9_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_9_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_8_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_8_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_8_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_8_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_8_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_8_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_7_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_7_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_7_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_7_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_7_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_7_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_6_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_6_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_6_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_6_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_6_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_6_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_5_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_5_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_5_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_5_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_5_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_5_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_4_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_4_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_4_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_4_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_4_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_4_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_3_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_3_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_3_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_3_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_3_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_3_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_2_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_2_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_2_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_2_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_2_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_2_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_1_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_1_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_1_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_1_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_1_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_1_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_0_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_0_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_0_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_0_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_0_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/real_board_0_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/solved_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/solved_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_solved_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_solved_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_6_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_6_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_6_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_6_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_6_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_6_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_5_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_5_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_5_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_5_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_5_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_5_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_4_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_4_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_4_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_4_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_4_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_4_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_3_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_3_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_3_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_3_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_3_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_3_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_2_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_2_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_2_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_2_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_2_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_2_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_1_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_1_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_1_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_1_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_1_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_1_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_0_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_0_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_0_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_0_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_0_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_0_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_12_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_12_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_12_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_12_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_12_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_12_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_8_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_8_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_8_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_8_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_8_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_8_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_7_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_7_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_7_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_7_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_7_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_7_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_9_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_9_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_9_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_9_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_9_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_9_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_10_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_10_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_10_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_10_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_10_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_10_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_11_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_11_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_11_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_11_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_11_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_11_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_13_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_13_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_13_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_13_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_13_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_13_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_14_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_14_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_14_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_14_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_14_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_14_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_15_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_15_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_15_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_15_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_15_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_user_board_15_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_cell_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_cell_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_cell_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_cell_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_cell_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_cell_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_cell_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_cell_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_row_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_row_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_row_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/current_row_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_8_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_8_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_8_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_8_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_8_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_8_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_6_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_6_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_6_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_6_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_6_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_6_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_5_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_5_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_5_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_5_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_5_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_5_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_4_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_4_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_4_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_4_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_4_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_4_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_3_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_3_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_3_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_3_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_3_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_3_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_10_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_10_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_10_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_10_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_10_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_10_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_2_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_2_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_2_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_2_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_2_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_2_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_1_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_1_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_1_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_1_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_1_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_1_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_0_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_0_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_0_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_0_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_0_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_0_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_11_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_11_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_11_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_11_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_11_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_11_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_9_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_9_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_9_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_9_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_9_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_9_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_12_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_12_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_12_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_12_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_12_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_12_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_13_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_13_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_13_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_13_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_13_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_13_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_7_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_7_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_7_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_7_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_7_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_7_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_15_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_15_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_15_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_15_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_15_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_15_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[4]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[4]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[5]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[5]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[6]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[6]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[7]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[7]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[8]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[8]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[9]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[9]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[10]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[10]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[11]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[11]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[12]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[12]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[13]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[13]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[14]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[14]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[15]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_fill_flag_reg[15]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_14_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_14_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_14_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_14_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_14_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_DP/temp_real_board_14_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_setup_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_setup_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_setup_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_setup_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_setup_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_setup_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_setup_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_setup_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_B_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_B_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_B_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_B_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_B_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_B_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_B_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_B_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_A_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_A_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_A_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_A_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_A_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_A_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_A_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/rand_A_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_setup_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_setup_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_setup_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_setup_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_setup_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_setup_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_setup_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_setup_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_A_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_A_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_A_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_A_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_A_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_A_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_B_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_B_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_B_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_B_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_B_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_B_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_B_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_B_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[10]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[10]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[9]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[9]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[8]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[8]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[7]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[7]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_A_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/temp_rand_A_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[6]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[6]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[5]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[5]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[4]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[4]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/lfsr_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/bit_reg  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /top_module_tb/top/\Sudoku_RNG/bit_reg  File: osu05_stdcells.v
+# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+add wave sim:/top_module_tb/*
+run -all
+# ** Note: $stop    : testbench_top.v(130)
+#    Time: 4 us  Iteration: 0  Instance: /top_module_tb
+# Break in Module top_module_tb at testbench_top.v line 130
+# End time: 16:51:35 on Apr 25,2024, Elapsed time: 0:01:30
+# Errors: 0, Warnings: 567
