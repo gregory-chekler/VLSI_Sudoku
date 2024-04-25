@@ -3,6 +3,8 @@
 //// File Name   : top_module_tb.v
 //// Function    : Testbench for top module of pipeline adder
 ////-----------------------------------------------------
+
+// NO RNG INCORPARTED!
 module top_module_tb_lose();
 // Inputs to top_module
 reg in_clka, in_clkb, in_restart, in_enter;
