@@ -30,11 +30,15 @@ wire  [SIZE-1:0]          temp_state; 	// Internal wire for output of function
 					// for setting next state
 reg   [SIZE-1:0]          next_state; 	// Temporary reg to hold next state to
 					// update state on output
+reg                       debounce_flag; //Flag to make sure enter is only counted once
+wire                      temp_debounce_flag;
+reg                       next_debounce_flag;
 //----------Code startes Here------------------------
-assign temp_state = fsm_function(state, enter, solved);
+assign temp_state = fsm_function(state, enter, debounce_flag, solved);
 //----------Function for Combinational Logic to read inputs -----------
 function [SIZE-1:0] fsm_function;
   input  [SIZE-1:0] state;
+  input debounce_flag;
   input enter;
   input solved;
 
@@ -48,43 +52,121 @@ function [SIZE-1:0] fsm_function;
             fsm_function = GEN_RAND;
           end
     GEN_RAND: begin
-            if (enter == 1'b1) begin
-              fsm_function = SET_BOARD;
+            if (enter == 1'b0 & debounce_flag == 1'b0) begin
+              fsm_function = GEN_RAND;
+              temp_debounce_flag = 1'b0;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b0) begin
+              fsm_function = GEN_RAND;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b1) begin
+              fsm_function = GEN_RAND;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b0 & debounce_flag == 1'b1) begin
+            fsm_function = SET_BOARD;
+            temp_debounce_flag = 1'b0;
             end else begin
               fsm_function = GEN_RAND;
             end
           end
     SET_BOARD: begin
-            if (enter == 1'b1) begin
-              fsm_function = SET_DIFF;
+            if (enter == 1'b0 & debounce_flag == 1'b0) begin
+              fsm_function = SET_BOARD;
+              temp_debounce_flag = 1'b0;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b0) begin
+              fsm_function = SET_BOARD;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b1) begin
+              fsm_function = SET_BOARD;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b0 & debounce_flag == 1'b1) begin
+            fsm_function = SET_DIFF;
+            temp_debounce_flag = 1'b0;
             end else begin
               fsm_function = SET_BOARD;
             end
           end
     SET_DIFF: begin
-            if (enter == 1'b1) begin
-              fsm_function = CHOOSE_ROW;
+            if (enter == 1'b0 & debounce_flag == 1'b0) begin
+              fsm_function = SET_DIFF;
+              temp_debounce_flag = 1'b0;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b0) begin
+              fsm_function = SET_DIFF;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b1) begin
+              fsm_function = SET_DIFF;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b0 & debounce_flag == 1'b1) begin
+            fsm_function = CHOOSE_ROW;
+            temp_debounce_flag = 1'b0;
             end else begin
               fsm_function = SET_DIFF;
             end
         end
     CHOOSE_ROW: begin
-            if (enter == 1'b1) begin
-              fsm_function = CHOOSE_COL;
+            if (enter == 1'b0 & debounce_flag == 1'b0) begin
+              fsm_function = CHOOSE_ROW;
+              temp_debounce_flag = 1'b0;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b0) begin
+              fsm_function = CHOOSE_ROW;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b1) begin
+              fsm_function = CHOOSE_ROW;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b0 & debounce_flag == 1'b1) begin
+            fsm_function = CHOOSE_COL;
+            temp_debounce_flag = 1'b0;
             end else begin
               fsm_function = CHOOSE_ROW;
             end
         end 
     CHOOSE_COL: begin
-            if (enter == 1'b1) begin
-              fsm_function = CHOOSE_VAL;
+            if (enter == 1'b0 & debounce_flag == 1'b0) begin
+              fsm_function = CHOOSE_COL;
+              temp_debounce_flag = 1'b0;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b0) begin
+              fsm_function = CHOOSE_COL;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b1) begin
+              fsm_function = CHOOSE_COL;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b0 & debounce_flag == 1'b1) begin
+            fsm_function = CHOOSE_VAL;
+            temp_debounce_flag = 1'b0;
             end else begin
               fsm_function = CHOOSE_COL;
             end
         end
     CHOOSE_VAL: begin
-        if (enter == 1'b1) begin
-          fsm_function = CHECKING;
+        if (enter == 1'b0 & debounce_flag == 1'b0) begin
+              fsm_function = CHOOSE_VAL;
+              temp_debounce_flag = 1'b0;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b0) begin
+              fsm_function = CHOOSE_VAL;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b1 & debounce_flag == 1'b1) begin
+              fsm_function = CHOOSE_VAL;
+              temp_debounce_flag = 1'b1;
+            end else
+            if (enter == 1'b0 & debounce_flag == 1'b1) begin
+            fsm_function = CHECKING;
+            temp_debounce_flag = 1'b0;
         end else begin
           fsm_function = CHOOSE_VAL;
         end
@@ -124,10 +206,13 @@ always @ (negedge clka)
 begin : FSM_SEQ
   if (restart == 1'b1) begin
     next_state <= IDLE;
+    next_debounce_flag <= 1'b0;
   end else if (new_game == 1'b1) begin
     next_state <= NEW_GAME;
+    next_debounce_flag <= 1'b0;
   end else begin
     next_state <= temp_state;
+    next_debounce_flag <= temp_debounce_flag;
   end
 end
 //----------Output Logic——————————————
@@ -136,6 +221,7 @@ begin : OUTPUT_LOGIC
   case(next_state)
   IDLE: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           // gen_rand_flag <= 1'b1;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
@@ -147,6 +233,7 @@ begin : OUTPUT_LOGIC
         end
   GEN_RAND: begin
         state <= next_state;
+        next_debounce_flag <= temp_debounce_flag;
         gen_rand_flag <= 1'b1;
         set_board_flag <= 1'b0;
         set_diff_flag <= 1'b0;
@@ -157,6 +244,7 @@ begin : OUTPUT_LOGIC
       end
   SET_BOARD: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b1;
           set_diff_flag <= 1'b0;
@@ -167,6 +255,7 @@ begin : OUTPUT_LOGIC
         end
   SET_DIFF: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b1;
@@ -177,6 +266,7 @@ begin : OUTPUT_LOGIC
           end
   CHOOSE_ROW: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
@@ -187,6 +277,7 @@ begin : OUTPUT_LOGIC
         end
   CHOOSE_COL: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
@@ -197,6 +288,7 @@ begin : OUTPUT_LOGIC
         end
   CHOOSE_VAL: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
@@ -207,6 +299,7 @@ begin : OUTPUT_LOGIC
         end
   CHECKING: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
@@ -217,6 +310,7 @@ begin : OUTPUT_LOGIC
         end        
   WAIT: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
@@ -227,6 +321,7 @@ begin : OUTPUT_LOGIC
         end   
   WIN: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
@@ -237,6 +332,7 @@ begin : OUTPUT_LOGIC
         end
   NEW_GAME: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           // gen_rand_flag <= 1'b1;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
@@ -248,6 +344,7 @@ begin : OUTPUT_LOGIC
         end
  default: begin
           state <= next_state;
+          next_debounce_flag <= temp_debounce_flag;
           gen_rand_flag <= 1'b0;
           set_board_flag <= 1'b0;
           set_diff_flag <= 1'b0;
