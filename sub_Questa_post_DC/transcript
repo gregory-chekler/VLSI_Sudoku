@@ -1,0 +1,191 @@
+# //  Questa Sim-64
+# //  Version 2023.2 linux_x86_64 Apr 11 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -debugDB -voptargs=""+acc"" lfsr_module_tb 
+# Start time: 02:42:49 on Apr 28,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vsim-8611) Generating debug db.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.lfsr_module_tb(fast)
+# Loading work.lfsr_rng(fast)
+# Loading work.DFFNEGX1(fast)
+# Loading work.INVX2(fast)
+# Loading work.OAI21X1(fast)
+# Loading work.AOI21X1(fast)
+# Loading work.OAI22X1(fast)
+# Loading work.XOR2X1(fast)
+# Loading work.XNOR2X1(fast)
+# Loading work.NAND2X1(fast)
+# Loading work.NAND3X1(fast)
+# Loading work.NOR2X1(fast)
+# Loading work.OR2X2(fast)
+# Loading work.INVX1(fast)
+# Loading work.BUFX2(fast)
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/bit_reg File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/bit_reg File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_setup_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_setup_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[4]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[4]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[5]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[5]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[6]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[6]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_A_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_A_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[7]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[7]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_B_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_B_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[8]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[8]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[9]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[9]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[10]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\lfsr_reg[10]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_B_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_B_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_B_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_B_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_B_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_B_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_A_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_A_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_A_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_A_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_A_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_A_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_setup_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_setup_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_setup_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_setup_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_setup_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\temp_rand_setup_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_A_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_A_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_A_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_A_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_A_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_A_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_A_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_A_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_setup_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_setup_reg[3]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_setup_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_setup_reg[2]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_setup_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_setup_reg[1]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(260): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_setup_reg[0]  File: osu05_stdcells.v
+# ** Warning: (vsim-3448) osu05_stdcells.v(262): Timing check limit can not be negative. Setting negative check constraint (-90 ps) to zero.
+#    Time: 0 ps  Iteration: 0  Instance: /lfsr_module_tb/Sudoku_lfsr/\rand_setup_reg[0]  File: osu05_stdcells.v
+# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+add wave sim:/lfsr_module_tb/*
+run -all
+# ** Error: $setup( negedge D:100 ps, negedge CLK:160 ps, 380 ps );
+#    Time: 160 ps  Iteration: 0  Process: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[3] /#Setup# File: osu05_stdcells.v Line: 259
+# ** Error: $setup( negedge D:100 ps, negedge CLK:160 ps, 380 ps );
+#    Time: 160 ps  Iteration: 0  Process: /lfsr_module_tb/Sudoku_lfsr/\rand_B_reg[2] /#Setup# File: osu05_stdcells.v Line: 259
+# ** Note: $stop    : testbench_random.v(59)
+#    Time: 760 ns  Iteration: 0  Instance: /lfsr_module_tb
+# Break in Module lfsr_module_tb at testbench_random.v line 59
+# End time: 02:47:17 on Apr 28,2024, Elapsed time: 0:04:28
+# Errors: 2, Warnings: 73

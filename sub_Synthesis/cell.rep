@@ -1,0 +1,174 @@
+ 
+****************************************
+Report : cell
+Design : lfsr_rng
+Version: U-2022.12-SP7
+Date   : Sun Apr 28 02:16:38 2024
+****************************************
+
+Attributes:
+    b - black box (unknown)
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+U3                        INVX2           osu05_stdcells  144.000000
+U4                        INVX2           osu05_stdcells  144.000000
+U5                        INVX2           osu05_stdcells  144.000000
+U6                        INVX2           osu05_stdcells  144.000000
+U7                        INVX2           osu05_stdcells  144.000000
+U8                        INVX2           osu05_stdcells  144.000000
+U9                        INVX2           osu05_stdcells  144.000000
+U10                       INVX2           osu05_stdcells  144.000000
+U11                       INVX2           osu05_stdcells  144.000000
+U12                       INVX2           osu05_stdcells  144.000000
+U13                       INVX2           osu05_stdcells  144.000000
+U14                       INVX2           osu05_stdcells  144.000000
+U15                       INVX2           osu05_stdcells  144.000000
+U16                       INVX2           osu05_stdcells  144.000000
+U17                       INVX2           osu05_stdcells  144.000000
+U18                       INVX2           osu05_stdcells  144.000000
+U19                       INVX2           osu05_stdcells  144.000000
+U20                       INVX2           osu05_stdcells  144.000000
+U21                       INVX2           osu05_stdcells  144.000000
+U22                       INVX2           osu05_stdcells  144.000000
+U23                       INVX2           osu05_stdcells  144.000000
+U24                       INVX2           osu05_stdcells  144.000000
+U25                       INVX2           osu05_stdcells  144.000000
+U26                       INVX2           osu05_stdcells  144.000000
+U29                       INVX2           osu05_stdcells  144.000000
+U30                       OAI21X1         osu05_stdcells  207.000000
+U31                       AOI21X1         osu05_stdcells  288.000000
+U32                       OAI21X1         osu05_stdcells  207.000000
+U33                       AOI21X1         osu05_stdcells  288.000000
+U34                       OAI22X1         osu05_stdcells  360.000000
+U35                       OAI22X1         osu05_stdcells  360.000000
+U36                       OAI22X1         osu05_stdcells  360.000000
+U37                       OAI22X1         osu05_stdcells  360.000000
+U38                       OAI22X1         osu05_stdcells  360.000000
+U39                       OAI22X1         osu05_stdcells  360.000000
+U40                       OAI22X1         osu05_stdcells  360.000000
+U41                       OAI22X1         osu05_stdcells  360.000000
+U42                       OAI21X1         osu05_stdcells  207.000000
+U43                       AOI21X1         osu05_stdcells  288.000000
+U44                       OAI21X1         osu05_stdcells  207.000000
+U45                       AOI21X1         osu05_stdcells  288.000000
+U46                       OAI21X1         osu05_stdcells  207.000000
+U47                       AOI21X1         osu05_stdcells  288.000000
+U48                       OAI21X1         osu05_stdcells  207.000000
+U49                       AOI21X1         osu05_stdcells  288.000000
+U50                       OAI22X1         osu05_stdcells  360.000000
+U51                       OAI22X1         osu05_stdcells  360.000000
+U52                       XOR2X1          osu05_stdcells  504.000000
+U53                       XNOR2X1         osu05_stdcells  504.000000
+U54                       XNOR2X1         osu05_stdcells  504.000000
+U55                       OAI22X1         osu05_stdcells  360.000000
+U56                       OAI22X1         osu05_stdcells  360.000000
+U57                       OAI22X1         osu05_stdcells  360.000000
+U58                       OAI22X1         osu05_stdcells  360.000000
+U59                       OAI22X1         osu05_stdcells  360.000000
+U60                       OAI22X1         osu05_stdcells  360.000000
+U61                       OAI22X1         osu05_stdcells  360.000000
+U62                       OAI22X1         osu05_stdcells  360.000000
+U64                       NAND2X1         osu05_stdcells  216.000000
+U65                       NAND3X1         osu05_stdcells  324.000000
+U66                       NOR2X1          osu05_stdcells  216.000000
+U67                       NOR2X1          osu05_stdcells  216.000000
+U68                       NOR2X1          osu05_stdcells  216.000000
+U69                       NOR2X1          osu05_stdcells  216.000000
+U70                       NOR2X1          osu05_stdcells  216.000000
+U71                       NOR2X1          osu05_stdcells  216.000000
+U72                       NOR2X1          osu05_stdcells  216.000000
+U73                       NOR2X1          osu05_stdcells  216.000000
+U74                       NOR2X1          osu05_stdcells  216.000000
+U75                       NOR2X1          osu05_stdcells  216.000000
+U76                       NOR2X1          osu05_stdcells  216.000000
+U77                       NOR2X1          osu05_stdcells  216.000000
+U78                       OR2X2           osu05_stdcells  288.000000
+U79                       INVX1           osu05_stdcells  144.000000
+U80                       INVX2           osu05_stdcells  144.000000
+U81                       BUFX2           osu05_stdcells  216.000000
+U82                       INVX2           osu05_stdcells  144.000000
+U83                       INVX2           osu05_stdcells  144.000000
+U84                       INVX2           osu05_stdcells  144.000000
+U85                       INVX2           osu05_stdcells  144.000000
+U86                       INVX2           osu05_stdcells  144.000000
+U87                       INVX2           osu05_stdcells  144.000000
+bit_reg                   DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[0]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[1]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[2]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[3]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[4]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[5]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[6]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[7]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[8]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[9]               DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+lfsr_reg[10]              DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_A_reg[0]             DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_A_reg[1]             DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_A_reg[2]             DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_A_reg[3]             DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_B_reg[0]             DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_B_reg[1]             DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_B_reg[2]             DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_B_reg[3]             DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_setup_reg[0]         DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_setup_reg[1]         DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_setup_reg[2]         DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+rand_setup_reg[3]         DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_A_reg[0]        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_A_reg[1]        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_A_reg[2]        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_A_reg[3]        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_B_reg[0]        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_B_reg[1]        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_B_reg[2]        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_B_reg[3]        DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_setup_reg[0]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_setup_reg[1]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_setup_reg[2]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+temp_rand_setup_reg[3]    DFFNEGX1        osu05_stdcells  864.000000
+                                                                    n
+--------------------------------------------------------------------------------
+Total 118 cells                                           50454.000000
+1

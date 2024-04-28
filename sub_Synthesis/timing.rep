@@ -1,0 +1,32 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lfsr_rng
+Version: U-2022.12-SP7
+Date   : Sun Apr 28 02:16:38 2024
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: rand_setup_reg[3]
+              (falling edge-triggered flip-flop)
+  Endpoint: rand_setup[3]
+            (output port clocked by vclk)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  rand_setup_reg[3]/CLK (DFFNEGX1)         0.00       0.00 f
+  rand_setup_reg[3]/Q (DFFNEGX1)           0.38       0.38 f
+  rand_setup[3] (out)                      0.00       0.38 f
+  data arrival time                                   0.38
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
