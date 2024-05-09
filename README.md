@@ -13,6 +13,6 @@ different possibilities. Always randomly generating solvable games of Sudoku is 
 algorithmic problem, but there are ways to slightly cheat the system in order to make seemingly
 random results. Furthermore, when the amount of physical space for creating such a game is
 minimal, shortcuts must be taken carefully and deliberately. As such, developing a simple game of
-Sudoku on a VLSI chip becomes an intellectually stimulating challenge
+Sudoku on a VLSI chip becomes an intellectually stimulating challenge.
 
 # See annotated-Sudoku_ELEC422_Report.pdf for the whole report.
